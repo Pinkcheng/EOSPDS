@@ -1,0 +1,38 @@
+.header-container{
+  background-color:#007C84;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.header-left{
+  margin: auto 20px;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+}
+
+.logo{
+  width: 100px;
+}
+
+.system-title{
+  margin: auto 20px;
+  color: #FFFFFF;
+  font-size: 30px;
+  text-align: center;
+}
+
+.header-right{
+  margin: auto 20px;
+  max-width: 500px;
+}
+.header-button{
+  color: #FFFFFF;
+  padding: 20px;
+  font-size:20px;
+  cursor: pointer;
+}
+.header-button:hover{
+  background-color: #43A1A7;
+}

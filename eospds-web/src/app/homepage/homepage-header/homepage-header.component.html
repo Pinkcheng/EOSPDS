@@ -1,0 +1,11 @@
+<div class="header-container" [style.height]="headerHeight+'px'">
+  <span class="header-left">
+    <img class="logo" src='/assets/img/logo.png'>
+    <span class="system-title">{{title}}-{{department}}</span>
+  </span>
+  <span class="header-right">
+    <a (click)="switchToMission()" class="header-button">任務列表</a>
+    <a (click)="switchToStaff()" class="header-button">人員列表</a>
+    <a (click)="switchToSetting()" class="header-button">設定</a>
+  </span>
+</div>

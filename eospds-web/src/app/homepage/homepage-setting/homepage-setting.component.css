@@ -1,0 +1,10 @@
+.setting-article{
+  display:flex;
+}
+.article-left{
+  width:75%;
+}
+.article-right{
+  background-color: #C8EAEC;
+  width:25%;
+}
