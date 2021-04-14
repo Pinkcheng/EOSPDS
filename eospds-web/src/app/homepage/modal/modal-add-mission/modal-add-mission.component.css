@@ -1,0 +1,17 @@
+.function-button{
+  margin: auto 10px;
+  border-radius: 50px;
+  border: 0px;
+  padding: 5px 15px;
+  outline:none;
+  cursor: pointer;
+}
+
+.function-button:active{
+  opacity:0.5
+}
+
+.add-mission-button{
+  background-color:#4CBC49;
+  color:#FFFFFF;
+}

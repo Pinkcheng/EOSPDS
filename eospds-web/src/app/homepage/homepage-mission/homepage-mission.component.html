@@ -17,18 +17,7 @@
         <button class="function-button update-list-button">更新列表</button>
         <button class="function-button manual-dispatch-button">指定人員</button>
         <button class="function-button auto-dispatch-button">自動派遣</button>
-        <button class="function-button add-mission-button" (click)="openModal(template)">新增任務</button>
-        <ng-template #template>
-          <div class="modal-header">
-            <h4 class="modal-title pull-left">Modal</h4>
-            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            This is a modal.
-          </div>
-        </ng-template>
+        <app-modal-add-mission></app-modal-add-mission>
       </span>
     </div>
 

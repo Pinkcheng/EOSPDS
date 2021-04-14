@@ -6,6 +6,7 @@ import { HomepageMissionComponent } from './homepage-mission/homepage-mission.co
 import { HomepageStaffComponent } from './homepage-staff/homepage-staff.component';
 import { HomepageSettingComponent } from './homepage-setting/homepage-setting.component';
 import { MissionStatusPipe } from './mission-status.pipe';
+import { ModalModule } from './modal/modal.module';
 
 
 
@@ -20,6 +21,7 @@ import { MissionStatusPipe } from './mission-status.pipe';
   ],
   imports: [
     CommonModule,
+    ModalModule,
   ],
   exports:[HomepageComponent]
 })

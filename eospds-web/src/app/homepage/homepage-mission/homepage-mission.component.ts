@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, TemplateRef  } from '@angular/core';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { Component, Input, OnInit  } from '@angular/core';
+
 
 @Component({
   selector: 'app-homepage-mission',
@@ -8,7 +8,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class HomepageMissionComponent implements OnInit {
 
-  constructor(private modalService: BsModalService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -70,8 +70,5 @@ export class HomepageMissionComponent implements OnInit {
   getConsoleline($event: any) {
     console.log($event.path[0].id.split("_")[1])
   };
-  modalRef!: BsModalRef;
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
-  }
+
 }
