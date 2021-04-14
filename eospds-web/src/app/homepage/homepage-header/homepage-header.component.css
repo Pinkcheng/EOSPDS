@@ -24,11 +24,11 @@
 }
 
 .header-right{
+  color: #FFFFFF;
   margin: auto 20px;
   max-width: 500px;
 }
 .header-button{
-  color: #FFFFFF;
   padding: 20px;
   font-size:20px;
   cursor: pointer;

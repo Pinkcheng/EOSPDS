@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomepageModule } from './homepage/homepage.module';
+import { ModalModule } from 'ngx-bootstrap/modal';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +17,8 @@ import { HomepageModule } from './homepage/homepage.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HomepageModule
+    HomepageModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
