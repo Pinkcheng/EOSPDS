@@ -1,5 +1,3 @@
-import { HomepageComponent } from './homepage/homepage/homepage.component';
-import { HttpService } from './http.service';
 import {CommonModule} from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -8,9 +6,12 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomepageModule } from './homepage/homepage.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { HttpService } from './service/http.service';
+import { ErrorService } from './service/error.service';
+import { LoginpageModule } from './loginpage/loginpage.module';
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     CommonModule,
@@ -18,9 +19,10 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     AppRoutingModule,
     HttpClientModule,
     HomepageModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    LoginpageModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [HttpService, ErrorService]
 })
 export class AppModule { }

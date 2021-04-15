@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class MissionStatusPipe implements PipeTransform {
 
-  transform(value: any, ...args: unknown[]): unknown {
+  transform(value: unknown, ...args: unknown[]): unknown {
     if (value == 1) {
       return "未派遣";
     } else if (value == 2) {
@@ -16,5 +16,4 @@ export class MissionStatusPipe implements PipeTransform {
       return "已完成";
     }
   }
-
 }

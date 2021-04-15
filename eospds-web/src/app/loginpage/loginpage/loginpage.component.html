@@ -1,0 +1,10 @@
+<div class="container" [style.height]="height+'px'" [style.width]="width+'px'">
+  <img class="logo" src='/assets/img/logo.png'>
+  <span class="box">
+      <h2 class="system-title">傳送員管理系統</h2>
+      <input class="inputbox" type="text" placeholder="帳號" (keyup)="getAccount($event)">
+      <input class="nputbox" type="password" placeholder="密碼" (keyup)="getPassword($event)">
+      <p class="hint">{{hint}}</p>
+      <input class="button" type="button" value="登入" (click)="login()">
+  </span>
+</div>

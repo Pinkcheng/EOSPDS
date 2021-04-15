@@ -1,3 +1,4 @@
+import { MissionStatusPipe } from './../pipe/mission-status.pipe';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -5,10 +6,7 @@ import { HomepageHeaderComponent } from './homepage-header/homepage-header.compo
 import { HomepageMissionComponent } from './homepage-mission/homepage-mission.component';
 import { HomepageStaffComponent } from './homepage-staff/homepage-staff.component';
 import { HomepageSettingComponent } from './homepage-setting/homepage-setting.component';
-import { MissionStatusPipe } from './mission-status.pipe';
-import { ModalModule } from './modal/modal.module';
-
-
+import { ModalModule } from '../modals/modal.module';
 
 @NgModule({
   declarations: [

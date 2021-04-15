@@ -1,5 +1,4 @@
 import { Component, HostListener } from '@angular/core';
-import { HttpService } from './http.service';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +8,10 @@ import { HttpService } from './http.service';
 export class AppComponent {
 
 
-  constructor(public http:HttpService) {
+  constructor() {
   }
 
   ngOnInit() {
-    this.http.login(123,123).subscribe(response =>{
-      console.log(response)
-    })
+
   };
 }

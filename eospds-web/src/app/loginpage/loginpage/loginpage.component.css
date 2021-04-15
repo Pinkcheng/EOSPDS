@@ -1,0 +1,46 @@
+.box{
+  width: 30%;
+  height: 30%;
+  border-radius: 30px;
+  background-color:#007C84;
+  color:white;
+  text-align: center;
+  display: flex;
+  flex-direction :column;
+  align-items: center;
+  justify-content: center;
+}
+.logo{
+  display: flex;
+  width: 30%;
+  height: 20%;
+}
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+}
+.system-title{
+  margin-bottom:20px;
+}
+.inputbox{
+  margin:10px;
+}
+.button{
+  margin-top:20px;
+  width: 40%;
+  height: 15%;
+  border-radius: 50px;
+  border: 0px;
+  outline:none;
+  cursor: pointer;
+  background-color:#85C5C9;
+  color:white;
+}
+.button:hover{
+  background-color:#707070;
+}
+.hint{
+  color:hotpink
+}
