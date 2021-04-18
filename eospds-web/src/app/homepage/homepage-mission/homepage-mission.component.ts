@@ -11,6 +11,8 @@ export class HomepageMissionComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.fetchSelectedItems()
+    this.fetchCheckedIDs()
   }
 
   @Input()
@@ -143,8 +145,64 @@ export class HomepageMissionComponent implements OnInit {
   };
 
   getConsoleline($event: any) {
-    console.log($event.path[0].id.split("_")[1])
-    console.log(this.mission_list.filter(item => item.status == 3))
+    //console.log($event.path[0].id.split("_")[1])
+    //console.log(this.mission_list.filter(item => item.status == 3))
   };
-
+  checkboxesDataList = [
+    {
+      id: 0,
+      label: '全部任務',
+      isChecked: false
+    },
+    {
+      id: 1,
+      label: '未派遣',
+      isChecked: false
+    },
+    {
+      id: 2,
+      label: '未開始',
+      isChecked: false
+    },
+    {
+      id: 3,
+      label: '進行中',
+      isChecked: true
+    },
+    {
+      id: 4,
+      label: '已完成',
+      isChecked: false
+    }
+  ]
+  selectedItemsList: any = []
+  fetchSelectedItems() {
+    this.selectedItemsList = this.checkboxesDataList.filter((value, index) => {
+      return value.isChecked
+    }).map(item => Object.values(item)[0]);
+    console.log(this.selectedItemsList)
+  }
+  checkedIDs: any = []
+  mission_list_filter: any = []
+  fetchCheckedIDs() {
+    this.checkedIDs = [];
+    this.mission_list.forEach((value, index) => {
+      for (let i = 0; i < this.selectedItemsList.length; i++) {
+        console.log(value.status + ' ' + this.selectedItemsList[i])
+        if(this.selectedItemsList[i] == 0){
+          this.mission_list_filter = this.mission_list
+          break;
+        }
+        else if (value.status == this.selectedItemsList[i]) {
+          this.checkedIDs.push(value)
+        }
+      }
+    });
+    console.log(this.checkedIDs)
+    this.mission_list_filter = this.checkedIDs
+  }
+  changeSelection() {
+    this.fetchSelectedItems()
+    this.fetchCheckedIDs()
+  }
 }

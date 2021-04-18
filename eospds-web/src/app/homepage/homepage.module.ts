@@ -7,6 +7,7 @@ import { HomepageMissionComponent } from './homepage-mission/homepage-mission.co
 import { HomepageStaffComponent } from './homepage-staff/homepage-staff.component';
 import { HomepageSettingComponent } from './homepage-setting/homepage-setting.component';
 import { ModalModule } from '../modals/modal.module';
+import {FormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ModalModule } from '../modals/modal.module';
   imports: [
     CommonModule,
     ModalModule,
+    FormsModule
   ],
   exports:[HomepageComponent]
 })

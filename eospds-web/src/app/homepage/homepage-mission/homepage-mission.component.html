@@ -2,16 +2,14 @@
   <div class="article-left">
     <div class="function-bar">
       <span class="checkbox-container">
-        <input type="checkbox" class="mission-status-checkbox" name="all-mission">
-        <span>全部任務</span>
-        <input type="checkbox" class="mission-status-checkbox" name="not-yet-dispatched-mission">
-        <span>未派遣</span>
-        <input type="checkbox" class="mission-status-checkbox" name="not-yet-started-mission">
-        <span>未開始</span>
-        <input type="checkbox" class="mission-status-checkbox" name="processing-mission">
-        <span>進行中</span>
-        <input type="checkbox" class="mission-status-checkbox" name="completed-mission">
-        <span>已完成</span>
+        <input type="checkbox" class="mission-status-checkbox" name="all-mission">全部任務
+        <input type="checkbox" class="mission-status-checkbox" name="not-yet-dispatched-mission">未派遣
+        <input type="checkbox" class="mission-status-checkbox" name="not-yet-started-mission">未開始
+        <input type="checkbox" class="mission-status-checkbox" name="processing-mission">進行中
+        <input type="checkbox" class="mission-status-checkbox" name="completed-mission">已完成
+        <span *ngFor="let item of checkboxesDataList">
+          <input type="checkbox" [(ngModel)]="item.isChecked" (change)="changeSelection()">{{item.label}}
+        </span>
       </span>
       <span class="function-button-container">
         <button class="function-button update-list-button">更新列表</button>
@@ -31,7 +29,7 @@
         <span class="porter-title">傳送員</span>
       </div>
       <div class="mission-list-content">
-        <div class="list-content" id="mission_{{idx}}" *ngFor="let item of mission_list; let idx = index"
+        <div class="list-content" id="mission_{{idx}}" *ngFor="let item of mission_list_filter; let idx = index"
           (mouseenter)="getConsoleline($event)">
           <input type="checkbox">
           <span class="start-time-title">{{item.add_time}}</span>
