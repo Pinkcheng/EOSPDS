@@ -6,8 +6,8 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<app-loginpage></app-loginpage>
-<app-homepage style="display:none"></app-homepage>
+<app-loginpage (homepageswitch)="switchHomepage($event)" *ngIf="!loginSwitch"></app-loginpage>
+<app-homepage *ngIf="loginSwitch"></app-homepage>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->

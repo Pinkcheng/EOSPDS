@@ -8,10 +8,17 @@ import { Component, HostListener } from '@angular/core';
 export class AppComponent {
 
 
+
   constructor() {
+
   }
 
   ngOnInit() {
 
   };
+
+  loginSwitch!: boolean;
+  switchHomepage($event: boolean) {
+    this.loginSwitch = $event;
+  }
 }

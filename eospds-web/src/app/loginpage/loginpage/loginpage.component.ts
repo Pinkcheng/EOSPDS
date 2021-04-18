@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { HttpService } from 'src/app/service/http.service';
 import { EventManager } from '@angular/platform-browser';
 
@@ -17,6 +17,9 @@ export class LoginpageComponent implements OnInit {
   password: string = "admin";
   hint!: string;
   loginData!: Object;
+
+  @Output()
+  homepageswitch = new EventEmitter<any>();
 
   constructor(public http: HttpService, private eventManager: EventManager) {
     this.getScreenSize();
@@ -43,10 +46,14 @@ export class LoginpageComponent implements OnInit {
       console.log(this.account, this.password)
       this.http.login(this.account, this.password).subscribe(
         response => {
-          this.loginData =  response;
-          console.log(Object.entries(response))
+          this.loginData = response;
+          console.log(Object.values(response)[1])
+          let code = Object.values(response)[1];
+          if (code == 2000) {
+            this.homepageswitch.emit(true)
+          }
         },
-        error => { this.hint =error.error.message })
+        error => { this.hint = error.error.message })
 
     } else {
       this.hint = "請輸入帳號與密碼";

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit  } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 
 @Component({
@@ -34,7 +34,82 @@ export class HomepageMissionComponent implements OnInit {
       "start": "新醫療大樓5F-5B病房",
       "end": "舊醫療大樓1F-檢驗醫學部",
       "porter": "沈泓成"
+    },
+    {
+      "id": "M100100000000202103310002",
+      "type": "X光",
+      "status": 3,
+      "add_time": "2021/03/31 04:19",
+      "start": "新醫療大樓6F-6A病房",
+      "end": "新醫療大樓B1-X光攝影室",
+      "porter": "張宸愷"
+    },
+    {
+      "id": "M100100000000202103310001",
+      "type": "檢體",
+      "status": 4,
+      "add_time": "2021/03/31 02:31",
+      "start": "新醫療大樓5F-5B病房",
+      "end": "舊醫療大樓1F-檢驗醫學部",
+      "porter": "沈泓成"
+    },
+    {
+      "id": "M100100000000202103310002",
+      "type": "X光",
+      "status": 3,
+      "add_time": "2021/03/31 04:19",
+      "start": "新醫療大樓6F-6A病房",
+      "end": "新醫療大樓B1-X光攝影室",
+      "porter": "張宸愷"
+    },
+    {
+      "id": "M100100000000202103310001",
+      "type": "檢體",
+      "status": 4,
+      "add_time": "2021/03/31 02:31",
+      "start": "新醫療大樓5F-5B病房",
+      "end": "舊醫療大樓1F-檢驗醫學部",
+      "porter": "沈泓成"
     }
+    ,
+    {
+      "id": "M100100000000202103310002",
+      "type": "X光",
+      "status": 3,
+      "add_time": "2021/03/31 04:19",
+      "start": "新醫療大樓6F-6A病房",
+      "end": "新醫療大樓B1-X光攝影室",
+      "porter": "張宸愷"
+    },
+    {
+      "id": "M100100000000202103310001",
+      "type": "檢體",
+      "status": 4,
+      "add_time": "2021/03/31 02:31",
+      "start": "新醫療大樓5F-5B病房",
+      "end": "舊醫療大樓1F-檢驗醫學部",
+      "porter": "沈泓成"
+    }
+    ,
+    {
+      "id": "M100100000000202103310002",
+      "type": "X光",
+      "status": 3,
+      "add_time": "2021/03/31 04:19",
+      "start": "新醫療大樓6F-6A病房",
+      "end": "新醫療大樓B1-X光攝影室",
+      "porter": "張宸愷"
+    },
+    {
+      "id": "M100100000000202103310001",
+      "type": "檢體",
+      "status": 4,
+      "add_time": "2021/03/31 02:31",
+      "start": "新醫療大樓5F-5B病房",
+      "end": "舊醫療大樓1F-檢驗醫學部",
+      "porter": "沈泓成"
+    }
+
   ];
   mission_1_data = {
     "id": "M100100000000202103310001",
@@ -69,6 +144,7 @@ export class HomepageMissionComponent implements OnInit {
 
   getConsoleline($event: any) {
     console.log($event.path[0].id.split("_")[1])
+    console.log(this.mission_list.filter(item => item.status == 3))
   };
 
 }
