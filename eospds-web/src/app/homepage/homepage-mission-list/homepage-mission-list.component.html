@@ -1,0 +1,15 @@
+<div class="list-content" id="mission_{{idx}}" *ngFor="let item of mission_list; let idx = index"
+  (mouseenter)="getConsoleline($event)">
+  <mat-checkbox class="checkbox"></mat-checkbox>
+  <span class="start-time-title">{{item.add_time}}</span>
+  <span class="mission-status-title">{{item.status|missionStatus}}</span>
+  <span class="mission-type-title">{{item.type}}</span>
+  <span class="start-department-title">{{item.start}}</span>
+  <span class="finish-department-title">{{item.end}}</span>
+  <span class="porter-title" *ngIf="item.status != 1">{{item.porter}}</span>
+  <span class="porter-title" *ngIf="item.status == 1">
+    <app-modal-manual-dispatch></app-modal-manual-dispatch>
+    <app-modal-auto-dispatch></app-modal-auto-dispatch>
+  </span>
+  <span class="porter-position">{{item.position}}</span>
+</div>

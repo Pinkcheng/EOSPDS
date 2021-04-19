@@ -1,0 +1,17 @@
+<button mat-flat-button class="function-button add-mission-button " (click)="openModal(template)">指定人員</button>
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">新增任務</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div>任務類型<input type="box"></div>
+    <div>起始單位<input type="box"></div>
+    <div>送往單位<input type="box"></div>
+    <div>備註：</div>
+    <div><textarea rows=6 cols=40></textarea></div>
+    <div><button type="button" class="btn btn-default" (click)="modalRef.hide()">確定</button></div>
+  </div>
+</ng-template>

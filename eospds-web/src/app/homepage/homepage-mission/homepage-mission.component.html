@@ -6,10 +6,10 @@
           (returnListEvent)="getMissionListFilter($event)"></app-homepage-mission-checkbox>
       </span>
       <span class="function-button-container">
-        <button class="function-button update-list-button">更新列表</button>
-        <button class="function-button manual-dispatch-button">指定人員</button>
-        <button class="function-button auto-dispatch-button">自動派遣</button>
-        <app-modal-add-mission></app-modal-add-mission>
+        <button mat-flat-button class="function-button update-list-button">更新列表</button>
+        <app-modal-manual-dispatch class="function-button"></app-modal-manual-dispatch>
+        <app-modal-auto-dispatch class="function-button"></app-modal-auto-dispatch>
+        <app-modal-add-mission class="function-button"></app-modal-add-mission>
       </span>
     </div>
 
@@ -21,19 +21,11 @@
         <span class="start-department-title">起始單位</span>
         <span class="finish-department-title">送往單位</span>
         <span class="porter-title">傳送員</span>
+        <span class="porter-position">目前位置</span>
       </div>
       <div class="mission-list-content">
+        <app-homepage-mission-list [mission_list]="mission_list_filter"></app-homepage-mission-list>
 
-        <div class="list-content" id="mission_{{idx}}" *ngFor="let item of mission_list_filter; let idx = index"
-          (mouseenter)="getConsoleline($event)">
-          <mat-checkbox></mat-checkbox>
-          <span class="start-time-title">{{item.add_time}}</span>
-          <span class="mission-status-title">{{item.status|missionStatus}}</span>
-          <span class="mission-type-title">{{item.type}}</span>
-          <span class="start-department-title">{{item.start}}</span>
-          <span class="finish-department-title">{{item.end}}</span>
-          <span class="porter-title">{{item.porter}}</span>
-        </div>
       </div>
     </div>
     <div class="mission-data light-color">
@@ -61,7 +53,5 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="article-right lighter-color">
   </div>
 </div>

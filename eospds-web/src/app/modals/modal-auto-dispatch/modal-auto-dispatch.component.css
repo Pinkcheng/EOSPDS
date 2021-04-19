@@ -4,10 +4,11 @@
   border: 0px;
   outline:none;
   cursor: pointer;
+  height: auto;
+  margin: auto 2px;
 }
 
 
 .add-mission-button{
-  background-color:#4CBC49;
-  color:#FFFFFF;
+  background-color:#81CCC5;
 }

@@ -13,9 +13,9 @@ export class HomepageMissionCheckboxComponent implements OnInit {
   mission_list: Array<Object> = [];
   @Output()
   returnListEvent = new EventEmitter<any>();
-
   mission_list_filter: any = []
   ngOnInit(): void {
+    this.mission_list_filter = this.mission_list
   }
 
   task: Task = {
@@ -31,32 +31,30 @@ export class HomepageMissionCheckboxComponent implements OnInit {
 
   allComplete: boolean = false;
   selectedItemsList: any = []
-  checkedIDs: Array<Object> = []
 
   updateAllComplete() {
+    this.mission_list_filter = []
     this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.completed);
     this.selectedItemsList = this.task.subtasks?.filter((value, index) => {
       return value.completed
     }).map(item => Object.values(item)[0]);
-    this.checkedIDs = [];
     this.mission_list.forEach((value: any, index) => {
       for (let i = 0; i < this.selectedItemsList.length; i++) {
         if (this.selectedItemsList[i] == 0) {
-          this.checkedIDs = this.mission_list;
+          this.mission_list_filter = this.mission_list;
           break;
         }
         else if (value.status == this.selectedItemsList[i]) {
-          this.checkedIDs.push(value)
+          this.mission_list_filter.push(value)
         }
       }
     });
-    this.returnListEvent.emit(this.checkedIDs)
+    this.returnListEvent.emit(this.mission_list_filter)
   }
   someComplete(): boolean {
     if (this.task.subtasks == null) {
       return false;
     }
-
     return this.task.subtasks.filter(t => t.completed).length > 0 && !this.allComplete;
   }
 

@@ -1,0 +1,40 @@
+.list-content{
+  display:flex;
+  align-items:center;
+  padding: 15px;
+  border: 1px solid #707070;
+}
+
+.start-time-title{
+  text-align:center;
+  width:10%;
+}
+.mission-status-title{
+  text-align:center;
+  width:10%;
+}
+
+.mission-type-title{
+  text-align:center;
+  width:20%;
+}
+.start-department-title{
+  text-align:center;
+  width:15%;
+}
+.finish-department-title{
+  text-align:center;
+  width:15%;
+}
+.porter-title{
+  text-align:center;
+  width:15%;
+}
+.porter-position{
+  text-align: center;
+  width:15%
+}
+.list-content:hover{
+  cursor: pointer;
+  background-color :gray;
+}

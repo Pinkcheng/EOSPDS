@@ -9,12 +9,12 @@ import { Component, Input, OnInit } from '@angular/core';
 export class HomepageMissionComponent implements OnInit {
 
   constructor() { }
-  mission_list_filter: Array<any> = []
+
 
   ngOnInit(): void {
     this.mission_list_filter = this.mission_list
   }
-
+  mission_list_filter: Array<any> = []
   @Input()
   articleHeight!: number;
 
@@ -22,11 +22,12 @@ export class HomepageMissionComponent implements OnInit {
     {
       "id": "M100100000000202103310002",
       "type": "X光",
-      "status": 3,
+      "status": 1,
       "add_time": "2021/03/31 04:19",
       "start": "新醫療大樓6F-6A病房",
       "end": "新醫療大樓B1-X光攝影室",
-      "porter": "張宸愷"
+      "porter": " ",
+      "position": " "
     },
     {
       "id": "M100100000000202103310001",
@@ -35,7 +36,8 @@ export class HomepageMissionComponent implements OnInit {
       "add_time": "2021/03/31 02:31",
       "start": "新醫療大樓5F-5B病房",
       "end": "舊醫療大樓1F-檢驗醫學部",
-      "porter": "沈泓成"
+      "porter": "沈泓成",
+      "position": "新醫療大樓1F-40診"
     },
     {
       "id": "M100100000000202103310002",
@@ -44,7 +46,8 @@ export class HomepageMissionComponent implements OnInit {
       "add_time": "2021/03/31 04:19",
       "start": "新醫療大樓6F-6A病房",
       "end": "新醫療大樓B1-X光攝影室",
-      "porter": "張宸愷"
+      "porter": "張宸愷",
+      "position": "新醫療大樓1F-40診"
     },
     {
       "id": "M100100000000202103310001",
@@ -53,7 +56,8 @@ export class HomepageMissionComponent implements OnInit {
       "add_time": "2021/03/31 02:31",
       "start": "新醫療大樓5F-5B病房",
       "end": "舊醫療大樓1F-檢驗醫學部",
-      "porter": "沈泓成"
+      "porter": "沈泓成",
+      "position": "新醫療大樓1F-40診"
     },
     {
       "id": "M100100000000202103310002",
@@ -62,7 +66,8 @@ export class HomepageMissionComponent implements OnInit {
       "add_time": "2021/03/31 04:19",
       "start": "新醫療大樓6F-6A病房",
       "end": "新醫療大樓B1-X光攝影室",
-      "porter": "張宸愷"
+      "porter": "張宸愷",
+      "position": "新醫療大樓1F-40診"
     },
     {
       "id": "M100100000000202103310001",
@@ -71,7 +76,8 @@ export class HomepageMissionComponent implements OnInit {
       "add_time": "2021/03/31 02:31",
       "start": "新醫療大樓5F-5B病房",
       "end": "舊醫療大樓1F-檢驗醫學部",
-      "porter": "沈泓成"
+      "porter": "沈泓成",
+      "position": "新醫療大樓1F-40診"
     }
     ,
     {
@@ -81,7 +87,8 @@ export class HomepageMissionComponent implements OnInit {
       "add_time": "2021/03/31 04:19",
       "start": "新醫療大樓6F-6A病房",
       "end": "新醫療大樓B1-X光攝影室",
-      "porter": "張宸愷"
+      "porter": "張宸愷",
+      "position": "新醫療大樓1F-40診"
     },
     {
       "id": "M100100000000202103310001",
@@ -90,7 +97,8 @@ export class HomepageMissionComponent implements OnInit {
       "add_time": "2021/03/31 02:31",
       "start": "新醫療大樓5F-5B病房",
       "end": "舊醫療大樓1F-檢驗醫學部",
-      "porter": "沈泓成"
+      "porter": "沈泓成",
+      "position": "新醫療大樓1F-40診"
     }
     ,
     {
@@ -100,7 +108,8 @@ export class HomepageMissionComponent implements OnInit {
       "add_time": "2021/03/31 04:19",
       "start": "新醫療大樓6F-6A病房",
       "end": "新醫療大樓B1-X光攝影室",
-      "porter": "張宸愷"
+      "porter": "張宸愷",
+      "position": "新醫療大樓1F-40診"
     },
     {
       "id": "M100100000000202103310001",
@@ -109,7 +118,8 @@ export class HomepageMissionComponent implements OnInit {
       "add_time": "2021/03/31 02:31",
       "start": "新醫療大樓5F-5B病房",
       "end": "舊醫療大樓1F-檢驗醫學部",
-      "porter": "沈泓成"
+      "porter": "沈泓成",
+      "position": "新醫療大樓1F-40診"
     }
 
   ];
@@ -144,13 +154,11 @@ export class HomepageMissionComponent implements OnInit {
     "staff": "林彥儒",
   };
 
-  getConsoleline($event: any) {
-    //console.log($event.path[0].id.split("_")[1])
-  };
 
-  getMissionListFilter($event:any){
+
+  getMissionListFilter($event: any) {
     this.mission_list_filter = $event;
-
+    console.log($event)
   }
 }
 

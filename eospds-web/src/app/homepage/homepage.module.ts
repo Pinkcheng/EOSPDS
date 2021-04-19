@@ -7,9 +7,12 @@ import { HomepageMissionComponent } from './homepage-mission/homepage-mission.co
 import { HomepageStaffComponent } from './homepage-staff/homepage-staff.component';
 import { HomepageSettingComponent } from './homepage-setting/homepage-setting.component';
 import { ModalModule } from '../modals/modal.module';
-import {FormsModule} from '@angular/forms'
+import { FormsModule } from '@angular/forms'
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { HomepageMissionCheckboxComponent } from './homepage-mission-checkbox/homepage-mission-checkbox.component';
+import { HomepageMissionListComponent } from './homepage-mission-list/homepage-mission-list.component';
+import { MatButtonModule } from '@angular/material/button';
+
 @NgModule({
   declarations: [
     HomepageComponent,
@@ -19,14 +22,16 @@ import { HomepageMissionCheckboxComponent } from './homepage-mission-checkbox/ho
     HomepageSettingComponent,
     MissionStatusPipe,
     HomepageMissionCheckboxComponent,
+    HomepageMissionListComponent,
 
   ],
   imports: [
     CommonModule,
     ModalModule,
     FormsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatButtonModule
   ],
-  exports:[HomepageComponent]
+  exports: [HomepageComponent]
 })
 export class HomepageModule { }
