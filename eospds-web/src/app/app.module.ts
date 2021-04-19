@@ -9,6 +9,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { HttpService } from './service/http.service';
 import { ErrorService } from './service/error.service';
 import { LoginpageModule } from './loginpage/loginpage.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -21,6 +23,8 @@ import { LoginpageModule } from './loginpage/loginpage.module';
     HomepageModule,
     ModalModule.forRoot(),
     LoginpageModule,
+    BrowserAnimationsModule,
+
   ],
   bootstrap: [AppComponent],
   providers: [HttpService, ErrorService]

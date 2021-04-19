@@ -8,7 +8,7 @@ import { HomepageStaffComponent } from './homepage-staff/homepage-staff.componen
 import { HomepageSettingComponent } from './homepage-setting/homepage-setting.component';
 import { ModalModule } from '../modals/modal.module';
 import {FormsModule} from '@angular/forms'
-
+import { MatCheckboxModule } from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     HomepageComponent,
@@ -16,12 +16,14 @@ import {FormsModule} from '@angular/forms'
     HomepageMissionComponent,
     HomepageStaffComponent,
     HomepageSettingComponent,
-    MissionStatusPipe
+    MissionStatusPipe,
+
   ],
   imports: [
     CommonModule,
     ModalModule,
-    FormsModule
+    FormsModule,
+    MatCheckboxModule
   ],
   exports:[HomepageComponent]
 })

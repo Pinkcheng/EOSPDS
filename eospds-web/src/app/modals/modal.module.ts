@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModalAddMissionComponent } from './modal-add-mission/modal-add-mission.component';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -9,7 +10,8 @@ import { ModalAddMissionComponent } from './modal-add-mission/modal-add-mission.
     ModalAddMissionComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatButtonModule
   ],
   exports:[
     ModalAddMissionComponent

@@ -1,5 +1,4 @@
 .header-container{
-  background-color:#007C84;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -34,5 +33,5 @@
   cursor: pointer;
 }
 .header-button:hover{
-  background-color: #43A1A7;
+  background-color:#26A89C
 }
