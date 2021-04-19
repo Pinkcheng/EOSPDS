@@ -1,0 +1,9 @@
+<mat-checkbox class="mission-status-checkbox" [checked]="allComplete" [indeterminate]="someComplete()"
+  (change)="setAll($event.checked)">
+  {{task.name}}
+</mat-checkbox>
+<span class="mission-status-checkbox" *ngFor="let subtask of task.subtasks">
+  <mat-checkbox [(ngModel)]="subtask.completed" (ngModelChange)="updateAllComplete()">
+    {{subtask.name}}
+  </mat-checkbox>
+</span>

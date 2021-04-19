@@ -2,15 +2,8 @@
   <div class="article-left">
     <div class="function-bar">
       <span class="checkbox-container">
-        <mat-checkbox class="mission-status-checkbox" [checked]="allComplete" [indeterminate]="someComplete()"
-          (change)="setAll($event.checked)">
-          {{task.name}}
-        </mat-checkbox>
-        <span class="mission-status-checkbox" *ngFor="let subtask of task.subtasks">
-          <mat-checkbox [(ngModel)]="subtask.completed" (ngModelChange)="updateAllComplete()">
-            {{subtask.name}}
-          </mat-checkbox>
-        </span>
+        <app-homepage-mission-checkbox [mission_list]="mission_list"
+          (returnListEvent)="getMissionListFilter($event)"></app-homepage-mission-checkbox>
       </span>
       <span class="function-button-container">
         <button class="function-button update-list-button">更新列表</button>
@@ -30,6 +23,7 @@
         <span class="porter-title">傳送員</span>
       </div>
       <div class="mission-list-content">
+
         <div class="list-content" id="mission_{{idx}}" *ngFor="let item of mission_list_filter; let idx = index"
           (mouseenter)="getConsoleline($event)">
           <mat-checkbox></mat-checkbox>
