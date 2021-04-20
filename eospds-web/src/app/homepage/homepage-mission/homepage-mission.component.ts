@@ -8,17 +8,24 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HomepageMissionComponent implements OnInit {
 
-  mission_list_filter: Array<any> = [];
-  checkboxList: Array<number> = [];
+
+
   @Input()
-  articleHeight!: number;
+  articleHeight: number = 0;
+
+  missionListFilter: Array<any> = [];
+  checkboxList: Array<number> = [];
+  missionData: Object = {};
 
   constructor() { }
 
   ngOnInit(): void {
+    //get mission list
     this.checkboxList = [1, 2, 3, 4];
     this.changeMissionList(this.checkboxList);
+    this.missionData = this.mission_1_data;
   }
+
   mission_list = [
     {
       "id": "M100100000000202103310002",
@@ -187,29 +194,49 @@ export class HomepageMissionComponent implements OnInit {
     "staff": "林彥儒",
   };
 
+  //手動更新任務列表
   updateMissionList() {
+    //get mission list
     this.mission_list = this.mission_list_change;
     this.changeMissionList(this.checkboxList);
   }
 
+  //取得checkbox狀態
   getCheckboxList($event: any) {
     this.checkboxList = $event;
     this.changeMissionList($event);
   }
 
+  //根據checkbox狀態過濾並產生任務列表
   changeMissionList(checkboxList: Array<number>) {
-    this.mission_list_filter = []
+    this.missionListFilter = []
     this.mission_list.forEach((value: any, index) => {
       for (let i = 0; i < this.checkboxList.length; i++) {
         if (this.checkboxList[i] == 0) {
-          this.mission_list_filter = this.mission_list;
+          this.missionListFilter = this.mission_list;
           break;
         }
         else if (value.status == this.checkboxList[i]) {
-          this.mission_list_filter.push(value)
+          this.missionListFilter.push(value)
         }
       }
     });
+  }
+  isMouseLeave: boolean = true;
+  //取得任務資料
+  getMissionData($event: Array<any>) {
+    //get mission data
+    if ($event[0].charAt($event[0].length - 1) == "1") {
+      this.missionData = this.mission_1_data;
+    } else {
+      this.missionData = this.mission_2_data;
+    }
+    this.isMouseLeave = $event[1];
+  }
+
+  mouseIsLeave($event: boolean) {
+    this.isMouseLeave = $event;
+    console.log(this.isMouseLeave)
   }
 }
 

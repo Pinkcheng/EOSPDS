@@ -1,8 +1,7 @@
 <div class="list-content" id="mission_{{idx}}" *ngFor="let item of mission_list; let idx = index"
-  (mouseenter)="getConsoleline($event)">
+  (mouseenter)="getMouseEnter($event)" (mouseleave)="getMouseLeave($event)">
   <mat-checkbox class="checkbox"></mat-checkbox>
   <span class="start-time">{{item.add_time}}</span>
-  <!--<span class="mission-status">{{item.status|missionStatus}}</span>-->
   <span class="mission-status mission-status-1" *ngIf="item.status == 1">{{item.status|missionStatus}}</span>
   <span class="mission-status mission-status-2" *ngIf="item.status == 2">{{item.status|missionStatus}}</span>
   <span class="mission-status mission-status-3" *ngIf="item.status == 3">{{item.status|missionStatus}}</span>

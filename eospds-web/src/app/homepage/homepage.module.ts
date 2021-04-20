@@ -12,6 +12,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { HomepageMissionCheckboxComponent } from './homepage-mission-checkbox/homepage-mission-checkbox.component';
 import { HomepageMissionListComponent } from './homepage-mission-list/homepage-mission-list.component';
 import { MatButtonModule } from '@angular/material/button';
+import { HomepageMissionDataComponent } from './homepage-mission-data/homepage-mission-data.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MatButtonModule } from '@angular/material/button';
     MissionStatusPipe,
     HomepageMissionCheckboxComponent,
     HomepageMissionListComponent,
+    HomepageMissionDataComponent,
 
   ],
   imports: [

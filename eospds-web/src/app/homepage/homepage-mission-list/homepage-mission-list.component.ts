@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-homepage-mission-list',
@@ -10,12 +10,27 @@ export class HomepageMissionListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    //console.log(this.mission_list)
+    //console.log(this.mission_list);
   }
 
   @Input()
-  mission_list: Array<any> = []
-  getConsoleline($event: any) {
-    //console.log($event.path[0].id.split("_")[1])
+  mission_list: Array<any> = [];
+  @Output()
+  mouseEnterEvent = new EventEmitter<any>();
+  @Output()
+  mouseLeaveEvent =new EventEmitter<any>();
+
+  mouseEnterIndex: number = 0;
+  mouseEnterMissionId: string = "";
+
+  getMouseEnter($event: any) {
+    this.mouseEnterIndex = $event.path[0].id.split("_")[1];
+    //console.log(this.mouseEnterIndex);
+    this.mouseEnterMissionId = this.mission_list[this.mouseEnterIndex].id;
+    this.mouseEnterEvent.emit([this.mouseEnterMissionId, false]);
   };
+  getMouseLeave($event: any) {
+    this.mouseLeaveEvent.emit(true);
+
+  }
 }

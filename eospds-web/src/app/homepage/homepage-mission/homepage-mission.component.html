@@ -2,8 +2,7 @@
   <div class="article-left">
     <div class="function-bar">
       <span class="checkbox-container">
-        <app-homepage-mission-checkbox
-          (returnListEvent)="getCheckboxList($event)"></app-homepage-mission-checkbox>
+        <app-homepage-mission-checkbox (returnListEvent)="getCheckboxList($event)"></app-homepage-mission-checkbox>
       </span>
       <span class="function-button-container">
         <button mat-flat-button class="function-button update-list-button" (click)="updateMissionList()">更新列表</button>
@@ -24,34 +23,15 @@
         <span class="porter-position">目前位置</span>
       </div>
       <div class="mission-list-content">
-        <app-homepage-mission-list [mission_list]="mission_list_filter"></app-homepage-mission-list>
+        <app-homepage-mission-list [mission_list]="missionListFilter" (mouseEnterEvent)="getMissionData($event)"
+          (mouseLeaveEvent)="mouseIsLeave($event)"></app-homepage-mission-list>
 
       </div>
     </div>
     <div class="mission-data light-color">
-      <div class="mission-data-content">
-        <h3 class=mission-data-title>{{mission_1_data.type}}</h3>
-        <h3 class=mission-data-title>{{mission_1_data.content}}</h3>
-        <h4 class="staff-text">交接人員 {{mission_1_data.staff}}</h4>
-        <div>
-          <span>
-            <img class="progress-img progress-content" src='/assets/img/progress.png'>
-            <div class="progress-content">
-              <span class="progress-text">{{mission_1_data.add_time}}</span>
-              <span class="progress-text">{{mission_1_data.dispatch_time}}</span>
-              <span class="progress-text">{{mission_1_data.start_time}}</span>
-              <span class="progress-text">{{mission_1_data.finish_time}}</span>
-            </div>
-            <div class="progress-content">
-              <span class="progress-text">{{mission_1_data.add_department}}</span>
-              <span class="progress-text">{{mission_1_data.dispatch}}</span>
-              <span class="progress-text">{{mission_1_data.start_department}}</span>
-              <span class="progress-text">{{mission_1_data.end_department}}</span>
-            </div>
 
-          </span>
-        </div>
-      </div>
+        <app-homepage-mission-data  *ngIf="!isMouseLeave" [missionData]="missionData"></app-homepage-mission-data>
+
     </div>
   </div>
 </div>

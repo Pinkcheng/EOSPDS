@@ -103,31 +103,4 @@
   background-color :gray;
 }
 
-.progress-content{
-  display: flex;
-  align-items:center;
-  justify-content:center;
-  margin: 5px 30px;
-}
-.progress-img{
-  margin:10px auto;
-}
-.mission-data-title{
-  color:#007C84;
-  font-size:xx-large;
-  font-weight:bold;
-  display: inline-block;
-  margin: 20px;
-}
-.progress-text{
-  color:#FFFFFF;
-  text-align:center;
-  width:20%;
-}
 
-.staff-text{
-  display: inline-block;
-  color:#FFFFFF;
-  font-size:large;
-  text-align:center;
-}
