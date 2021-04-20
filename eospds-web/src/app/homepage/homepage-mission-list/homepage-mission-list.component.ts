@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { GlobalConstants } from '..//../common/global-constants';
 
 @Component({
   selector: 'app-homepage-mission-list',
@@ -31,6 +32,7 @@ export class HomepageMissionListComponent implements OnInit {
   };
   getMouseLeave($event: any) {
     this.mouseLeaveEvent.emit(true);
-
   }
+
+  isPorterCenter:boolean = GlobalConstants.isPorterCenter;
 }

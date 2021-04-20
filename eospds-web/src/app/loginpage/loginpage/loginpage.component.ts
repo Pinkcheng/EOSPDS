@@ -1,6 +1,7 @@
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { HttpService } from 'src/app/service/http.service';
 import { EventManager } from '@angular/platform-browser';
+import { GlobalConstants } from '../../common/global-constants';
 
 @Component({
   selector: 'app-loginpage',
@@ -22,13 +23,15 @@ export class LoginpageComponent implements OnInit {
   homepageswitch = new EventEmitter<any>();
 
   constructor(public http: HttpService, private eventManager: EventManager) {
-    this.getScreenSize();
-    this.eventManager.addGlobalEventListener('window', 'keyup.enter', () => {
-      this.login();
-    });
+
   }
 
   ngOnInit(): void {
+
+
+    this.eventManager.addGlobalEventListener('window', 'keyup.enter', () => {
+      this.login();
+    });
   }
   @HostListener('window:resize', ['$event'])
   getScreenSize() {
@@ -51,6 +54,7 @@ export class LoginpageComponent implements OnInit {
           let code = Object.values(response)[1];
           if (code == 2000) {
             this.homepageswitch.emit(true)
+            GlobalConstants.isPorterCenter = true;
           }
         },
         error => { this.hint = error.error.message })

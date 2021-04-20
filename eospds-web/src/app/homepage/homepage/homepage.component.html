@@ -1,4 +1,5 @@
-<app-homepage-header [headerHeight]="headerHeight" (missionSwitch)="switchHomepage($event)" (staffSwitch)="switchHomepage($event)" (settingSwitch)="switchHomepage($event)"></app-homepage-header>
+<app-homepage-header [headerHeight]="headerHeight" (missionSwitch)="switchHomepage($event)"
+  (staffSwitch)="switchHomepage($event)" (settingSwitch)="switchHomepage($event)"></app-homepage-header>
 <ng-container [ngSwitch]="homepageSwitch">
   <ng-container *ngSwitchCase="0">
     <app-homepage-mission [articleHeight]="articleHeight"></app-homepage-mission>
@@ -10,7 +11,7 @@
     <app-homepage-setting [articleHeight]="articleHeight"></app-homepage-setting>
   </ng-container>
   <ng-container *ngSwitchDefault>
-    <app-homepage-mission [articleHeight]="articleHeight"></app-homepage-mission>
+    <!-- <app-homepage-mission [articleHeight]="articleHeight"></app-homepage-mission>-->
+    <app-homepage-staff [articleHeight]="articleHeight"></app-homepage-staff>
   </ng-container>
 </ng-container>
-
