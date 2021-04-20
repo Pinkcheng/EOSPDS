@@ -3,30 +3,33 @@
   align-items:center;
   padding: 15px;
   border: 1px solid #707070;
+  font-size: 18px;
 }
 
-.start-time-title{
+.start-time{
   text-align:center;
   width:10%;
 }
-.mission-status-title{
+.mission-status{
   text-align:center;
   width:10%;
+  font-weight:bold;
+  color:white;
 }
 
-.mission-type-title{
+.mission-type{
   text-align:center;
   width:20%;
 }
-.start-department-title{
+.start-department{
   text-align:center;
   width:15%;
 }
-.finish-department-title{
+.finish-department{
   text-align:center;
   width:15%;
 }
-.porter-title{
+.porter{
   text-align:center;
   width:15%;
 }
@@ -37,4 +40,16 @@
 .list-content:hover{
   cursor: pointer;
   background-color :gray;
+}
+.mission-status-1{
+  background-color:red;
+}
+.mission-status-2{
+  background-color:blue;
+}
+.mission-status-3{
+  background-color:green;
+}
+.mission-status-4{
+  background-color:gray;
 }
