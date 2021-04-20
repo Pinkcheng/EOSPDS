@@ -15,9 +15,7 @@ export class HomepageMissionListComponent implements OnInit {
 
   @Input()
   mission_list: Array<any> = []
-  status: any = document.getElementById('mission-status-title')
   getConsoleline($event: any) {
-    console.log($event.path[0].id.split("_")[1])
+    //console.log($event.path[0].id.split("_")[1])
   };
-
 }
