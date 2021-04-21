@@ -7,3 +7,70 @@
 .article-right{
   width:25%;
 }
+
+.staff-list{
+  height:90%;
+  overflow-y:scroll;
+}
+.function-bar{
+  height:5%;
+  display:flex;
+  align-items:center;
+  justify-content: flex-end;
+
+}
+.button-container{
+  margin:auto 5px
+}
+.button{
+  margin: auto 5px;
+  border-radius: 50px;
+  border: 0px;
+  outline:none;
+  cursor: pointer;
+}
+.update-list-button{
+  color:#FFFFFF;
+}
+.staff-list-title{
+  height:5%;
+  display:flex;
+  align-items:center;
+  border: 1px solid #707070;
+  justify-content: space-between;
+  padding-right: 25px;
+  padding-left: 16px;
+
+}
+.staff-checkbox{
+  text-align:center;
+}
+.staff-name{
+  text-align:center;
+  width:15%;
+}
+.staff-handover{
+  text-align:center;
+  width:25%;
+}
+.staff-professional{
+  text-align:center;
+  width:20%;
+}
+.staff-department{
+  text-align:center;
+  width:20%;
+}
+.staff-list-content{
+  display:flex;
+  align-items:center;
+  padding:15px;
+  border: 1px solid #707070;
+  justify-content: space-between;
+  font-size: 18px;
+  cursor: pointer;
+
+}
+.staff-list-content:hover{
+  background-color: gray;
+}

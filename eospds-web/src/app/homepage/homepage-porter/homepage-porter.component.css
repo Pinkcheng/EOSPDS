@@ -11,7 +11,7 @@
   height:5%;
 }
 .porter-list-title{
-  height:4%;
+  height:5%;
   display:flex;
   align-items:center;
   border: 1px solid #707070;
@@ -59,6 +59,7 @@
   border: 1px solid #707070;
   justify-content: space-between;
   font-size: 18px;
+  cursor: pointer;
 }
 .porter-status-1{
   background-color:green;
@@ -83,6 +84,8 @@
   cursor: pointer;
 }
 .update-list-button{
-  background-color:#43A1A7;
   color:#FFFFFF;
+}
+.porter-list-content:hover{
+  background-color: gray;
 }

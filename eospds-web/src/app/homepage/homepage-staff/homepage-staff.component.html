@@ -1,6 +1,29 @@
 <div class="staff-article" [style.height]="articleHeight+'px'">
   <div class="article-left">
-    <p>staff</p>
+    <div class="function-bar">
+      <div class="button-container">
+        <button mat-flat-button class="button update-list-button darker-color">更新列表</button>
+        <button mat-flat-button class="button print-qrcode-button light-color">列印QRcode</button>
+        <app-modal-add-staff class=" button add-staff-button"></app-modal-add-staff>
+      </div>
+    </div>
+    <div class="staff-list-title lighter-color">
+      <mat-checkbox class="staff-checkbox"></mat-checkbox>
+      <span class="staff-name">姓名</span>
+      <span class="staff-handover">交接次數</span>
+      <span class="staff-professional">職稱</span>
+      <span class="staff-department">隸屬單位</span>
+    </div>
+    <div class="staff-list">
+      <div class="staff-list-content" id="staff_{{idx}}" *ngFor="let item of staffList; let idx = index">
+        <mat-checkbox class="staff-checkbox"></mat-checkbox>
+        <span class="staff-name">{{item.name}}</span>
+        <span class="staff-handover">{{item.handover}} 件</span>
+        <span class="staff-professional">{{item.professional}}</span>
+        <span class="staff-department">{{item.department}}</span>
+      </div>
+    </div>
   </div>
+
   <div class="article-right light-color"></div>
 </div>
