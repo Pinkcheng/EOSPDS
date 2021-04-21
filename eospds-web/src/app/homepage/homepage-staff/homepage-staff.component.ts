@@ -5,7 +5,7 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './homepage-staff.component.html',
   styleUrls: ['./homepage-staff.component.css']
 })
-export class HomepageStaffComponent implements OnInit {
+export class HomepageStaffComponent implements OnInit{
 
   constructor() { }
 
@@ -103,14 +103,14 @@ export class HomepageStaffComponent implements OnInit {
       return;
     }
     this.staffListCheckStatus = this.staffListCheckStatus.map(t => $event);
-    console.log(this.getCheckStaffList())
+    //console.log(this.getCheckStaffList())
   }
 
 
   //更新全選checkbox狀態
   updateAllCheckboxStatus() {
     this.allStaffCheckStatus = this.staffList != null && this.staffListCheckStatus.every(t => t);
-    console.log(this.getCheckStaffList())
+    //console.log(this.getCheckStaffList())
   }
 
   //取得已勾選的staff id List
@@ -118,12 +118,16 @@ export class HomepageStaffComponent implements OnInit {
     this.checkedStaffIdList = [];
     if (this.staffListCheckStatus != null && this.staffList != null) {
       this.staffIdList = this.staffList.map(item => Object.values(item)[0])
-      for (let i = 0; i < this.staffListCheckStatus.length; i++) {
+      for (let i = 0; i < this.staffIdList.length; i++) {
         if (this.staffListCheckStatus[i]) {
           this.checkedStaffIdList.push(this.staffIdList[i])
         }
       }
     }
     return this.checkedStaffIdList
+  }
+
+  printQRcode(){
+    window.print();
   }
 }

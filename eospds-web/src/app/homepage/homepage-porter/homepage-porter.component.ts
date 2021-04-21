@@ -156,7 +156,9 @@ export class HomepagePorterComponent implements OnInit {
         }
       }
     });
+    console.log(this.porterListFilter);
     this.resetPorterListCheckbox();
+    console.log(this.porterListCheckStatus);
   }
 
   //手動更新傳送員列表
@@ -202,7 +204,7 @@ export class HomepagePorterComponent implements OnInit {
     this.checkedPorterIdList = [];
     if (this.porterListCheckStatus != null && this.porterListFilter != null) {
       this.porterIdList = this.porterListFilter.map(item => Object.values(item)[0])
-      for (let i = 0; i < this.porterListCheckStatus.length; i++) {
+      for (let i = 0; i < this.porterIdList.length; i++) {
         if (this.porterListCheckStatus[i]) {
           this.checkedPorterIdList.push(this.porterIdList[i])
         }

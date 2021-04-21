@@ -1,19 +1,33 @@
-<div class="list-content" id="mission_{{idx}}" *ngFor="let item of mission_list; let idx = index"
-  (mouseenter)="getMouseEnter($event)" (mouseleave)="getMouseLeave($event)">
-  <mat-checkbox class="checkbox"></mat-checkbox>
-  <span class="start-time">{{item.add_time}}</span>
-  <span class="mission-status mission-status-1" *ngIf="item.status == 1">{{item.status|missionStatus}}</span>
-  <span class="mission-status mission-status-2" *ngIf="item.status == 2">{{item.status|missionStatus}}</span>
-  <span class="mission-status mission-status-3" *ngIf="item.status == 3">{{item.status|missionStatus}}</span>
-  <span class="mission-status mission-status-4" *ngIf="item.status == 4">{{item.status|missionStatus}}</span>
-  <span class="mission-type">{{item.type}}</span>
-  <span class="start-department">{{item.start}}</span>
-  <span class="finish-department">{{item.end}}</span>
-  <span class="porter" *ngIf="item.status != 1">{{item.porter}}</span>
-  <span class="porter" *ngIf="item.status == 1 && isPorterCenter">
-    <app-modal-manual-dispatch></app-modal-manual-dispatch>
-    <app-modal-auto-dispatch></app-modal-auto-dispatch>
-  </span>
-  <span class="porter" *ngIf="item.status == 1 && !isPorterCenter">{{item.porter}}</span>
-  <span class="porter-position">{{item.position}}</span>
+<div class="mission-list-title lighter-color">
+  <mat-checkbox class="checkbox" [checked]="allMissionCheckStatus" (change)="setAllCheckboxStatus($event.checked)"
+    (change)="getCheckMissionIdList()"></mat-checkbox>
+  <span class="start-time">新增時間</span>
+  <span class="mission-status">任務狀態</span>
+  <span class="mission-type">任務類型</span>
+  <span class="start-department">起始單位</span>
+  <span class="finish-department">送往單位</span>
+  <span class="porter">傳送員</span>
+  <span class="porter-position">目前位置</span>
+</div>
+<div class="mission-list">
+  <div class="mission-list-content" id="mission_{{idx}}" *ngFor="let item of missionList; let idx = index"
+    (mouseenter)="getMouseEnter($event)" (mouseleave)="getMouseLeave($event)">
+    <mat-checkbox class="checkbox" [(ngModel)]="missionListCheckStatus[idx]" (ngModelChange)="updateAllCheckboxStatus()"
+      (ngModelChange)="getCheckMissionIdList()"></mat-checkbox>
+    <span class="start-time">{{item.add_time}}</span>
+    <span class="mission-status mission-status-1" *ngIf="item.status == 1">{{item.status|missionStatus}}</span>
+    <span class="mission-status mission-status-2" *ngIf="item.status == 2">{{item.status|missionStatus}}</span>
+    <span class="mission-status mission-status-3" *ngIf="item.status == 3">{{item.status|missionStatus}}</span>
+    <span class="mission-status mission-status-4" *ngIf="item.status == 4">{{item.status|missionStatus}}</span>
+    <span class="mission-type">{{item.type}}</span>
+    <span class="start-department">{{item.start}}</span>
+    <span class="finish-department">{{item.end}}</span>
+    <span class="porter" *ngIf="item.status != 1">{{item.porter}}</span>
+    <span class="porter" *ngIf="item.status == 1 && isPorterCenter">
+      <app-modal-manual-dispatch></app-modal-manual-dispatch>
+      <app-modal-auto-dispatch></app-modal-auto-dispatch>
+    </span>
+    <span class="porter" *ngIf="item.status == 1 && !isPorterCenter">{{item.porter}}</span>
+    <span class="porter-position">{{item.position}}</span>
+  </div>
 </div>

@@ -1,9 +1,27 @@
-.list-content{
+.mission-list-content{
   display:flex;
   align-items:center;
   padding: 15px;
   border: 1px solid #707070;
   font-size: 18px;
+}
+
+.mission-list-title{
+  height:5%;
+  display:flex;
+  align-items:center;
+  border: 1px solid #707070;
+  padding-left: 15px;
+  padding-right: 20px;
+}
+
+.mission-list{
+  height:95%;
+  overflow-y:scroll;
+}
+.mission-list-content:hover{
+  cursor: pointer;
+  background-color :gray;
 }
 
 .start-time{
@@ -13,7 +31,6 @@
 .mission-status{
   text-align:center;
   width:10%;
-  color:white;
   padding:5px;
 }
 
@@ -37,19 +54,19 @@
   text-align: center;
   width:15%
 }
-.list-content:hover{
-  cursor: pointer;
-  background-color :gray;
-}
 .mission-status-1{
   background-color:red;
+  color:white;
 }
 .mission-status-2{
   background-color:blue;
+  color:white;
 }
 .mission-status-3{
   background-color:green;
+  color:white;
 }
 .mission-status-4{
   background-color:gray;
+  color:white;
 }

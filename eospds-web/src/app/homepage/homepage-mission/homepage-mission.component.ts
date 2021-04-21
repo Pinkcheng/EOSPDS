@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { GlobalConstants } from './../../common/global-constants';
+import { Component, Input, OnInit, Output } from '@angular/core';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class HomepageMissionComponent implements OnInit {
   missionListFilter: Array<any> = [];
   checkboxList: Array<number> = [1, 2, 3, 4];
   missionData: Object = {};
-
+  isPorterCenter: boolean = GlobalConstants.isPorterCenter;
   constructor() { }
 
   ngOnInit(): void {
@@ -25,9 +26,9 @@ export class HomepageMissionComponent implements OnInit {
     this.missionData = this.mission_1_data;
   }
 
-  mission_list = [
+  missionList = [
     {
-      "id": "M100100000000202103310002",
+      "id": "M100100000000202103310001",
       "type": "X光",
       "status": 1,
       "add_time": "2021/03/31 04:19",
@@ -37,7 +38,7 @@ export class HomepageMissionComponent implements OnInit {
       "position": " "
     },
     {
-      "id": "M100100000000202103310001",
+      "id": "M100100000000202103310002",
       "type": "檢體",
       "status": 2,
       "add_time": "2021/03/31 02:31",
@@ -47,7 +48,7 @@ export class HomepageMissionComponent implements OnInit {
       "position": "新醫療大樓1F-40診"
     },
     {
-      "id": "M100100000000202103310002",
+      "id": "M100100000000202103310003",
       "type": "X光",
       "status": 3,
       "add_time": "2021/03/31 04:19",
@@ -57,7 +58,7 @@ export class HomepageMissionComponent implements OnInit {
       "position": "新醫療大樓1F-40診"
     },
     {
-      "id": "M100100000000202103310001",
+      "id": "M100100000000202103310004",
       "type": "檢體",
       "status": 4,
       "add_time": "2021/03/31 02:31",
@@ -67,7 +68,7 @@ export class HomepageMissionComponent implements OnInit {
       "position": "新醫療大樓1F-40診"
     },
     {
-      "id": "M100100000000202103310002",
+      "id": "M100100000000202103310005",
       "type": "X光",
       "status": 3,
       "add_time": "2021/03/31 04:19",
@@ -77,28 +78,7 @@ export class HomepageMissionComponent implements OnInit {
       "position": "新醫療大樓1F-40診"
     },
     {
-      "id": "M100100000000202103310001",
-      "type": "檢體",
-      "status": 4,
-      "add_time": "2021/03/31 02:31",
-      "start": "新醫療大樓5F-5B病房",
-      "end": "舊醫療大樓1F-檢驗醫學部",
-      "porter": "沈泓成",
-      "position": "新醫療大樓1F-40診"
-    }
-    ,
-    {
-      "id": "M100100000000202103310002",
-      "type": "X光",
-      "status": 3,
-      "add_time": "2021/03/31 04:19",
-      "start": "新醫療大樓6F-6A病房",
-      "end": "新醫療大樓B1-X光攝影室",
-      "porter": "張宸愷",
-      "position": "新醫療大樓1F-40診"
-    },
-    {
-      "id": "M100100000000202103310001",
+      "id": "M100100000000202103310006",
       "type": "檢體",
       "status": 4,
       "add_time": "2021/03/31 02:31",
@@ -109,7 +89,7 @@ export class HomepageMissionComponent implements OnInit {
     }
     ,
     {
-      "id": "M100100000000202103310002",
+      "id": "M100100000000202103310007",
       "type": "X光",
       "status": 3,
       "add_time": "2021/03/31 04:19",
@@ -119,7 +99,28 @@ export class HomepageMissionComponent implements OnInit {
       "position": "新醫療大樓1F-40診"
     },
     {
-      "id": "M100100000000202103310001",
+      "id": "M100100000000202103310008",
+      "type": "檢體",
+      "status": 4,
+      "add_time": "2021/03/31 02:31",
+      "start": "新醫療大樓5F-5B病房",
+      "end": "舊醫療大樓1F-檢驗醫學部",
+      "porter": "沈泓成",
+      "position": "新醫療大樓1F-40診"
+    }
+    ,
+    {
+      "id": "M100100000000202103310009",
+      "type": "X光",
+      "status": 3,
+      "add_time": "2021/03/31 04:19",
+      "start": "新醫療大樓6F-6A病房",
+      "end": "新醫療大樓B1-X光攝影室",
+      "porter": "張宸愷",
+      "position": "新醫療大樓1F-40診"
+    },
+    {
+      "id": "M100100000000202103310010",
       "type": "檢體",
       "status": 4,
       "add_time": "2021/03/31 02:31",
@@ -130,9 +131,9 @@ export class HomepageMissionComponent implements OnInit {
     }
 
   ];
-  mission_list_change = [
+  missionListChange = [
     {
-      "id": "M100100000000202103310002",
+      "id": "M100100000000202103310001",
       "type": "X光",
       "status": 1,
       "add_time": "2021/03/31 04:19",
@@ -142,7 +143,7 @@ export class HomepageMissionComponent implements OnInit {
       "position": " "
     },
     {
-      "id": "M100100000000202103310001",
+      "id": "M100100000000202103310002",
       "type": "檢體",
       "status": 4,
       "add_time": "2021/03/31 02:31",
@@ -152,7 +153,7 @@ export class HomepageMissionComponent implements OnInit {
       "position": "新醫療大樓1F-40診"
     },
     {
-      "id": "M100100000000202103310002",
+      "id": "M100100000000202103310004",
       "type": "X光",
       "status": 3,
       "add_time": "2021/03/31 04:19",
@@ -163,7 +164,7 @@ export class HomepageMissionComponent implements OnInit {
     }
   ]
   mission_1_data = {
-    "id": "M100100000000202103310001",
+    "id": "M100100000000202103310003",
     "content": "5055-1 李冠億",
     "type": "檢體",
     "add_time": "2021/03/31 02:31",
@@ -178,7 +179,7 @@ export class HomepageMissionComponent implements OnInit {
     "staff": "陳怡均",
   };
   mission_2_data = {
-    "id": "M100100000000202103310002",
+    "id": "M100100000000202103310005",
     "content": "6011 謝旻靜 ",
     "type": "X光",
     "add_time": "2021/03/31 04:19",
@@ -196,7 +197,7 @@ export class HomepageMissionComponent implements OnInit {
   //手動更新任務列表
   updateMissionList() {
     //get mission list
-    this.mission_list = this.mission_list_change;
+    this.missionList = this.missionListChange;
     this.changeMissionList(this.checkboxList);
   }
 
@@ -209,7 +210,7 @@ export class HomepageMissionComponent implements OnInit {
   //根據checkbox狀態過濾並產生任務列表
   changeMissionList(checkboxList: Array<number>) {
     this.missionListFilter = []
-    this.mission_list.forEach((value: any, index) => {
+    this.missionList.forEach((value: any, index) => {
       if (checkboxList.length != 0) {
         for (let i = 0; i < this.checkboxList.length; i++) {
           if (value.status == this.checkboxList[i]) {
@@ -224,7 +225,7 @@ export class HomepageMissionComponent implements OnInit {
   //取得任務資料
   getMissionData($event: Array<any>) {
     //get mission data
-    if ($event[0].charAt($event[0].length - 1) == "1") {
+    if ($event[0].charAt($event[0].length - 1) % 2 == 0) {
       this.missionData = this.mission_1_data;
     } else {
       this.missionData = this.mission_2_data;
@@ -234,6 +235,11 @@ export class HomepageMissionComponent implements OnInit {
 
   mouseIsLeave($event: boolean) {
     this.isMouseLeave = $event;
+  }
+  //取得已勾選之任務id
+  checkMissionList: string[] = [];
+  getCheckMissionList($event: string[]) {
+    this.checkMissionList = $event;
   }
 }
 

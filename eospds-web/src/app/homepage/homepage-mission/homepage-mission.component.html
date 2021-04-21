@@ -5,33 +5,20 @@
         <app-homepage-mission-checkbox (returnListEvent)="getCheckboxList($event)"></app-homepage-mission-checkbox>
       </span>
       <span class="function-button-container">
-        <button mat-flat-button class="function-button update-list-button darker-color" (click)="updateMissionList()">更新列表</button>
-        <app-modal-manual-dispatch class="function-button"></app-modal-manual-dispatch>
-        <app-modal-auto-dispatch class="function-button"></app-modal-auto-dispatch>
+        <button mat-flat-button class="function-button update-list-button darker-color"
+          (click)="updateMissionList()">更新列表</button>
+        <app-modal-manual-dispatch *ngIf="isPorterCenter" class="function-button"></app-modal-manual-dispatch>
+        <app-modal-auto-dispatch *ngIf="isPorterCenter" class="function-button"></app-modal-auto-dispatch>
         <app-modal-add-mission class="function-button"></app-modal-add-mission>
       </span>
     </div>
 
     <div class="mission-list">
-      <div class="mission-list-header lighter-color">
-        <span class="start-time-title">新增時間</span>
-        <span class="mission-status-title">任務狀態</span>
-        <span class="mission-type-title">任務類型</span>
-        <span class="start-department-title">起始單位</span>
-        <span class="finish-department-title">送往單位</span>
-        <span class="porter-title">傳送員</span>
-        <span class="porter-position">目前位置</span>
-      </div>
-      <div class="mission-list-content">
-        <app-homepage-mission-list [mission_list]="missionListFilter" (mouseEnterEvent)="getMissionData($event)"
-          (mouseLeaveEvent)="mouseIsLeave($event)"></app-homepage-mission-list>
-
-      </div>
+      <app-homepage-mission-list [missionList]="missionListFilter" (mouseEnterEvent)="getMissionData($event)"
+        (mouseLeaveEvent)="mouseIsLeave($event)" (checkMissionIDListEvent)="getCheckMissionList($event)"></app-homepage-mission-list>
     </div>
     <div class="mission-data light-color">
-
-        <app-homepage-mission-data  *ngIf="!isMouseLeave" [missionData]="missionData"></app-homepage-mission-data>
-
+      <app-homepage-mission-data *ngIf="!isMouseLeave" [missionData]="missionData"></app-homepage-mission-data>
     </div>
   </div>
 </div>
