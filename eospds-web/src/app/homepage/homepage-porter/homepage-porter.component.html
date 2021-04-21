@@ -10,7 +10,7 @@
       </span>
     </div>
     <div class="porter-list-title lighter-color">
-      <mat-checkbox class="porter-checkbox"></mat-checkbox>
+      <mat-checkbox class="porter-checkbox" [checked]="allPorterCheckStatus" (change)="setAllCheckboxStatus($event.checked)"></mat-checkbox>
       <span class="porter_name">姓名</span>
       <span class="porter-type">傳送類型</span>
       <span class="porter-status">人員狀態</span>
@@ -20,7 +20,7 @@
     </div>
     <div class="porter-list">
       <div class="porter-list-content" id="porter_{{idx}}" *ngFor="let item of porterListFilter; let idx = index">
-        <mat-checkbox class="porter-checkbox"></mat-checkbox>
+        <mat-checkbox class="porter-checkbox" [(ngModel)]="porterListCheckStatus[idx]" (ngModelChange)="updateAllCheckboxStatus()"></mat-checkbox>
         <span class="porter_name">{{item.name}}</span>
         <span class="porter-type">{{item.type|porterType}}</span>
         <span class="porter-status porter-status-1" *ngIf="item.status ==1">{{item.status|porterStatus}}</span>

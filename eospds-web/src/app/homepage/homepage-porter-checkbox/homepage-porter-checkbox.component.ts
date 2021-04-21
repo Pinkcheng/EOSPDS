@@ -30,7 +30,9 @@ export class HomepagePorterCheckboxComponent implements OnInit {
     this.selectedItemsList = this.task.subtasks?.filter((value, index) => {
       return value.completed
     }).map(item => Object.values(item)[0]);
+
     this.returnListEvent.emit(this.selectedItemsList)
+
   }
   someComplete(): boolean {
     if (this.task.subtasks == null) {

@@ -11,6 +11,7 @@ export class HomepagePorterComponent implements OnInit {
 
   ngOnInit(): void {
     this.changePorterList(this.checkboxList);
+    this.resetPorterListCheckbox();
   }
 
   @Input()
@@ -26,7 +27,7 @@ export class HomepagePorterComponent implements OnInit {
       "time": "2021/03/30 10:20"
     },
     {
-      "id": "P10000001",
+      "id": "P10000002",
       "name": "蔡明智",
       "type": 1,
       "status": 2,
@@ -35,7 +36,7 @@ export class HomepagePorterComponent implements OnInit {
       "time": "2021/03/30 10:20"
     },
     {
-      "id": "P10000001",
+      "id": "P10000003",
       "name": "李冠億",
       "type": 1,
       "status": 1,
@@ -44,7 +45,7 @@ export class HomepagePorterComponent implements OnInit {
       "time": "2021/03/30 10:20"
     },
     {
-      "id": "P10000001",
+      "id": "P10000004",
       "name": "蔡明智",
       "type": 1,
       "status": 2,
@@ -53,7 +54,7 @@ export class HomepagePorterComponent implements OnInit {
       "time": "2021/03/30 10:20"
     },
     {
-      "id": "P10000001",
+      "id": "P10000005",
       "name": "李冠億",
       "type": 1,
       "status": 1,
@@ -62,7 +63,7 @@ export class HomepagePorterComponent implements OnInit {
       "time": "2021/03/30 10:20"
     },
     {
-      "id": "P10000001",
+      "id": "P10000006",
       "name": "蔡明智",
       "type": 1,
       "status": 2,
@@ -71,7 +72,7 @@ export class HomepagePorterComponent implements OnInit {
       "time": "2021/03/30 10:20"
     },
     {
-      "id": "P10000001",
+      "id": "P10000007",
       "name": "李冠億",
       "type": 1,
       "status": 1,
@@ -80,7 +81,7 @@ export class HomepagePorterComponent implements OnInit {
       "time": "2021/03/30 10:20"
     },
     {
-      "id": "P10000001",
+      "id": "P10000008",
       "name": "蔡明智",
       "type": 1,
       "status": 2,
@@ -88,7 +89,7 @@ export class HomepagePorterComponent implements OnInit {
       "position": "新醫療大樓-5B病房",
       "time": "2021/03/30 10:20"
     }, {
-      "id": "P10000001",
+      "id": "P10000009",
       "name": "李冠億",
       "type": 1,
       "status": 1,
@@ -97,7 +98,7 @@ export class HomepagePorterComponent implements OnInit {
       "time": "2021/03/30 10:20"
     },
     {
-      "id": "P10000001",
+      "id": "P10000010",
       "name": "蔡明智",
       "type": 1,
       "status": 2,
@@ -108,7 +109,7 @@ export class HomepagePorterComponent implements OnInit {
   ];
   porterListChange = [
     {
-      "id": "P10000001",
+      "id": "P10000003",
       "name": "蔡明智",
       "type": 1,
       "status": 2,
@@ -116,7 +117,7 @@ export class HomepagePorterComponent implements OnInit {
       "position": "新醫療大樓-5B病房",
       "time": "2021/03/30 10:20"
     }, {
-      "id": "P10000001",
+      "id": "P10000002",
       "name": "李冠億",
       "type": 1,
       "status": 1,
@@ -155,6 +156,7 @@ export class HomepagePorterComponent implements OnInit {
         }
       }
     });
+    this.resetPorterListCheckbox();
   }
 
   //手動更新傳送員列表
@@ -163,4 +165,50 @@ export class HomepagePorterComponent implements OnInit {
     this.porterList = this.porterListChange;
     this.changePorterList(this.checkboxList);
   }
+
+  allPorterCheckStatus: boolean = false; //全選checkbox狀態
+  porterListCheckStatus: boolean[] = []; //porter list的checkbox狀態
+  porterIdList: Array<any> = this.porterListFilter.map(item => Object.values(item)[0]) //所有porter的id
+  checkedPorterIdList: Array<string> = [] //已勾選的porter id
+
+  //重設全選checkbox
+  resetPorterListCheckbox() {
+    this.allPorterCheckStatus = false;
+    this.porterListCheckStatus = [];
+    for (let i = 0; i < this.porterListFilter.length; i++) {
+      this.porterListCheckStatus[i] = false;
+    }
+  }
+
+  //全選或取消全選list的checkbox
+  setAllCheckboxStatus($event: boolean) {
+    this.allPorterCheckStatus = $event;
+    if (this.porterListFilter == null) {
+      return;
+    }
+    this.porterListCheckStatus = this.porterListCheckStatus.map(t => $event);
+    console.log(this.getCheckPorterList())
+  }
+
+
+  //更新全選checkbox狀態
+  updateAllCheckboxStatus() {
+    this.allPorterCheckStatus = this.porterListFilter != null && this.porterListCheckStatus.every(t => t);
+    console.log(this.getCheckPorterList())
+  }
+
+  //取得已勾選的porter id List
+  getCheckPorterList(): Array<string> {
+    this.checkedPorterIdList = [];
+    if (this.porterListCheckStatus != null && this.porterListFilter != null) {
+      this.porterIdList = this.porterListFilter.map(item => Object.values(item)[0])
+      for (let i = 0; i < this.porterListCheckStatus.length; i++) {
+        if (this.porterListCheckStatus[i]) {
+          this.checkedPorterIdList.push(this.porterIdList[i])
+        }
+      }
+    }
+    return this.checkedPorterIdList
+  }
+
 }

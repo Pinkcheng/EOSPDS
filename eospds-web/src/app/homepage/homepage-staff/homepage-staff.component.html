@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="staff-list-title lighter-color">
-      <mat-checkbox class="staff-checkbox"></mat-checkbox>
+      <mat-checkbox class="staff-checkbox" [checked]="allStaffCheckStatus" (change)="setAllCheckboxStatus($event.checked)"></mat-checkbox>
       <span class="staff-name">姓名</span>
       <span class="staff-handover">交接次數</span>
       <span class="staff-professional">職稱</span>
@@ -16,7 +16,7 @@
     </div>
     <div class="staff-list">
       <div class="staff-list-content" id="staff_{{idx}}" *ngFor="let item of staffList; let idx = index">
-        <mat-checkbox class="staff-checkbox"></mat-checkbox>
+        <mat-checkbox class="staff-checkbox" [(ngModel)]="staffListCheckStatus[idx]" (ngModelChange)="updateAllCheckboxStatus()"></mat-checkbox>
         <span class="staff-name">{{item.name}}</span>
         <span class="staff-handover">{{item.handover}} 件</span>
         <span class="staff-professional">{{item.professional}}</span>
