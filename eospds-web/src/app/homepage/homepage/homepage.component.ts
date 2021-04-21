@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { GlobalConstants } from '..//../common/global-constants';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -13,8 +14,9 @@ export class HomepageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  headerHeight!: number;
-  articleHeight!: number;
+  headerHeight: number = 0;
+  articleHeight: number = 0;
+  isPorterCenter: boolean = GlobalConstants.isPorterCenter;
 
   @HostListener('window:resize', ['$event'])
   getScreenSize() {
@@ -22,8 +24,8 @@ export class HomepageComponent implements OnInit {
     this.articleHeight = window.innerHeight * 0.9;
   }
 
-  homepageSwitch!: number;
-  switchHomepage($event:number){
+  homepageSwitch: number = 1; //預設初始homepage
+  switchHomepage($event: number) {
     this.homepageSwitch = $event;
   }
 }

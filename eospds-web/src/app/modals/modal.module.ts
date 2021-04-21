@@ -4,6 +4,7 @@ import { ModalAddMissionComponent } from './modal-add-mission/modal-add-mission.
 import { MatButtonModule } from '@angular/material/button';
 import { ModalManualDispatchComponent } from './modal-manual-dispatch/modal-manual-dispatch.component';
 import { ModalAutoDispatchComponent } from './modal-auto-dispatch/modal-auto-dispatch.component';
+import { ModalAddPorterComponent } from './modal-add-porter/modal-add-porter.component';
 
 
 
@@ -11,7 +12,8 @@ import { ModalAutoDispatchComponent } from './modal-auto-dispatch/modal-auto-dis
   declarations: [
     ModalAddMissionComponent,
     ModalManualDispatchComponent,
-    ModalAutoDispatchComponent
+    ModalAutoDispatchComponent,
+    ModalAddPorterComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { ModalAutoDispatchComponent } from './modal-auto-dispatch/modal-auto-dis
   exports: [
     ModalAddMissionComponent,
     ModalManualDispatchComponent,
-    ModalAutoDispatchComponent
+    ModalAutoDispatchComponent,
+    ModalAddPorterComponent
   ]
 })
 export class ModalModule { }

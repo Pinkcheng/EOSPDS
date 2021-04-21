@@ -1,0 +1,88 @@
+.porter-article{
+  display:flex;
+}
+.article-left{
+  width:75%;
+}
+.article-right{
+  width:25%;
+}
+.function-bar{
+  height:5%;
+}
+.porter-list-title{
+  height:4%;
+  display:flex;
+  align-items:center;
+  border: 1px solid #707070;
+  justify-content: space-between;
+  padding-right: 25px;
+  padding-left: 16px;
+}
+.porter_name{
+  text-align:center;
+  width:10%;
+}
+.porter-type{
+  text-align:center;
+  width:10%;
+}
+
+.porter-status{
+  text-align:center;
+  width:10%;
+}
+.porter-mission{
+  text-align:center;
+  width:10%;
+}
+.porter-position{
+  text-align:center;
+  width:15%;
+}
+.porter-time{
+  text-align:center;
+  width:15%;
+}
+.porter-checkbox{
+  text-align:center;
+}
+.porter-list{
+  height:90%;
+  overflow-y:scroll;
+}
+
+.porter-list-content{
+  display:flex;
+  align-items:center;
+  padding:15px;
+  border: 1px solid #707070;
+  justify-content: space-between;
+  font-size: 18px;
+}
+.porter-status-1{
+  background-color:green;
+  color:white;
+  padding:5px;
+}
+.porter-status-2{
+  background-color:red;
+  color:white;
+  padding:5px;
+}
+.function-bar{
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
+}
+.button{
+  margin: auto 5px;
+  border-radius: 50px;
+  border: 0px;
+  outline:none;
+  cursor: pointer;
+}
+.update-list-button{
+  background-color:#43A1A7;
+  color:#FFFFFF;
+}

@@ -1,0 +1,35 @@
+<div class="porter-article" [style.height]="articleHeight+'px'">
+  <div class="article-left">
+    <div class="function-bar">
+      <span class="checkbox-container">
+        <app-homepage-porter-checkbox (returnListEvent)="getCheckboxList($event)"></app-homepage-porter-checkbox>
+      </span>
+      <span class="button-container">
+        <button mat-flat-button class="button update-list-button" (click)="updatePorterList()">更新列表</button>
+        <app-modal-add-porter class="button add-porter-button"></app-modal-add-porter>
+      </span>
+    </div>
+    <div class="porter-list-title lighter-color">
+      <mat-checkbox class="porter-checkbox"></mat-checkbox>
+      <span class="porter_name">姓名</span>
+      <span class="porter-type">傳送類型</span>
+      <span class="porter-status">人員狀態</span>
+      <span class="porter-mission">任務數量</span>
+      <span class="porter-position">最後停留時間</span>
+      <span class="porter-time">最後停留位置</span>
+    </div>
+    <div class="porter-list">
+      <div class="porter-list-content" id="porter_{{idx}}" *ngFor="let item of porterListFilter; let idx = index">
+        <mat-checkbox class="porter-checkbox"></mat-checkbox>
+        <span class="porter_name">{{item.name}}</span>
+        <span class="porter-type">{{item.type|porterType}}</span>
+        <span class="porter-status porter-status-1" *ngIf="item.status ==1">{{item.status|porterStatus}}</span>
+        <span class="porter-status porter-status-2" *ngIf="item.status ==2">{{item.status|porterStatus}}</span>
+        <span class="porter-mission">{{item.mission}} 件</span>
+        <span class="porter-position">{{item.position}}</span>
+        <span class="porter-time">{{item.time}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="article-right light-color"></div>
+</div>

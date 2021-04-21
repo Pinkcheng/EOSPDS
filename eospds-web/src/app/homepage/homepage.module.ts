@@ -1,4 +1,6 @@
 import { MissionStatusPipe } from './../pipe/mission-status.pipe';
+import { PorterStatusPipe } from './../pipe/porter-status.pipe';
+import { PorterTypePipe } from './../pipe/porter-type.pipe';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -13,6 +15,8 @@ import { HomepageMissionCheckboxComponent } from './homepage-mission-checkbox/ho
 import { HomepageMissionListComponent } from './homepage-mission-list/homepage-mission-list.component';
 import { MatButtonModule } from '@angular/material/button';
 import { HomepageMissionDataComponent } from './homepage-mission-data/homepage-mission-data.component';
+import { HomepagePorterComponent } from './homepage-porter/homepage-porter.component';
+import { HomepagePorterCheckboxComponent } from './homepage-porter-checkbox/homepage-porter-checkbox.component';
 
 @NgModule({
   declarations: [
@@ -22,10 +26,13 @@ import { HomepageMissionDataComponent } from './homepage-mission-data/homepage-m
     HomepageStaffComponent,
     HomepageSettingComponent,
     MissionStatusPipe,
+    PorterStatusPipe,
+    PorterTypePipe,
     HomepageMissionCheckboxComponent,
     HomepageMissionListComponent,
     HomepageMissionDataComponent,
-
+    HomepagePorterComponent,
+    HomepagePorterCheckboxComponent,
   ],
   imports: [
     CommonModule,

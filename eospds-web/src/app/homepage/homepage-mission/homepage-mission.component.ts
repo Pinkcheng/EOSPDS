@@ -14,14 +14,13 @@ export class HomepageMissionComponent implements OnInit {
   articleHeight: number = 0;
 
   missionListFilter: Array<any> = [];
-  checkboxList: Array<number> = [];
+  checkboxList: Array<number> = [1, 2, 3, 4];
   missionData: Object = {};
 
   constructor() { }
 
   ngOnInit(): void {
     //get mission list
-    this.checkboxList = [1, 2, 3, 4];
     this.changeMissionList(this.checkboxList);
     this.missionData = this.mission_1_data;
   }
@@ -211,17 +210,16 @@ export class HomepageMissionComponent implements OnInit {
   changeMissionList(checkboxList: Array<number>) {
     this.missionListFilter = []
     this.mission_list.forEach((value: any, index) => {
-      for (let i = 0; i < this.checkboxList.length; i++) {
-        if (this.checkboxList[i] == 0) {
-          this.missionListFilter = this.mission_list;
-          break;
-        }
-        else if (value.status == this.checkboxList[i]) {
-          this.missionListFilter.push(value)
+      if (checkboxList.length != 0) {
+        for (let i = 0; i < this.checkboxList.length; i++) {
+          if (value.status == this.checkboxList[i]) {
+            this.missionListFilter.push(value)
+          }
         }
       }
     });
   }
+
   isMouseLeave: boolean = true;
   //取得任務資料
   getMissionData($event: Array<any>) {
@@ -236,7 +234,6 @@ export class HomepageMissionComponent implements OnInit {
 
   mouseIsLeave($event: boolean) {
     this.isMouseLeave = $event;
-    console.log(this.isMouseLeave)
   }
 }
 

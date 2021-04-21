@@ -5,13 +5,13 @@
     <app-homepage-mission [articleHeight]="articleHeight"></app-homepage-mission>
   </ng-container>
   <ng-container *ngSwitchCase="1">
-    <app-homepage-staff [articleHeight]="articleHeight"></app-homepage-staff>
+    <app-homepage-staff *ngIf="!isPorterCenter" [articleHeight]="articleHeight"></app-homepage-staff>
+    <app-homepage-porter *ngIf="isPorterCenter" [articleHeight]="articleHeight"></app-homepage-porter>
   </ng-container>
   <ng-container *ngSwitchCase="2">
     <app-homepage-setting [articleHeight]="articleHeight"></app-homepage-setting>
   </ng-container>
-  <ng-container *ngSwitchDefault>
-    <!-- <app-homepage-mission [articleHeight]="articleHeight"></app-homepage-mission>-->
-    <app-homepage-staff [articleHeight]="articleHeight"></app-homepage-staff>
-  </ng-container>
+  <!-- <ng-container *ngSwitchDefault>
+    <app-homepage-mission [articleHeight]="articleHeight"></app-homepage-mission>
+  </ng-container>-->
 </ng-container>

@@ -12,7 +12,6 @@ export class HomepageMissionDataComponent implements OnInit, OnChanges{
   @Input()
   missionData: any = {};
   ngOnInit(): void {
-    console.log(this.missionData)
   }
   ngOnChanges(changes: SimpleChanges): void {
     if(changes.missionData){

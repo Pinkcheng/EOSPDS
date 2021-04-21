@@ -13,8 +13,8 @@
 .mission-status{
   text-align:center;
   width:10%;
-  font-weight:bold;
   color:white;
+  padding:5px;
 }
 
 .mission-type{
