@@ -11,7 +11,7 @@
 </div>
 <div class="mission-list">
   <div class="mission-list-content" id="mission_{{idx}}" *ngFor="let item of missionList; let idx = index"
-    (mouseenter)="getMouseEnter($event)" (mouseleave)="getMouseLeave($event)">
+    (mouseenter)="getMouseEnter($event)" (mouseleave)="getMouseLeave($event)" (click)="UpdateMissionDataDialog()">
     <mat-checkbox class="checkbox" [(ngModel)]="missionListCheckStatus[idx]" (ngModelChange)="updateAllCheckboxStatus()"
       (ngModelChange)="getCheckMissionIdList()"></mat-checkbox>
     <span class="start-time">{{item.add_time}}</span>

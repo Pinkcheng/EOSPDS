@@ -10,6 +10,7 @@ import { HttpService } from './service/http.service';
 import { ErrorService } from './service/error.service';
 import { LoginpageModule } from './loginpage/loginpage.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogModule } from './dialog/dialog.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ModalModule.forRoot(),
     LoginpageModule,
     BrowserAnimationsModule,
+    DialogModule,
 
   ],
   bootstrap: [AppComponent],

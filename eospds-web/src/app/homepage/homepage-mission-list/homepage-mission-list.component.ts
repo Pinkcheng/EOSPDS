@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogMissionDataComponent } from 'src/app/dialog/dialog-mission-data/dialog-mission-data.component';
 import { GlobalConstants } from '..//../common/global-constants';
 
 @Component({
@@ -8,7 +10,7 @@ import { GlobalConstants } from '..//../common/global-constants';
 })
 export class HomepageMissionListComponent implements OnInit, OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.resetMissionListCheckbox();
@@ -80,5 +82,15 @@ export class HomepageMissionListComponent implements OnInit, OnInit {
       this.missionList = Object.assign({}, changes.missionData.currentValue)
     }
     this.resetMissionListCheckbox();
+  }
+
+  UpdateMissionDataDialog() {
+    this.dialog.open(DialogMissionDataComponent, {
+      width: '500px',
+      height: '450px',
+      data: {
+        missionId: this.mouseEnterMissionId
+      }
+    });
   }
 }

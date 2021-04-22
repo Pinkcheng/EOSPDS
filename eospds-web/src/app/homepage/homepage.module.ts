@@ -1,3 +1,4 @@
+import { DialogModule } from './../dialog/dialog.module';
 import { MissionStatusPipe } from './../pipe/mission-status.pipe';
 import { PorterStatusPipe } from './../pipe/porter-status.pipe';
 import { PorterTypePipe } from './../pipe/porter-type.pipe';
@@ -17,6 +18,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { HomepageMissionDataComponent } from './homepage-mission-data/homepage-mission-data.component';
 import { HomepagePorterComponent } from './homepage-porter/homepage-porter.component';
 import { HomepagePorterCheckboxComponent } from './homepage-porter-checkbox/homepage-porter-checkbox.component';
+import { DialogMissionDataComponent } from '../dialog/dialog-mission-data/dialog-mission-data.component';
+import { DialogDeleteMissionComponent } from '../dialog/dialog-delete-mission/dialog-delete-mission.component';
 
 @NgModule({
   declarations: [
@@ -39,8 +42,13 @@ import { HomepagePorterCheckboxComponent } from './homepage-porter-checkbox/home
     ModalModule,
     FormsModule,
     MatCheckboxModule,
-    MatButtonModule
+    MatButtonModule,
+    DialogModule
   ],
-  exports: [HomepageComponent]
+  exports: [HomepageComponent],
+  entryComponents: [
+    DialogMissionDataComponent,
+    DialogDeleteMissionComponent
+  ]
 })
 export class HomepageModule { }
