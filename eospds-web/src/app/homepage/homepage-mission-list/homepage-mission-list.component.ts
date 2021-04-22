@@ -29,7 +29,6 @@ export class HomepageMissionListComponent implements OnInit, OnInit {
 
   getMouseEnter($event: any) {
     this.mouseEnterIndex = $event.path[0].id.split("_")[1];
-    //console.log(this.mouseEnterIndex);
     this.mouseEnterMissionId = this.missionList[this.mouseEnterIndex].id;
     this.mouseEnterEvent.emit([this.mouseEnterMissionId, false]);
   };
@@ -56,12 +55,10 @@ export class HomepageMissionListComponent implements OnInit, OnInit {
       return;
     }
     this.missionListCheckStatus = this.missionListCheckStatus.map(t => $event);
-    //console.log(this.getCheckMissionIdList())
   }
   //更新全選checkbox狀態
   updateAllCheckboxStatus() {
     this.allMissionCheckStatus = this.missionList != null && this.missionListCheckStatus.every(t => t);
-    //console.log(this.getCheckMissionIdList())
   }
 
   //取得已勾選的mission id List

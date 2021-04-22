@@ -103,14 +103,12 @@ export class HomepageStaffComponent implements OnInit{
       return;
     }
     this.staffListCheckStatus = this.staffListCheckStatus.map(t => $event);
-    //console.log(this.getCheckStaffList())
   }
 
 
   //更新全選checkbox狀態
   updateAllCheckboxStatus() {
     this.allStaffCheckStatus = this.staffList != null && this.staffListCheckStatus.every(t => t);
-    //console.log(this.getCheckStaffList())
   }
 
   //取得已勾選的staff id List

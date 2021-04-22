@@ -156,9 +156,7 @@ export class HomepagePorterComponent implements OnInit {
         }
       }
     });
-    console.log(this.porterListFilter);
     this.resetPorterListCheckbox();
-    console.log(this.porterListCheckStatus);
   }
 
   //手動更新傳送員列表
@@ -189,14 +187,12 @@ export class HomepagePorterComponent implements OnInit {
       return;
     }
     this.porterListCheckStatus = this.porterListCheckStatus.map(t => $event);
-    console.log(this.getCheckPorterList())
   }
 
 
   //更新全選checkbox狀態
   updateAllCheckboxStatus() {
     this.allPorterCheckStatus = this.porterListFilter != null && this.porterListCheckStatus.every(t => t);
-    console.log(this.getCheckPorterList())
   }
 
   //取得已勾選的porter id List
