@@ -12,4 +12,9 @@ export class DialogAddStaffComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addStaff(){
+    //http post staff add
+    console.log("新增人員")
+  }
+
 }

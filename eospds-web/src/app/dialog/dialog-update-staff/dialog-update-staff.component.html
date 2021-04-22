@@ -1,1 +1,10 @@
-<p>dialog-update-staff works!</p>
+<h1 mat-dialog-title class="mat-dialog-title dark-color">修改人員</h1>
+<div mat-dialog-content class="staff-content">
+  <div class="text">編號: {{staffData.id}}</div>
+  <div class="text">姓名: {{staffData.name}}</div>
+  <div class="text">職稱: {{staffData.professional}}</div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button class="button delete-staff-button" (click)="deleteStaffDialog()">刪除</button>
+  <button mat-button mat-dialog-close class="button light-color">關閉</button>
+</div>

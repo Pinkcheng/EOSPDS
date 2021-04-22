@@ -1,3 +1,4 @@
+import { ButtonModule } from './../button/button.module';
 import { DialogModule } from './../dialog/dialog.module';
 import { MissionStatusPipe } from './../pipe/mission-status.pipe';
 import { PorterStatusPipe } from './../pipe/porter-status.pipe';
@@ -50,7 +51,8 @@ import { DialogDeletePorterComponent } from '../dialog/dialog-delete-porter/dial
     FormsModule,
     MatCheckboxModule,
     MatButtonModule,
-    DialogModule
+    DialogModule,
+    ButtonModule
   ],
   exports: [HomepageComponent],
   entryComponents: [
@@ -63,7 +65,6 @@ import { DialogDeletePorterComponent } from '../dialog/dialog-delete-porter/dial
     DialogAddStaffComponent,
     DialogUpdateStaffComponent,
     DialogDeleteStaffComponent,
-
   ]
 })
 export class HomepageModule { }

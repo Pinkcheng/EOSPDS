@@ -2,9 +2,9 @@
   <div class="article-left">
     <div class="function-bar">
       <div class="button-container">
-        <button mat-flat-button class="button update-list-button darker-color">更新列表</button>
+        <button mat-flat-button class="button update-list-button darker-color" (click)="updateStaffList()">更新列表</button>
         <button mat-flat-button class="button print-qrcode-button light-color" (click)="printQRcode()">列印QRcode</button>
-        <app-modal-add-staff class=" button add-staff-button"></app-modal-add-staff>
+        <button mat-flat-button class="button add-staff-button" (click)="addStaffDialog()">新增人員</button>
       </div>
     </div>
     <div class="staff-list-title lighter-color">
@@ -15,7 +15,7 @@
       <span class="staff-department">隸屬單位</span>
     </div>
     <div class="staff-list">
-      <div class="staff-list-content" id="staff_{{idx}}" *ngFor="let item of staffList; let idx = index">
+      <div class="staff-list-content" id="staff_{{idx}}" *ngFor="let item of staffList; let idx = index" (mouseenter)="getMouseEnter($event)" (click)="updateStaffDialog()">
         <mat-checkbox class="staff-checkbox" [(ngModel)]="staffListCheckStatus[idx]" (ngModelChange)="updateAllCheckboxStatus()"></mat-checkbox>
         <span class="staff-name">{{item.name}}</span>
         <span class="staff-handover">{{item.handover}} 件</span>

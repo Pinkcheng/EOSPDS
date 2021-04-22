@@ -15,6 +15,10 @@ export class HomepagePorterComponent implements OnInit {
   ngOnInit(): void {
     this.changePorterList(this.checkboxList);
     this.resetPorterListCheckbox();
+    /*this.dialog.afterAllClosed.subscribe(() => {//刪除或關閉list會更新list
+      console.log('目前已經沒有dialog了');
+      this.updatePorterList();
+    });*/
   }
 
   @Input()
@@ -164,7 +168,7 @@ export class HomepagePorterComponent implements OnInit {
 
   //手動更新傳送員列表
   updatePorterList() {
-    //get mission list
+    //get porter list
     this.porterList = this.porterListChange;
     this.changePorterList(this.checkboxList);
   }
@@ -228,7 +232,7 @@ export class HomepagePorterComponent implements OnInit {
       }
     });
   }
-  addPorterDialog(){
+  addPorterDialog() {
     this.dialog.open(DialogAddPorterComponent, {
       width: '600px',
       height: '500px',

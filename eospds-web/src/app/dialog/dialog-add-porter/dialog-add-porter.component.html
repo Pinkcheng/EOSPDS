@@ -1,11 +1,11 @@
 <h1 mat-dialog-title class="mat-dialog-title dark-color">新增傳送員</h1>
 <div mat-dialog-content class="mission-content">
-  <div class="text">傳送員姓名: <input type="box"></div>
+  <div class="text">姓名: <input type="box"></div>
   <div class="text">帳號: <input type="box"></div>
   <div class="text">密碼: <input type="box"></div>
   <div class="text">確認密碼: <input type="box"></div>
   <div class="text">Tag編號: <input type="box"></div>
-  <div class="text">傳送員類型:
+  <div class="text">類型:
     <mat-radio-group aria-labelledby="example-radio-group-label" class="text example-radio-group" [(ngModel)]="type">
       <mat-radio-button class="example-radio-button" *ngFor="let type of types" [value]="type">
         {{type}}

@@ -74,3 +74,7 @@
 .staff-list-content:hover{
   background-color: gray;
 }
+.add-staff-button{
+  background-color:#4CBC49;
+  color:white;
+}

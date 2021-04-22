@@ -205,6 +205,7 @@ export class HomepageMissionComponent implements OnInit {
     //get mission list
     this.missionList = this.missionListChange;
     this.changeMissionList(this.checkboxList);
+    this.checkMissionList = [];
   }
 
   //取得checkbox狀態
@@ -248,7 +249,7 @@ export class HomepageMissionComponent implements OnInit {
     this.checkMissionList = $event;
   }
 
-  addMissionDialog(){
+  addMissionDialog() {
     this.dialog.open(DialogAddMissionComponent, {
       width: '600px',
       height: '500px',

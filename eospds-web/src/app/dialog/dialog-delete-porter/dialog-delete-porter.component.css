@@ -2,17 +2,14 @@
   font-weight:bold;
   padding:10px;
 }
-.mission-content{
+.porter-content{
   font-size:larger
 }
 .text{
  text-align: center;
   margin: 10px;
 }
-.delete-porter-button{
-  background-color: red;
-  color: white;
-}
+
 .button{
   margin: auto;
   border-radius: 50px;

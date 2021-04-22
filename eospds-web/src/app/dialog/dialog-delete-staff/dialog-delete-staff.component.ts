@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dialog-delete-staff',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogDeleteStaffComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) private data: any, private dialogRef: MatDialog) { console.log(data.staffId) }
 
   ngOnInit(): void {
+  }
+  deletePorter() {
+    //delete porter http
+    console.log("確認刪除人員");
+    this.closeAll();
+  }
+  closeAll() {
+    this.dialogRef.closeAll();
   }
 
 }

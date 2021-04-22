@@ -33,7 +33,6 @@ export class HomepageMissionListComponent implements OnInit, OnInit {
     this.mouseEnterIndex = $event.path[0].id.split("_")[1];
     this.mouseEnterMissionId = this.missionList[this.mouseEnterIndex].id;
     this.mouseEnterEvent.emit([this.mouseEnterMissionId, false]);
-    console.log(this.mouseEnterMissionId);
   };
   getMouseLeave($event: any) {
     this.mouseLeaveEvent.emit(true);

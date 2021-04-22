@@ -10,7 +10,7 @@ import { DialogDeleteMissionComponent } from '../dialog-delete-mission/dialog-de
 export class DialogMissionDataComponent implements OnInit {
 
   constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) private data: any) {
-    console.log(data.missionId)//欲修改之missionid
+    //console.log(data.missionId)//欲修改之missionid
   }
 
   missionData = {
