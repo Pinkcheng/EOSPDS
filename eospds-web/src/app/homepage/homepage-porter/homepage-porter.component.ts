@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogAddPorterComponent } from 'src/app/dialog/dialog-add-porter/dialog-add-porter.component';
+import { DialogUpdatePorterComponent } from 'src/app/dialog/dialog-update-porter/dialog-update-porter.component';
 
 @Component({
   selector: 'app-homepage-porter',
@@ -7,7 +10,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HomepagePorterComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.changePorterList(this.checkboxList);
@@ -208,5 +211,27 @@ export class HomepagePorterComponent implements OnInit {
     }
     return this.checkedPorterIdList
   }
+  //取得游標目前PorterId
+  mouseEnterIndex: number = 0;
+  mouseEnterPorterId: string = "";
+  getMouseEnter($event: any) {
+    this.mouseEnterIndex = $event.path[0].id.split("_")[1];
+    this.mouseEnterPorterId = this.porterListFilter[this.mouseEnterIndex].id;
+  };
 
+  updatePorterDialog() {
+    this.dialog.open(DialogUpdatePorterComponent, {
+      width: '500px',
+      height: '450px',
+      data: {
+        porterId: this.mouseEnterPorterId
+      }
+    });
+  }
+  addPorterDialog(){
+    this.dialog.open(DialogAddPorterComponent, {
+      width: '600px',
+      height: '500px',
+    });
+  }
 }

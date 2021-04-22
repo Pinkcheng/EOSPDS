@@ -21,6 +21,12 @@ import { HomepagePorterCheckboxComponent } from './homepage-porter-checkbox/home
 import { DialogMissionDataComponent } from '../dialog/dialog-mission-data/dialog-mission-data.component';
 import { DialogDeleteMissionComponent } from '../dialog/dialog-delete-mission/dialog-delete-mission.component';
 import { DialogAddMissionComponent } from './../dialog/dialog-add-mission/dialog-add-mission.component';
+import { DialogUpdateStaffComponent } from '../dialog/dialog-update-staff/dialog-update-staff.component';
+import { DialogAddStaffComponent } from '../dialog/dialog-add-staff/dialog-add-staff.component';
+import { DialogDeleteStaffComponent } from '../dialog/dialog-delete-staff/dialog-delete-staff.component';
+import { DialogAddPorterComponent } from '../dialog/dialog-add-porter/dialog-add-porter.component';
+import { DialogUpdatePorterComponent } from '../dialog/dialog-update-porter/dialog-update-porter.component';
+import { DialogDeletePorterComponent } from '../dialog/dialog-delete-porter/dialog-delete-porter.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +56,14 @@ import { DialogAddMissionComponent } from './../dialog/dialog-add-mission/dialog
   entryComponents: [
     DialogMissionDataComponent,
     DialogDeleteMissionComponent,
-    DialogAddMissionComponent
+    DialogAddMissionComponent,
+    DialogAddPorterComponent,
+    DialogUpdatePorterComponent,
+    DialogDeletePorterComponent,
+    DialogAddStaffComponent,
+    DialogUpdateStaffComponent,
+    DialogDeleteStaffComponent,
+
   ]
 })
 export class HomepageModule { }

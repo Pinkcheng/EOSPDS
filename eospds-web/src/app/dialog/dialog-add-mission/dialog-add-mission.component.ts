@@ -11,8 +11,9 @@ export class DialogAddMissionComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  favoriteSeason: string = '無';
-  seasons: string[] = ['無', '大床', '小床', '升降小床','輪椅'];
+  tool: string = '無';
+  tools: string[] = ['無', '大床', '小床', '升降小床','輪椅'];
+
   addMission(){
     //http post mission
   }

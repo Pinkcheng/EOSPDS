@@ -5,9 +5,9 @@
   <div class="text">送往單位: <input type="box"></div>
   <div class="text">輔助工具:
     <mat-radio-group aria-labelledby="example-radio-group-label" class="text example-radio-group"
-      [(ngModel)]="favoriteSeason">
-      <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
-        {{season}}
+      [(ngModel)]="tool">
+      <mat-radio-button class="example-radio-button" *ngFor="let tool of tools" [value]="tool">
+        {{tool}}
       </mat-radio-button>
     </mat-radio-group>
   </div>

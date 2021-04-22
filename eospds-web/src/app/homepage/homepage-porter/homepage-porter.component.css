@@ -89,3 +89,7 @@
 .porter-list-content:hover{
   background-color: gray;
 }
+.add-porter-button{
+  background-color:#4CBC49;
+  color:white;
+}

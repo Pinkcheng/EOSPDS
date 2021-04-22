@@ -6,7 +6,7 @@
       </span>
       <span class="button-container">
         <button mat-flat-button class="button update-list-button darker-color" (click)="updatePorterList()">更新列表</button>
-        <app-modal-add-porter class="button add-porter-button"></app-modal-add-porter>
+        <button mat-flat-button class="button add-porter-button" (click)="addPorterDialog()">新增傳送員</button>
       </span>
     </div>
     <div class="porter-list-title lighter-color">
@@ -19,7 +19,7 @@
       <span class="porter-time">最後停留位置</span>
     </div>
     <div class="porter-list">
-      <div class="porter-list-content" id="porter_{{idx}}" *ngFor="let item of porterListFilter; let idx = index">
+      <div class="porter-list-content" id="porter_{{idx}}" *ngFor="let item of porterListFilter; let idx = index" (mouseenter)="getMouseEnter($event)" (click)="updatePorterDialog()">
         <mat-checkbox class="porter-checkbox" [(ngModel)]="porterListCheckStatus[idx]" (ngModelChange)="updateAllCheckboxStatus()"></mat-checkbox>
         <span class="porter_name">{{item.name}}</span>
         <span class="porter-type">{{item.type|porterType}}</span>

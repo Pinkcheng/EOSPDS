@@ -8,6 +8,14 @@ import { DialogDeleteMissionComponent } from './dialog-delete-mission/dialog-del
 import { DialogAddMissionComponent } from './dialog-add-mission/dialog-add-mission.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
+import { DialogAddPorterComponent } from './dialog-add-porter/dialog-add-porter.component';
+import { DialogAddStaffComponent } from './dialog-add-staff/dialog-add-staff.component';
+import { DialogDeletePorterComponent } from './dialog-delete-porter/dialog-delete-porter.component';
+import { DialogUpdatePorterComponent } from './dialog-update-porter/dialog-update-porter.component';
+import { DialogUpdateStaffComponent } from './dialog-update-staff/dialog-update-staff.component';
+import { DialogDeleteStaffComponent } from './dialog-delete-staff/dialog-delete-staff.component';
+import { DialogManualDispatchComponent } from './dialog-manual-dispatch/dialog-manual-dispatch.component';
+import { DialogAutoDispatchComponent } from './dialog-auto-dispatch/dialog-auto-dispatch.component';
 
 
 
@@ -15,7 +23,15 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     DialogMissionDataComponent,
     DialogDeleteMissionComponent,
-    DialogAddMissionComponent
+    DialogAddMissionComponent,
+    DialogAddPorterComponent,
+    DialogAddStaffComponent,
+    DialogDeletePorterComponent,
+    DialogUpdatePorterComponent,
+    DialogUpdateStaffComponent,
+    DialogDeleteStaffComponent,
+    DialogManualDispatchComponent,
+    DialogAutoDispatchComponent
   ],
   imports: [
     CommonModule,

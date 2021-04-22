@@ -1,0 +1,26 @@
+<h1 mat-dialog-title class="mat-dialog-title dark-color">新增傳送員</h1>
+<div mat-dialog-content class="mission-content">
+  <div class="text">傳送員姓名: <input type="box"></div>
+  <div class="text">帳號: <input type="box"></div>
+  <div class="text">密碼: <input type="box"></div>
+  <div class="text">確認密碼: <input type="box"></div>
+  <div class="text">Tag編號: <input type="box"></div>
+  <div class="text">傳送員類型:
+    <mat-radio-group aria-labelledby="example-radio-group-label" class="text example-radio-group" [(ngModel)]="type">
+      <mat-radio-button class="example-radio-button" *ngFor="let type of types" [value]="type">
+        {{type}}
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div class="text">性別:
+    <mat-radio-group aria-labelledby="example-radio-group-label" class="text example-radio-group" [(ngModel)]="gender">
+      <mat-radio-button class="example-radio-button" *ngFor="let gender of genders" [value]="gender">
+        {{gender}}
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close class="button dark-color" (click)="addPorter()">確定</button>
+  <button mat-button mat-dialog-close class="button light-color">取消</button>
+</div>
