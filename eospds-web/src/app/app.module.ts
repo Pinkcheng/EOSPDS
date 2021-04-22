@@ -11,6 +11,7 @@ import { ErrorService } from './service/error.service';
 import { LoginpageModule } from './loginpage/loginpage.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogModule } from './dialog/dialog.module';
+import { ButtonModule } from './button/button.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { DialogModule } from './dialog/dialog.module';
     LoginpageModule,
     BrowserAnimationsModule,
     DialogModule,
+    ButtonModule,
 
   ],
   bootstrap: [AppComponent],

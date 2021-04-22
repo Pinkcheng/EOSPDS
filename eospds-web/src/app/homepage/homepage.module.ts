@@ -20,6 +20,7 @@ import { HomepagePorterComponent } from './homepage-porter/homepage-porter.compo
 import { HomepagePorterCheckboxComponent } from './homepage-porter-checkbox/homepage-porter-checkbox.component';
 import { DialogMissionDataComponent } from '../dialog/dialog-mission-data/dialog-mission-data.component';
 import { DialogDeleteMissionComponent } from '../dialog/dialog-delete-mission/dialog-delete-mission.component';
+import { DialogAddMissionComponent } from './../dialog/dialog-add-mission/dialog-add-mission.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { DialogDeleteMissionComponent } from '../dialog/dialog-delete-mission/di
   exports: [HomepageComponent],
   entryComponents: [
     DialogMissionDataComponent,
-    DialogDeleteMissionComponent
+    DialogDeleteMissionComponent,
+    DialogAddMissionComponent
   ]
 })
 export class HomepageModule { }

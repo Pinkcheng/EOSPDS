@@ -9,7 +9,7 @@
           (click)="updateMissionList()">更新列表</button>
         <app-modal-manual-dispatch *ngIf="isPorterCenter" class="function-button"></app-modal-manual-dispatch>
         <app-modal-auto-dispatch *ngIf="isPorterCenter" class="function-button"></app-modal-auto-dispatch>
-        <app-modal-add-mission class="function-button"></app-modal-add-mission>
+        <button mat-flat-button class="function-button add-mission-button" (click)="addMissionDialog()">新增任務</button>
       </span>
     </div>
 

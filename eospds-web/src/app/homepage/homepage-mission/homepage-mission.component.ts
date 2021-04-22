@@ -1,5 +1,7 @@
 import { GlobalConstants } from './../../common/global-constants';
 import { Component, Input, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogAddMissionComponent } from 'src/app/dialog/dialog-add-mission/dialog-add-mission.component';
 
 
 @Component({
@@ -18,12 +20,16 @@ export class HomepageMissionComponent implements OnInit {
   checkboxList: Array<number> = [1, 2, 3, 4];
   missionData: Object = {};
   isPorterCenter: boolean = GlobalConstants.isPorterCenter;
-  constructor() { }
+  constructor(public dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
     //get mission list
     this.changeMissionList(this.checkboxList);
-    this.missionData = this.mission_1_data;
+    /*this.dialog.afterAllClosed.subscribe(() => {//刪除任務或關閉list會更新list
+      console.log('目前已經沒有dialog了');
+      this.updateMissionList();
+    });*/
   }
 
   missionList = [
@@ -240,6 +246,13 @@ export class HomepageMissionComponent implements OnInit {
   checkMissionList: string[] = [];
   getCheckMissionList($event: string[]) {
     this.checkMissionList = $event;
+  }
+
+  addMissionDialog(){
+    this.dialog.open(DialogAddMissionComponent, {
+      width: '600px',
+      height: '500px',
+    });
   }
 }
 

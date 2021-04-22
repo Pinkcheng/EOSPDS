@@ -3,10 +3,11 @@
   padding:10px;
 }
 .mission-content{
-  font-size:larger
+  font-size:larger;
+  margin:5px;
 }
 .text{
-  margin:10px;
+ margin: 10px;
 }
 .delete-mission-button{
   background-color: red;
@@ -18,4 +19,16 @@
   border: 0px;
   outline:none;
   cursor: pointer;
+}
+
+.example-radio-group {
+  display: inline-flex;
+  flex-direction:row;
+  margin: 0;
+}
+.text{
+  margin:5px;
+}
+.example-radio-button {
+  margin: 5px;
 }
