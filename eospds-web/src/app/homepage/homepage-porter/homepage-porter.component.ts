@@ -238,4 +238,7 @@ export class HomepagePorterComponent implements OnInit {
       height: '500px',
     });
   }
+  clickInnerCheckbox($event: any) {
+    $event.stopPropagation();
+  }
 }

@@ -93,4 +93,7 @@ export class HomepageMissionListComponent implements OnInit, OnInit {
       }
     });
   }
+  clickInnerCheckbox($event: any) {
+    $event.stopPropagation();
+  }
 }

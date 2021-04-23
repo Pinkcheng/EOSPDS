@@ -185,4 +185,7 @@ export class HomepageStaffComponent implements OnInit {
       height: '250px',
     });
   }
+  clickInnerCheckbox($event: any) {
+    $event.stopPropagation();
+  }
 }

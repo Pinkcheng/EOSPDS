@@ -18,7 +18,8 @@ export class ButtonManualDispatchComponent implements OnInit, OnChanges {
   ngOnInit(): void {
   }
 
-  manualDispatchDiaolog() {
+  manualDispatchDiaolog(event:any) {
+    event.stopPropagation();
     this.dialog.open(DialogManualDispatchComponent, {
       width: '500px',
       height: '500px',

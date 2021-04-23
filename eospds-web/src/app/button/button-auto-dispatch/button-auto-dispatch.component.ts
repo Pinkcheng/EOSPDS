@@ -20,8 +20,8 @@ export class ButtonAutoDispatchComponent implements OnInit, OnChanges {
   ngOnInit(): void {
 
   }
-  autoDispatchDiaolog() {
-
+  autoDispatchDiaolog(event:any) {
+    event.stopPropagation();
     console.log(this.checkMissionList)
     this.dialog.open(DialogAutoDispatchComponent, {
       width: '300px',

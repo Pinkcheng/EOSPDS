@@ -20,7 +20,7 @@
     </div>
     <div class="porter-list">
       <div class="porter-list-content" id="porter_{{idx}}" *ngFor="let item of porterListFilter; let idx = index" (mouseenter)="getMouseEnter($event)" (click)="updatePorterDialog()">
-        <mat-checkbox class="porter-checkbox" [(ngModel)]="porterListCheckStatus[idx]" (ngModelChange)="updateAllCheckboxStatus()"></mat-checkbox>
+        <mat-checkbox class="porter-checkbox" (click)="clickInnerCheckbox($event)"[(ngModel)]="porterListCheckStatus[idx]" (ngModelChange)="updateAllCheckboxStatus()"></mat-checkbox>
         <span class="porter_name">{{item.name}}</span>
         <span class="porter-type">{{item.type|porterType}}</span>
         <span class="porter-status porter-status-1" *ngIf="item.status ==1">{{item.status|porterStatus}}</span>
