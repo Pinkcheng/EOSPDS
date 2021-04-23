@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomepageModule } from './homepage/homepage.module';
-import { ModalModule } from 'ngx-bootstrap/modal';
 import { HttpService } from './service/http.service';
 import { ErrorService } from './service/error.service';
 import { LoginpageModule } from './loginpage/loginpage.module';
@@ -23,12 +22,10 @@ import { ButtonModule } from './button/button.module';
     AppRoutingModule,
     HttpClientModule,
     HomepageModule,
-    ModalModule.forRoot(),
     LoginpageModule,
     BrowserAnimationsModule,
     DialogModule,
     ButtonModule,
-
   ],
   bootstrap: [AppComponent],
   providers: [HttpService, ErrorService]

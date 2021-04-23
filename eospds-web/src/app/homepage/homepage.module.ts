@@ -10,7 +10,6 @@ import { HomepageHeaderComponent } from './homepage-header/homepage-header.compo
 import { HomepageMissionComponent } from './homepage-mission/homepage-mission.component';
 import { HomepageStaffComponent } from './homepage-staff/homepage-staff.component';
 import { HomepageSettingComponent } from './homepage-setting/homepage-setting.component';
-import { ModalModule } from '../modals/modal.module';
 import { FormsModule } from '@angular/forms'
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { HomepageMissionCheckboxComponent } from './homepage-mission-checkbox/homepage-mission-checkbox.component';
@@ -47,7 +46,6 @@ import { DialogDeletePorterComponent } from '../dialog/dialog-delete-porter/dial
   ],
   imports: [
     CommonModule,
-    ModalModule,
     FormsModule,
     MatCheckboxModule,
     MatButtonModule,
