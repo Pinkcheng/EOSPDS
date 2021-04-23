@@ -12,8 +12,11 @@ export class DialogAutoDispatchComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  autoDispatch(){
+
+  autoDispatch() {
     console.log(this.data.checkMissionList)
-    //http auto dispatch
+    if (this.data.CheckMissionList.length !=0) {
+      //http auto dispatch
+    }
   }
 }

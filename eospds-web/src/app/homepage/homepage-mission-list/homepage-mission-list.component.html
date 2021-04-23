@@ -25,11 +25,10 @@
     <span class="porter" *ngIf="item.status != 1">{{item.porter}}</span>
     <span class="porter-position" *ngIf="item.status != 1">{{item.position}}</span>
     <span class="porter" *ngIf="item.status == 1 && isPorterCenter">
-      <app-modal-manual-dispatch></app-modal-manual-dispatch>
+      <app-button-manual-dispatch [missionId]="mouseEnterMissionId"></app-button-manual-dispatch>
       <app-button-auto-dispatch [missionId]="mouseEnterMissionId"></app-button-auto-dispatch>
     </span>
     <span class="porter" *ngIf=" item.status == 1 &&!isPorterCenter">{{" "}}</span>
     <span class="porter-position " *ngIf="item.status == 1">{{" "}}</span>
-
   </div>
 </div>

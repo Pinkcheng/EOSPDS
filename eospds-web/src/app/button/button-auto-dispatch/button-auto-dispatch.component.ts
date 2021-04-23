@@ -16,44 +16,28 @@ export class ButtonAutoDispatchComponent implements OnInit, OnChanges {
   checkMissionList: string[] = [];
   @Input()
   missionId: string = "";
+
   ngOnInit(): void {
 
   }
   autoDispatchDiaolog() {
-    if (this.checkMissionList != []) {
-      this.dialog.open(DialogAutoDispatchComponent, {
-        width: '300px',
-        height: '200px',
-        data: {
-          checkMissionList: this.checkMissionList,
-        }
-      });
-      console.log(1, this.missionId)
-      console.log(1, this.checkMissionList)
-      this.checkMissionList = []
 
-    };
-    if (this.missionId != "") {
-      this.checkMissionList.push(this.missionId)
-      this.dialog.open(DialogAutoDispatchComponent, {
-        width: '300px',
-        height: '200px',
-        data: {
-          checkMissionList: this.checkMissionList,
-        }
-      });
-      console.log(2, this.missionId)
-      console.log(2, this.checkMissionList)
-      this.missionId = "";
-
-    }
-
-
+    console.log(this.checkMissionList)
+    this.dialog.open(DialogAutoDispatchComponent, {
+      width: '300px',
+      height: '200px',
+      data: {
+        checkMissionList: this.checkMissionList,
+      }
+    });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.checkMissionList) {
-      this.checkMissionList = Object.assign({}, changes.checkMissionList.currentValue)
+      this.checkMissionList = changes.checkMissionList.currentValue;
+    }
+    if (changes.missionId) {
+      this.checkMissionList = [changes.missionId.currentValue];
     }
   }
 }

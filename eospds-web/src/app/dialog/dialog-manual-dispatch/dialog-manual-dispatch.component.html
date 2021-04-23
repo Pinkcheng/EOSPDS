@@ -1,1 +1,16 @@
-<p>dialog-manual-dispatch works!</p>
+<h1 mat-dialog-title class="mat-dialog-title dark-color">指定人員</h1>
+<div mat-dialog-content class="mission-content text ">
+  <div><span class="button-content">姓名</span> <span class="button-content">目前任務數</span><span
+      class="button-content">目前位置</span></div>
+  <mat-radio-group aria-labelledby="example-radio-group-label" class="text example-radio-group" [(ngModel)]="porterId">
+    <mat-radio-button class="example-radio-button" *ngFor="let item of porterList" [value]="item.id">
+      <span class="button-content">{{item.name}}</span> <span class="button-content">{{item.mission}}件</span><span
+        class="button-content">{{item.position}}</span>
+    </mat-radio-button>
+  </mat-radio-group>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close class="button dark-color" (click)="manualDispatch()">確定</button>
+  <button mat-button mat-dialog-close class="button light-color">取消</button>
+</div>

@@ -66,7 +66,7 @@ export class HomepageMissionComponent implements OnInit {
     {
       "id": "M100100000000202103310004",
       "type": "檢體",
-      "status": 4,
+      "status": 1,
       "add_time": "2021/03/31 02:31",
       "start": "新醫療大樓5F-5B病房",
       "end": "舊醫療大樓1F-檢驗醫學部",
