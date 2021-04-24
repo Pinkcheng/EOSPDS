@@ -1,16 +1,21 @@
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomepageModule } from './homepage/homepage.module';
 import { HttpService } from './service/http.service';
-import { ErrorService } from './service/error.service';
 import { LoginpageModule } from './loginpage/loginpage.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogModule } from './dialog/dialog.module';
 import { ButtonModule } from './button/button.module';
+import { AuthService } from './service/auth.service';
+import { JwtModule } from '@auth0/angular-jwt';
+import { UserService } from './service/user.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { StartupService } from './service/startup.service';
+export function startupServiceFactory(startupService: StartupService): Function { return () => startupService.load(); }
 
 @NgModule({
   declarations: [
@@ -26,8 +31,24 @@ import { ButtonModule } from './button/button.module';
     BrowserAnimationsModule,
     DialogModule,
     ButtonModule,
+    MatSnackBarModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          console.log("tokenGetter called = " + localStorage.getItem('access_token'))
+          return localStorage.getItem('access_token');
+        },
+        allowedDomains: ["localhost:4200"],
+      }
+    })
+
   ],
   bootstrap: [AppComponent],
-  providers: [HttpService, ErrorService]
+  providers: [HttpService, AuthService, UserService, StartupService, {
+    provide: APP_INITIALIZER,
+    useFactory: startupServiceFactory,
+    deps: [StartupService, Injector],
+    multi: true
+  }]
 })
 export class AppModule { }

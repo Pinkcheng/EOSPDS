@@ -6,8 +6,8 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<app-loginpage (homepageswitch)="switchHomepage($event)" *ngIf="loginSwitch"></app-loginpage>
-<app-homepage *ngIf="!loginSwitch"></app-homepage>
+<app-loginpage *ngIf="!(login$|async)"></app-loginpage>
+<app-homepage *ngIf="login$|async"></app-homepage>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->

@@ -1,34 +1,37 @@
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
-import { HttpService } from 'src/app/service/http.service';
+import { UserService } from 'src/app/service/user.service';
 import { EventManager } from '@angular/platform-browser';
-import { GlobalConstants } from '../../common/global-constants';
+import { AuthService } from 'src/app/service/auth.service';
+import { User, Response } from '../../models';
+
 
 @Component({
   selector: 'app-loginpage',
   templateUrl: './loginpage.component.html',
   styleUrls: ['./loginpage.component.css']
 })
-export class LoginpageComponent implements OnInit {
 
+export class LoginpageComponent implements OnInit{
 
+  height: number = 0;
+  width: number = 0;
 
-  height!: number;
-  width!: number;
-  account: string = "admin";
+  account: string = "admin1";
   password: string = "admin";
-  hint!: string;
-  loginData!: Object;
+
+  loginData: User = { account: "", password: "" };
 
   @Output()
   homepageswitch = new EventEmitter<any>();
 
-  constructor(public http: HttpService, private eventManager: EventManager) {
-
+  constructor(
+    public user: UserService,
+    public eventManager: EventManager,
+    public auth: AuthService,) {
+    this.getScreenSize();
   }
 
   ngOnInit(): void {
-
-
     this.eventManager.addGlobalEventListener('window', 'keyup.enter', () => {
       this.login();
     });
@@ -38,29 +41,11 @@ export class LoginpageComponent implements OnInit {
     this.height = window.innerHeight;
     this.width = window.innerWidth;
   }
-  getAccount($event: any) {
-    this.account = $event.target.value;
-  }
-  getPassword($event: any) {
-    this.password = $event.target.value;
-  }
+
   login() {
     if (this.account && this.password) {
-      console.log(this.account, this.password)
-      this.http.login(this.account, this.password).subscribe(
-        response => {
-          this.loginData = response;
-          console.log(Object.values(response)[1])
-          let code = Object.values(response)[1];
-          if (code == 2000) {
-            this.homepageswitch.emit(true)
-            GlobalConstants.isPorterCenter = true;
-          }
-        },
-        error => { this.hint = error.error.message })
-
-    } else {
-      this.hint = "請輸入帳號與密碼";
+      this.loginData = { account: this.account, password: this.password }
+      this.user.login(this.loginData).subscribe()
     }
   }
 }

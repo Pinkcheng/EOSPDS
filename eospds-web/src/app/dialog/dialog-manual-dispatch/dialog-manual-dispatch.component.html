@@ -1,12 +1,18 @@
 <h1 mat-dialog-title class="mat-dialog-title dark-color">指定人員</h1>
-<div mat-dialog-content class="mission-content text ">
-  <div><span class="button-content">姓名</span> <span class="button-content">目前任務數</span><span
-      class="button-content">目前位置</span></div>
-  <mat-radio-group aria-labelledby="example-radio-group-label" class="text example-radio-group" [(ngModel)]="porterId">
-    <mat-radio-button class="example-radio-button" *ngFor="let item of porterList" [value]="item.id">
-      <span class="button-content">{{item.name}}</span> <span class="button-content">{{item.mission}}件</span><span
-        class="button-content">{{item.position}}</span>
-    </mat-radio-button>
+<div mat-dialog-content class="dialog-content">
+  <div class="porter-title">
+    <span class="text porter-name">姓名</span>
+    <span class="text porter-mission">目前任務</span>
+    <span class="text porter-position">目前位置</span>
+  </div>
+
+  <mat-radio-group aria-labelledby="radio-group-label" class="radio-group" [(ngModel)]="porterId">
+    <div class="porter-content" *ngFor="let item of porterList">
+      <mat-radio-button class="radio-button" [value]="item.id"></mat-radio-button>
+      <span class="text porter-name">{{item.name}}</span>
+      <span class="text porter-mission">{{item.mission}}件</span>
+      <span class="text porter-position">{{item.position}}</span>
+    </div>
   </mat-radio-group>
 </div>
 

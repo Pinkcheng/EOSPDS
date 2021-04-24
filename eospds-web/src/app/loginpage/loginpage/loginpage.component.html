@@ -1,10 +1,9 @@
 <div class="container" [style.height]="height+'px'" [style.width]="width+'px'">
   <img class="logo" src='/assets/img/logo.png'>
-  <span class="box darker-color">
+  <span class="box dark-color">
     <h1 class="system-title">傳送員管理系統</h1>
-    <input class="inputbox" type="text" placeholder="帳號" (keyup)="getAccount($event)">
-    <input class="inputbox" type="password" placeholder="密碼" (keyup)="getPassword($event)">
-    <span class="hint">{{hint}}</span>
+    <input class="inputbox" type="text" placeholder="帳號" [(ngModel)]="account">
+    <input class="inputbox" type="password" placeholder="密碼" [(ngModel)]="password">
     <button mat-flat-button class="button lighter-color" (click)="login()">登入</button>
   </span>
 </div>

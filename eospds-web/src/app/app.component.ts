@@ -1,4 +1,6 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { UserService } from './service/user.service';
 
 @Component({
   selector: 'app-root',
@@ -6,19 +8,14 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  login$ = new Observable<boolean>();
 
-
-
-  constructor() {
+  constructor(
+    public user: UserService
+  ) {
 
   }
-
   ngOnInit() {
-
+    this.login$ = this.user.getLoginStatus();
   };
-
-  loginSwitch!: boolean;
-  switchHomepage($event: boolean) {
-    this.loginSwitch = $event;
-  }
 }

@@ -46,7 +46,7 @@ export class DialogManualDispatchComponent implements OnInit {
       "type": 1,
       "status": 2,
       "mission": 0,
-      "position": "新醫療大樓-5B病房",
+      "position": "新醫療大樓2F-開刀房",
       "time": "2021/03/30 10:20"
     }
   ];
