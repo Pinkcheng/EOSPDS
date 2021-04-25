@@ -1,0 +1,20 @@
+<div class="function-bar">
+  <div class="button-container">
+    <button mat-flat-button class="button update-list-button darker-color">更新列表</button>
+    <button mat-flat-button class="button add-mission-type-button" (click)="addMissionTypeDialog()">新增任務類型</button>
+  </div>
+</div>
+<div class="mission-type-list-title lighter-color">
+  <span class="mission-type-type">任務類型</span>
+  <span class="mission-type-name">任務名稱</span>
+  <span class="mission-type-class">運送類型</span>
+
+</div>
+<div class="mission-type-list">
+  <div class="mission-type-list-content" id="missiontype_{{idx}}" *ngFor="let item of missionTypeList; let idx = index"
+    (mouseenter)="getMouseEnter($event)" (click)="updateMissionTypeDialog()">
+    <span class="mission-type-type">{{item.type}}</span>
+    <span class="mission-type-name">{{item.name}}</span>
+    <span class="mission-type-class">{{item.class}}</span>
+  </div>
+</div>

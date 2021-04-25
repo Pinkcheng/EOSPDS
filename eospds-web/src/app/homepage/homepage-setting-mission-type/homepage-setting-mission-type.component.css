@@ -1,0 +1,57 @@
+.button{
+  margin: auto 5px;
+  border-radius: 50px;
+  border: 0px;
+  outline:none;
+  cursor: pointer;
+  color:#FFFFFF;
+}
+.function-bar{
+  height:5%;
+  display:flex;
+  align-items:center;
+  justify-content: flex-end;
+}
+.button-container{
+  margin:auto 5px
+}
+.add-mission-type-button{
+  background-color:#4CBC49;
+}
+.mission-type-list-title{
+  height:5%;
+  display:flex;
+  align-items:center;
+  border: 1px solid #707070;
+  justify-content: space-around;
+  padding-right: 25px;
+  padding-left: 16px;
+}
+.mission-type-list{
+  height:90%;
+  overflow-y:scroll;
+}
+.mission-type-type{
+  text-align: center;
+  width:33%;
+}
+.mission-type-class{
+  text-align: center;
+  width:33%;
+}
+.mission-type-name{
+  text-align: center;
+  width:33%;
+}
+.mission-type-list-content{
+  display:flex;
+  align-items:center;
+  padding:15px;
+  border: 1px solid #707070;
+  justify-content: space-around;
+  font-size: 18px;
+  cursor: pointer;
+}
+.mission-type-list-content:hover{
+  background-color: gray;
+}

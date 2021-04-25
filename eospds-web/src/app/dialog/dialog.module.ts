@@ -13,6 +13,13 @@ import { DialogDeleteStaffComponent } from './dialog-delete-staff/dialog-delete-
 import { DialogManualDispatchComponent } from './dialog-manual-dispatch/dialog-manual-dispatch.component';
 import { DialogAutoDispatchComponent } from './dialog-auto-dispatch/dialog-auto-dispatch.component';
 import { ShareModule } from '../share';
+import { DialogAddDepartmentComponent } from './dialog-add-department/dialog-add-department.component';
+import { DialogAddMissionTypeComponent } from './dialog-add-mission-type/dialog-add-mission-type.component';
+import { DialogUpdateMissionTypeComponent } from './dialog-update-mission-type/dialog-update-mission-type.component';
+import { DialogUpdateDepartmentComponent } from './dialog-update-department/dialog-update-department.component';
+import { DialogDeleteDepartmentComponent } from './dialog-delete-department/dialog-delete-department.component';
+import { DialogDeleteMissionTypeComponent } from './dialog-delete-mission-type/dialog-delete-mission-type.component';
+import { DialogLogoutComponent } from './dialog-logout/dialog-logout.component';
 
 
 
@@ -28,7 +35,14 @@ import { ShareModule } from '../share';
     DialogUpdateStaffComponent,
     DialogDeleteStaffComponent,
     DialogManualDispatchComponent,
-    DialogAutoDispatchComponent
+    DialogAutoDispatchComponent,
+    DialogAddDepartmentComponent,
+    DialogAddMissionTypeComponent,
+    DialogUpdateMissionTypeComponent,
+    DialogUpdateDepartmentComponent,
+    DialogDeleteDepartmentComponent,
+    DialogDeleteMissionTypeComponent,
+    DialogLogoutComponent
   ],
   imports: [
     CommonModule,

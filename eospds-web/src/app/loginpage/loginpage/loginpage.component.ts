@@ -3,6 +3,7 @@ import { UserService } from 'src/app/service/user.service';
 import { EventManager } from '@angular/platform-browser';
 import { AuthService } from 'src/app/service/auth.service';
 import { User } from '../../models';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class LoginpageComponent implements OnInit {
   height: number = 0;
   width: number = 0;
 
-  account: string = "admin1";
+  account: string = "admin";
   password: string = "admin";
 
   loginData: User = { account: "", password: "" };
@@ -27,7 +28,8 @@ export class LoginpageComponent implements OnInit {
   constructor(
     public user: UserService,
     public eventManager: EventManager,
-    public auth: AuthService,) {
+    public auth: AuthService,
+    public snackbar: MatSnackBar) {
     this.getScreenSize();
   }
 
@@ -45,7 +47,9 @@ export class LoginpageComponent implements OnInit {
   login() {
     if (this.account && this.password) {
       this.loginData = { account: this.account, password: this.password }
-      this.user.login(this.loginData).subscribe()
+      this.user.login(this.loginData).subscribe(res=>{
+        this.snackbar.open(res.message, 'OK', { verticalPosition: 'top', duration: 2000 });
+      })
     }
   }
 }

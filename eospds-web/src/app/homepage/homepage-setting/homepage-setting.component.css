@@ -6,4 +6,20 @@
 }
 .article-right{
   width:25%;
+
+}
+.button{
+  margin:10px auto;
+  border-radius: 50px;
+  width: 50%;
+  border: 0px;
+  outline:none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 20px;
+}
+.button-container{
+  padding-top: 50px;
+  display:flex;
+  flex-direction:column;
 }

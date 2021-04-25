@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPorterComponent } from 'src/app/dialog/dialog-add-porter/dialog-add-porter.component';
 import { DialogUpdatePorterComponent } from 'src/app/dialog/dialog-update-porter/dialog-update-porter.component';
+import { HttpService } from 'src/app/service/http.service';
 
 @Component({
   selector: 'app-homepage-porter',
@@ -10,7 +11,9 @@ import { DialogUpdatePorterComponent } from 'src/app/dialog/dialog-update-porter
 })
 export class HomepagePorterComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(
+    public dialog: MatDialog,
+    public http: HttpService) { }
 
   ngOnInit(): void {
     this.changePorterList(this.checkboxList);
@@ -19,6 +22,8 @@ export class HomepagePorterComponent implements OnInit {
       console.log('目前已經沒有dialog了');
       this.updatePorterList();
     });*/
+    this.http.getPorterList().subscribe(response =>
+      console.log(response))
   }
 
   @Input()
@@ -169,6 +174,7 @@ export class HomepagePorterComponent implements OnInit {
   //手動更新傳送員列表
   updatePorterList() {
     //get porter list
+
     this.porterList = this.porterListChange;
     this.changePorterList(this.checkboxList);
   }

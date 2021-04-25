@@ -1,0 +1,11 @@
+<h1 mat-dialog-title class="mat-dialog-title dark-color">修改請求單位</h1>
+<div mat-dialog-content class="department-content">
+  <div class="text">單位編號: {{departmentData.id}}</div>
+  <div class="text">大樓名稱: {{departmentData.building}}</div>
+  <div class="text">樓層: {{departmentData.floor}}</div>
+  <div class="text">單位名稱: {{departmentData.name}}</div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button class="button delete-department-button" (click)="deleteDepartmentDialog()">刪除</button>
+  <button mat-button mat-dialog-close class="button light-color">關閉</button>
+</div>

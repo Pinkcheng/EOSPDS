@@ -1,0 +1,57 @@
+.button{
+  margin: auto 5px;
+  border-radius: 50px;
+  border: 0px;
+  outline:none;
+  cursor: pointer;
+  color:#FFFFFF;
+}
+.function-bar{
+  height:5%;
+  display:flex;
+  align-items:center;
+  justify-content: flex-end;
+}
+.button-container{
+  margin:auto 5px
+}
+.add-department-button{
+  background-color:#4CBC49;
+}
+.department-list-title{
+  height:5%;
+  display:flex;
+  align-items:center;
+  border: 1px solid #707070;
+  justify-content: space-around;
+  padding-right: 25px;
+  padding-left: 16px;
+}
+.department-list{
+  height:90%;
+  overflow-y:scroll;
+}
+.department-building{
+  text-align: center;
+  width:33%;
+}
+.department-floor{
+  text-align: center;
+  width:33%;
+}
+.department-name{
+  text-align: center;
+  width:33%;
+}
+.department-list-content{
+  display:flex;
+  align-items:center;
+  padding:15px;
+  border: 1px solid #707070;
+  justify-content: space-around;
+  font-size: 18px;
+  cursor: pointer;
+}
+.department-list-content:hover{
+  background-color: gray;
+}

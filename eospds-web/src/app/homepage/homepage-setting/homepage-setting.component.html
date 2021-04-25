@@ -1,6 +1,23 @@
 <div class="setting-article" [style.height]="articleHeight+'px'">
   <div class="article-left">
-    <p>setting</p>
+    <container [ngSwitch]="settingSwitch">
+      <ng-container *ngSwitchCase="0">
+        <app-homepage-setting-information></app-homepage-setting-information>
+      </ng-container>
+      <ng-container *ngSwitchCase="1">
+        <app-homepage-setting-department></app-homepage-setting-department>
+      </ng-container>
+      <ng-container *ngSwitchCase="2">
+        <app-homepage-setting-mission-type></app-homepage-setting-mission-type>
+      </ng-container>
+    </container>
   </div>
-  <div class="article-right light-color"></div>
+  <div class="article-right light-color">
+    <div class="button-container">
+      <button mat-flat-button class="button department-setting dark-color" (click)="switchSetting(0)">基本資料</button>
+      <button mat-flat-button class="button department-setting dark-color" (click)="switchSetting(1)">請求單位</button>
+      <button mat-flat-button class="button mission-type-setting dark-color" (click)="switchSetting(2)">任務類型</button>
+      <button mat-flat-button class="button logout darker-color" (click)="logoutDialog()">登出</button>
+    </div>
+  </div>
 </div>

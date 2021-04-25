@@ -1,0 +1,11 @@
+<h1 mat-dialog-title class="mat-dialog-title dark-color">修改任務類型</h1>
+<div mat-dialog-content class="mission-type-content">
+  <div class="text">類型編號: {{missionTypeData.id}}</div>
+  <div class="text">任務類型: {{missionTypeData.type}}</div>
+  <div class="text">運送類型: {{missionTypeData.class}}</div>
+  <div class="text">任務名稱: {{missionTypeData.name}}</div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button class="button delete-mission-type-button" (click)="deleteMissionTypeDialog()">刪除</button>
+  <button mat-button mat-dialog-close class="button light-color">關閉</button>
+</div>

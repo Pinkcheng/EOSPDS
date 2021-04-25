@@ -2,14 +2,17 @@
   font-weight:bold;
   padding:10px;
 }
-.staff-content{
+.mission-content{
   font-size:larger;
   margin:5px;
 }
 .text{
  margin: 10px;
 }
-
+.delete-mission-button{
+  background-color: red;
+  color: white;
+}
 .button{
   margin: auto;
   border-radius: 50px;
@@ -17,6 +20,7 @@
   outline:none;
   cursor: pointer;
 }
+
 .example-radio-group {
   display: inline-flex;
   flex-direction:row;

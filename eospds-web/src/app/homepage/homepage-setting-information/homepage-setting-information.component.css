@@ -1,0 +1,21 @@
+.article{
+  margin:20%;
+  padding:20px;
+  border-radius: 10px;
+}
+.title{
+  font-size:xx-large;
+  font-weight: bold;
+  color: #007B6D
+}
+.content{
+  font-size:x-large;
+}
+.button{
+  margin: auto 5px;
+  border-radius: 50px;
+  border: 0px;
+  outline:none;
+  cursor: pointer;
+  color:#FFFFFF;
+}

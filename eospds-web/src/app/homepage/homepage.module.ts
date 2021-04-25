@@ -1,3 +1,10 @@
+import { DialogLogoutComponent } from './../dialog/dialog-logout/dialog-logout.component';
+import { DialogDeleteDepartmentComponent } from './../dialog/dialog-delete-department/dialog-delete-department.component';
+import { DialogUpdateDepartmentComponent } from './../dialog/dialog-update-department/dialog-update-department.component';
+import { DialogAddDepartmentComponent } from './../dialog/dialog-add-department/dialog-add-department.component';
+import { DialogDeleteMissionTypeComponent } from './../dialog/dialog-delete-mission-type/dialog-delete-mission-type.component';
+import { DialogUpdateMissionTypeComponent } from './../dialog/dialog-update-mission-type/dialog-update-mission-type.component';
+import { DialogAddMissionTypeComponent } from './../dialog/dialog-add-mission-type/dialog-add-mission-type.component';
 import { ButtonModule } from './../button/button.module';
 import { DialogModule } from './../dialog/dialog.module';
 import { MissionStatusPipe } from './../pipe/mission-status.pipe';
@@ -26,6 +33,9 @@ import { DialogAddPorterComponent } from '../dialog/dialog-add-porter/dialog-add
 import { DialogUpdatePorterComponent } from '../dialog/dialog-update-porter/dialog-update-porter.component';
 import { DialogDeletePorterComponent } from '../dialog/dialog-delete-porter/dialog-delete-porter.component';
 import { ShareModule } from '../share';
+import { HomepageSettingDepartmentComponent } from './homepage-setting-department/homepage-setting-department.component';
+import { HomepageSettingMissionTypeComponent } from './homepage-setting-mission-type/homepage-setting-mission-type.component';
+import { HomepageSettingInformationComponent } from './homepage-setting-information/homepage-setting-information.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +52,9 @@ import { ShareModule } from '../share';
     HomepageMissionDataComponent,
     HomepagePorterComponent,
     HomepagePorterCheckboxComponent,
+    HomepageSettingDepartmentComponent,
+    HomepageSettingMissionTypeComponent,
+    HomepageSettingInformationComponent,
   ],
   imports: [
     CommonModule,
@@ -61,6 +74,13 @@ import { ShareModule } from '../share';
     DialogAddStaffComponent,
     DialogUpdateStaffComponent,
     DialogDeleteStaffComponent,
+    DialogAddMissionTypeComponent,
+    DialogUpdateMissionTypeComponent,
+    DialogDeleteMissionTypeComponent,
+    DialogAddDepartmentComponent,
+    DialogUpdateDepartmentComponent,
+    DialogDeleteDepartmentComponent,
+    DialogLogoutComponent
   ]
 })
 export class HomepageModule { }
