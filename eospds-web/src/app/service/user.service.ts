@@ -65,4 +65,12 @@ export class UserService {
       return of(false);
     }
   }
+  //確認是否為admin登入
+  getAdminLogin(): Observable<boolean> {
+    return this.adminLogin;
+  }
+  //設定是否為admin登入
+  setAdminLogin(isAdmin: boolean) {
+    this.adminLogin.next(isAdmin);
+  }
 }

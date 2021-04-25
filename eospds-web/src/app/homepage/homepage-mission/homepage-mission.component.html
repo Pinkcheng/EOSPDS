@@ -7,8 +7,10 @@
       <span class="function-button-container">
         <button mat-flat-button class="function-button update-list-button darker-color"
           (click)="updateMissionList()">更新列表</button>
-        <app-button-manual-dispatch *ngIf="isPorterCenter" class="function-button" [checkMissionList]="checkMissionList"></app-button-manual-dispatch>
-        <app-button-auto-dispatch *ngIf="isPorterCenter" class="function-button" [checkMissionList]="checkMissionList"></app-button-auto-dispatch>
+        <app-button-manual-dispatch *ngIf="isAdminLogin$|async" class="function-button"
+          [checkMissionList]="checkMissionList"></app-button-manual-dispatch>
+        <app-button-auto-dispatch *ngIf="isAdminLogin$|async" class="function-button"
+          [checkMissionList]="checkMissionList"></app-button-auto-dispatch>
         <button mat-flat-button class="function-button add-mission-button" (click)="addMissionDialog()">新增任務</button>
       </span>
     </div>

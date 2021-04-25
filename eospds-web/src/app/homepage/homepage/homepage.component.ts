@@ -1,22 +1,28 @@
-import { Component, HostListener, OnInit} from '@angular/core';
-import { GlobalConstants } from '..//../common/global-constants';
+import { UserService } from './../../service/user.service';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css']
 })
-export class HomepageComponent implements OnInit{
+export class HomepageComponent implements OnInit {
 
-  constructor() {
+  isAdminLogin$ = new Observable<boolean>();
+  headerHeight: number = 0;
+  articleHeight: number = 0;
+
+  constructor(
+    public user: UserService
+  ) {
     this.getScreenSize();
   }
 
   ngOnInit(): void {
+    //設定與檢查是否為admin
+    this.user.setAdminLogin(true); //set Admin login
+    this.isAdminLogin$ = this.user.getAdminLogin();
   }
-
-  headerHeight: number = 0;
-  articleHeight: number = 0;
-  isPorterCenter: boolean = GlobalConstants.isPorterCenter;
 
   @HostListener('window:resize', ['$event'])
   getScreenSize() {

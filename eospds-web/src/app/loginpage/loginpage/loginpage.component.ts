@@ -2,7 +2,7 @@ import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/
 import { UserService } from 'src/app/service/user.service';
 import { EventManager } from '@angular/platform-browser';
 import { AuthService } from 'src/app/service/auth.service';
-import { User, Response } from '../../models';
+import { User } from '../../models';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { User, Response } from '../../models';
   styleUrls: ['./loginpage.component.css']
 })
 
-export class LoginpageComponent implements OnInit{
+export class LoginpageComponent implements OnInit {
 
   height: number = 0;
   width: number = 0;

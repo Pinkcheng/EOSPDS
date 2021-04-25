@@ -1,7 +1,8 @@
+import { UserService } from './../../service/user.service';
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogMissionDataComponent } from 'src/app/dialog/dialog-mission-data/dialog-mission-data.component';
-import { GlobalConstants } from '..//../common/global-constants';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-homepage-mission-list',
@@ -10,9 +11,11 @@ import { GlobalConstants } from '..//../common/global-constants';
 })
 export class HomepageMissionListComponent implements OnInit, OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,
+    public user: UserService) { }
 
   ngOnInit(): void {
+    this.isAdminLogin$ = this.user.getAdminLogin();
     this.resetMissionListCheckbox();
   }
 
@@ -27,7 +30,7 @@ export class HomepageMissionListComponent implements OnInit, OnInit {
 
   mouseEnterIndex: number = 0;
   mouseEnterMissionId: string = "";
-  isPorterCenter: boolean = GlobalConstants.isPorterCenter;
+  isAdminLogin$ = new Observable<boolean>();
 
   getMouseEnter($event: any) {
     this.mouseEnterIndex = $event.path[0].id.split("_")[1];

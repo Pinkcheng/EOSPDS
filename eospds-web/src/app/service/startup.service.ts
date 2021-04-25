@@ -20,7 +20,7 @@ export class StartupService {
           if (res) {
             setInterval(() => {
               this.checkStatus();
-            }, 1000 * 60)    // check current status every 1 min
+            }, 1000)    // check current status every 1 min
           }
           resolve(res);
         }, err => {

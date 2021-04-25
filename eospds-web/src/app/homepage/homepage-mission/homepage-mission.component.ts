@@ -1,7 +1,8 @@
-import { GlobalConstants } from './../../common/global-constants';
+import { Observable } from 'rxjs';
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddMissionComponent } from 'src/app/dialog/dialog-add-mission/dialog-add-mission.component';
+import { UserService } from 'src/app/service/user.service';
 
 
 @Component({
@@ -15,15 +16,17 @@ export class HomepageMissionComponent implements OnInit {
 
   @Input()
   articleHeight: number = 0;
-
   missionListFilter: Array<any> = [];
   checkboxList: Array<number> = [1, 2, 3, 4];
   missionData: Object = {};
-  isPorterCenter: boolean = GlobalConstants.isPorterCenter;
-  constructor(public dialog: MatDialog) {
+  isAdminLogin$ = new Observable<boolean>();
+
+  constructor(public dialog: MatDialog,
+    public user: UserService) {
   }
 
   ngOnInit(): void {
+    this.isAdminLogin$ = this.user.getAdminLogin();
     //get mission list
     this.changeMissionList(this.checkboxList);
     /*this.dialog.afterAllClosed.subscribe(() => {//刪除任務或關閉list會更新list
