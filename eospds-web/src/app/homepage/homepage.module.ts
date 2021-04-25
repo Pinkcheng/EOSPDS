@@ -11,10 +11,8 @@ import { HomepageMissionComponent } from './homepage-mission/homepage-mission.co
 import { HomepageStaffComponent } from './homepage-staff/homepage-staff.component';
 import { HomepageSettingComponent } from './homepage-setting/homepage-setting.component';
 import { FormsModule } from '@angular/forms'
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import { HomepageMissionCheckboxComponent } from './homepage-mission-checkbox/homepage-mission-checkbox.component';
 import { HomepageMissionListComponent } from './homepage-mission-list/homepage-mission-list.component';
-import { MatButtonModule } from '@angular/material/button';
 import { HomepageMissionDataComponent } from './homepage-mission-data/homepage-mission-data.component';
 import { HomepagePorterComponent } from './homepage-porter/homepage-porter.component';
 import { HomepagePorterCheckboxComponent } from './homepage-porter-checkbox/homepage-porter-checkbox.component';
@@ -27,6 +25,7 @@ import { DialogDeleteStaffComponent } from '../dialog/dialog-delete-staff/dialog
 import { DialogAddPorterComponent } from '../dialog/dialog-add-porter/dialog-add-porter.component';
 import { DialogUpdatePorterComponent } from '../dialog/dialog-update-porter/dialog-update-porter.component';
 import { DialogDeletePorterComponent } from '../dialog/dialog-delete-porter/dialog-delete-porter.component';
+import { ShareModule } from '../share';
 
 @NgModule({
   declarations: [
@@ -47,10 +46,9 @@ import { DialogDeletePorterComponent } from '../dialog/dialog-delete-porter/dial
   imports: [
     CommonModule,
     FormsModule,
-    MatCheckboxModule,
-    MatButtonModule,
     DialogModule,
-    ButtonModule
+    ButtonModule,
+    ShareModule
   ],
   exports: [HomepageComponent],
   entryComponents: [

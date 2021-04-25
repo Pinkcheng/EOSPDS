@@ -6,6 +6,7 @@ import { of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from './auth.service';
+import { AppConfig } from '../share';
 
 @Injectable({
   providedIn: 'root'
@@ -14,17 +15,17 @@ export class UserService {
 
   constructor(public http: HttpClient,
     public snackbar: MatSnackBar,
-    public auth: AuthService) { }
+    public auth: AuthService,
+    public app: AppConfig) { }
 
   loginStatus = new BehaviorSubject<boolean>(false);
-
-  options = { headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded') };
+  adminLogin = new BehaviorSubject<boolean>(false);
 
   loginServer(loginData: User): Observable<Response> {
     let body = new URLSearchParams();
     body.set('account', loginData.account);
     body.set('password', loginData.password);
-    return this.http.post<Response>('http://10.10.105.11:9487/auth/login', body.toString(), this.options)
+    return this.http.post<Response>(this.app.apiUrl + '/auth/login', body.toString(), this.app.options)
   }
 
   //登入

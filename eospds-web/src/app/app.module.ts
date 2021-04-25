@@ -15,6 +15,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { UserService } from './service/user.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { StartupService } from './service/startup.service';
+import { ShareModule } from './share/share.module';
 export function startupServiceFactory(startupService: StartupService): Function { return () => startupService.load(); }
 
 @NgModule({
@@ -40,7 +41,8 @@ export function startupServiceFactory(startupService: StartupService): Function 
         },
         allowedDomains: ["localhost:4200"],
       }
-    })
+    }),
+    ShareModule
 
   ],
   bootstrap: [AppComponent],

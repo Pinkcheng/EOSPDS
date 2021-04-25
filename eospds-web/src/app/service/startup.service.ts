@@ -1,7 +1,6 @@
 import { UserService } from './user.service';
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
-import { GlobalConstants } from '../common/global-constants';
 
 @Injectable({
   providedIn: 'root'
