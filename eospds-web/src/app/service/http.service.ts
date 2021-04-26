@@ -17,12 +17,7 @@ export class HttpService {
   access_token: string | null = ""
   getPorterList() {
     this.access_token = this.auth.getToken('access_token')
-    return this.http.get<Response>(this.app.apiUrl + this.app.apiVersion + '/porter', {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Authorization': `Bearer ${this.access_token}`
-      })
-    })
+    return this.http.get<Response>(this.app.apiUrl + this.app.apiVersion + '/porter', this.app.apiOptions)
   }
 }
 

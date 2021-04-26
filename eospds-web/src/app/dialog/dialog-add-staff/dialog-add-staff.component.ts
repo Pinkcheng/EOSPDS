@@ -14,7 +14,6 @@ export class DialogAddStaffComponent implements OnInit {
 
   addStaff(){
     //http post staff add
-    console.log("新增人員")
   }
 
 }

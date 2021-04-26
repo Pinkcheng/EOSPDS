@@ -10,7 +10,6 @@ import { DialogDeleteStaffComponent } from '../dialog-delete-staff/dialog-delete
 export class DialogUpdateStaffComponent implements OnInit {
 
   constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) private data: any) {
-    console.log(this.data.staffId)
    }
 
   ngOnInit(): void {

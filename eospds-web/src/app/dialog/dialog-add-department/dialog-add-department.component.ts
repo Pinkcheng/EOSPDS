@@ -13,6 +13,6 @@ export class DialogAddDepartmentComponent implements OnInit {
   }
   addDepartment() {
     //http post department add
-    console.log("新增單位")
+
   }
 }

@@ -22,7 +22,6 @@ export class ButtonAutoDispatchComponent implements OnInit, OnChanges {
   }
   autoDispatchDiaolog(event:any) {
     event.stopPropagation();
-    console.log(this.checkMissionList)
     this.dialog.open(DialogAutoDispatchComponent, {
       width: '300px',
       height: '200px',

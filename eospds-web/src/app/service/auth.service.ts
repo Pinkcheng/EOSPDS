@@ -38,15 +38,12 @@ export class AuthService {
 @Injectable()
 export class TokenAuthHttpInterceptor implements HttpInterceptor {
 
-
   constructor(public auth: AuthService) { }
   access_token: string | null = ""
 
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // token 可以來自任何地方
     this.access_token = this.auth.getToken('access_token')
-    console.log(this.access_token)
-    console.log(req)
     if (this.access_token) {
       req = req.clone({
         setHeaders: {
@@ -59,7 +56,5 @@ export class TokenAuthHttpInterceptor implements HttpInterceptor {
       console.log("NoTokenHttpRequest")
       return next.handle(req);
     }
-
-
   }
 }

@@ -18,7 +18,7 @@ export class HomepageStaffComponent implements OnInit {
     //get staff data
     this.resetStaffListCheckbox();
     /*this.dialog.afterAllClosed.subscribe(() => {//刪除或關閉list會更新list
-      console.log('目前已經沒有dialog了');
+
       this.updateStaffList();
     });*/
   }
@@ -129,7 +129,6 @@ export class HomepageStaffComponent implements OnInit {
 
   updateStaffList() {
     //get staff list
-    console.log("更新人員列表")
     this.staffList = this.staffListChange;
   }
   //全選或取消全選list的checkbox

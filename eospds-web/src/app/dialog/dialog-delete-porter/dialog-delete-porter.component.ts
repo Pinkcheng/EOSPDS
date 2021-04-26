@@ -8,13 +8,15 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class DialogDeletePorterComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) private data: any, private dialogRef: MatDialog) { console.log(data.porterId) }
+  constructor(@Inject(MAT_DIALOG_DATA) private data: any, private dialogRef: MatDialog) {
+
+   }
 
   ngOnInit(): void {
   }
   deletePorter() {
     //delete porter http
-    console.log("確認刪除傳送員");
+
     this.closeAll();
   }
   closeAll() {

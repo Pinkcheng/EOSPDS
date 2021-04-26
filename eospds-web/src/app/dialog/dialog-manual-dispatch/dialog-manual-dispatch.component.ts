@@ -14,8 +14,7 @@ export class DialogManualDispatchComponent implements OnInit {
     //get porter list with work status
   }
   manualDispatch() {
-    console.log(this.data.checkMissionList.length != 0)
-    console.log(this.porterId != "")
+
     if (this.data.checkMissionList.length != 0 && this.porterId != "") {
       //http auto dispatch
     }

@@ -14,7 +14,7 @@ export class DialogAutoDispatchComponent implements OnInit {
   }
 
   autoDispatch() {
-    console.log(this.data.checkMissionList)
+
     if (this.data.CheckMissionList.length !=0) {
       //http auto dispatch
     }

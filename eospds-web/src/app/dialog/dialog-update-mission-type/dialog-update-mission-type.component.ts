@@ -12,7 +12,7 @@ export class DialogUpdateMissionTypeComponent implements OnInit {
   constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) private data: any) { }
 
   ngOnInit(): void {
-    console.log(this.data)
+
   }
   missionTypeData = {
     "id": "M1007",

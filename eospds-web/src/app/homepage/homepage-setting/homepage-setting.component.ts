@@ -15,7 +15,7 @@ export class HomepageSettingComponent implements OnInit {
   articleHeight!: number;
   ngOnInit(): void {
   }
-  settingSwitch: number = 1; //預設初始homepage
+  settingSwitch: number = 0; //預設初始settingPage
   switchSetting($event: number) {
     this.settingSwitch = $event;
   }

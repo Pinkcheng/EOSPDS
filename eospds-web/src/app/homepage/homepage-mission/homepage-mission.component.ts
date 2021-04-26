@@ -30,7 +30,7 @@ export class HomepageMissionComponent implements OnInit {
     //get mission list
     this.changeMissionList(this.checkboxList);
     /*this.dialog.afterAllClosed.subscribe(() => {//刪除任務或關閉list會更新list
-      console.log('目前已經沒有dialog了');
+
       this.updateMissionList();
     });*/
   }

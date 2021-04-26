@@ -10,7 +10,7 @@ import { DialogDeletePorterComponent } from '../dialog-delete-porter/dialog-dele
 export class DialogUpdatePorterComponent implements OnInit {
 
   constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) private data: any) {
-    console.log(data.porterId);
+
   }
 
   porterData = {

@@ -8,14 +8,16 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class DialogDeleteMissionComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) private data: any,private dialogRef: MatDialog ) { console.log(data.missionId)}
+  constructor(@Inject(MAT_DIALOG_DATA) private data: any,private dialogRef: MatDialog ) {
+
+  }
 
   ngOnInit(): void {
   }
 
   deleteMission(){
     //delete mission http
-    console.log("確認刪除任務");
+
     this.closeAll();
   }
   closeAll(){

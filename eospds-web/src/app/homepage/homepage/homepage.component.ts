@@ -30,7 +30,7 @@ export class HomepageComponent implements OnInit {
     this.articleHeight = window.innerHeight * 0.9;
   }
 
-  homepageSwitch: number = 2; //預設初始homepage
+  homepageSwitch: number = 0; //預設初始homepage
   switchHomepage($event: number) {
     this.homepageSwitch = $event;
   }

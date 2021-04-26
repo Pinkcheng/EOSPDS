@@ -19,7 +19,6 @@ export class HomepagePorterComponent implements OnInit {
     this.changePorterList(this.checkboxList);
     this.resetPorterListCheckbox();
     /*this.dialog.afterAllClosed.subscribe(() => {//刪除或關閉list會更新list
-      console.log('目前已經沒有dialog了');
       this.updatePorterList();
     });*/
     this.http.getPorterList().subscribe(response =>
