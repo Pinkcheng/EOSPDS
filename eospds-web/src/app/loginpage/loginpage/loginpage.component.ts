@@ -47,7 +47,7 @@ export class LoginpageComponent implements OnInit {
   login() {
     if (this.account && this.password) {
       this.loginData = { account: this.account, password: this.password }
-      this.user.login(this.loginData).subscribe(res=>{
+      this.user.login(this.loginData).subscribe(res => {
         this.snackbar.open(res.message, 'OK', { verticalPosition: 'top', duration: 2000 });
       })
     }

@@ -2,7 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPorterComponent } from 'src/app/dialog/dialog-add-porter/dialog-add-porter.component';
 import { DialogUpdatePorterComponent } from 'src/app/dialog/dialog-update-porter/dialog-update-porter.component';
-import { HttpService } from 'src/app/service/http.service';
+import { ApiService } from 'src/app/service/api.service';
+import { Response } from '../../models';
 
 @Component({
   selector: 'app-homepage-porter',
@@ -13,7 +14,7 @@ export class HomepagePorterComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    public http: HttpService) { }
+    public api: ApiService) { }
 
   ngOnInit(): void {
     this.changePorterList(this.checkboxList);
@@ -21,8 +22,7 @@ export class HomepagePorterComponent implements OnInit {
     /*this.dialog.afterAllClosed.subscribe(() => {//刪除或關閉list會更新list
       this.updatePorterList();
     });*/
-    this.http.getPorterList().subscribe(response =>
-      console.log(response))
+    this.api.getPorterList().subscribe((res:Response) => console.log(res.data))
   }
 
   @Input()

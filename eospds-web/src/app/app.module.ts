@@ -4,8 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HomepageModule } from './homepage/homepage.module';
-import { HttpService } from './service/http.service';
+import { HomepageModule } from './homepage/homepage.module';;
 import { LoginpageModule } from './loginpage/loginpage.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogModule } from './dialog/dialog.module';
@@ -16,6 +15,8 @@ import { UserService } from './service/user.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { StartupService } from './service/startup.service';
 import { ShareModule } from './share/share.module';
+import { ErrorService } from './service/error.service';
+import { ApiService } from './service/api.service';
 export function startupServiceFactory(startupService: StartupService): Function { return () => startupService.load(); }
 
 @NgModule({
@@ -39,7 +40,7 @@ export function startupServiceFactory(startupService: StartupService): Function 
           console.log("tokenGetter called = " + localStorage.getItem('access_token'))
           return localStorage.getItem('access_token');
         },
-        allowedDomains: ["localhost:4200"],
+        //allowedDomains: ["localhost:4200"],
       }
     }),
     ShareModule
@@ -47,10 +48,11 @@ export function startupServiceFactory(startupService: StartupService): Function 
   ],
   bootstrap: [AppComponent],
   providers: [
-    HttpService,
     AuthService,
     UserService,
     StartupService,
+    ApiService,
+    ErrorService,
     {
       provide: APP_INITIALIZER,
       useFactory: startupServiceFactory,
