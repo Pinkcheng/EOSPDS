@@ -15,10 +15,12 @@ export class DialogDeleteDepartmentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
   deleteDepartment() {
     //delete porter http
-    this.api.deleteDepartment("D0005").subscribe((res: Response) => console.log(res.message))
+    this.api.deleteDepartment("/D0005").subscribe((res: Response) => console.log(res.message))
+
     this.closeAll();
   }
   closeAll() {

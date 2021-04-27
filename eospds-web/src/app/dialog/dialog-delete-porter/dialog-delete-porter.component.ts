@@ -17,7 +17,7 @@ export class DialogDeletePorterComponent implements OnInit {
   }
   deletePorter() {
     //delete porter http
-    this.api.deletePorter("P100000002").subscribe((res: Response) => console.log(res.message))
+    this.api.deletePorter("/P100000002").subscribe((res: Response) => console.log(res.message))
 
     this.closeAll();
   }

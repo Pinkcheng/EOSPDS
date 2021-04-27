@@ -18,6 +18,6 @@ export class DialogAddDepartmentComponent implements OnInit {
     let body = new URLSearchParams();
     body.set('id', "D0005");
     body.set('name', "新醫療大樓-5F-5A病房");
-    this.api.addDepartment(body).subscribe((res: Response) => console.log(res.message))
+    this.api.addDepartment(body.toString()).subscribe((res: Response) => console.log(res.message))
   }
 }

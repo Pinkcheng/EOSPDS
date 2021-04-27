@@ -27,7 +27,7 @@ export class DialogUpdatePorterComponent implements OnInit {
     "added_date": "2021/03/03"
   }
   ngOnInit(): void {
-    this.api.getPorter("P100000002").subscribe((res: Response) => console.log(res.data))
+    this.api.getPorter("/P100000002").subscribe((res: Response) => console.log(res.data))
   }
 
   deletePorterDialog() {

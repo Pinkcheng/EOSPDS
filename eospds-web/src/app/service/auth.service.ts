@@ -44,6 +44,7 @@ export class TokenAuthHttpInterceptor implements HttpInterceptor {
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // token 可以來自任何地方
     this.access_token = this.auth.getToken('access_token')
+    console.log(req)
     if (this.access_token) {
       req = req.clone({
         setHeaders: {

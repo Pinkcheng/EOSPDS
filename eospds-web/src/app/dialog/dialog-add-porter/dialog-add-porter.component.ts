@@ -34,6 +34,6 @@ export class DialogAddPorterComponent implements OnInit {
     //post add porter
 
     var body = "name=" + name + "&account=" + account + "&password=" + password + "&tag=" + tag + "&type=" + type;
-    this.api.addPorter(body).subscribe((res: Response) => console.log(res.message))
+    this.api.addPorter(body.toString()).subscribe((res: Response) => console.log(res.message))
   }
 }
