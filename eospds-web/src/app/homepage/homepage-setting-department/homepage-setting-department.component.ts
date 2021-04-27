@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddDepartmentComponent } from 'src/app/dialog/dialog-add-department/dialog-add-department.component';
 import { DialogUpdateDepartmentComponent } from 'src/app/dialog/dialog-update-department/dialog-update-department.component';
-
+import { ApiService } from 'src/app/service/api.service';
+import { Response } from '../../models';
 @Component({
   selector: 'app-homepage-setting-department',
   templateUrl: './homepage-setting-department.component.html',
@@ -10,10 +11,10 @@ import { DialogUpdateDepartmentComponent } from 'src/app/dialog/dialog-update-de
 })
 export class HomepageSettingDepartmentComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, public api: ApiService) { }
 
   ngOnInit(): void {
-
+    this.api.getDepartmentList().subscribe((res: Response) => console.log(res.data))
   }
 
   departmentList = [

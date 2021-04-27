@@ -1,6 +1,8 @@
+import { ApiService } from 'src/app/service/api.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogDeletePorterComponent } from '../dialog-delete-porter/dialog-delete-porter.component';
+import { Response } from '../../models';
 
 @Component({
   selector: 'app-dialog-update-porter',
@@ -9,7 +11,7 @@ import { DialogDeletePorterComponent } from '../dialog-delete-porter/dialog-dele
 })
 export class DialogUpdatePorterComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) private data: any) {
+  constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) private data: any, public api: ApiService) {
 
   }
 
@@ -25,9 +27,10 @@ export class DialogUpdatePorterComponent implements OnInit {
     "added_date": "2021/03/03"
   }
   ngOnInit(): void {
+    this.api.getPorter("P100000002").subscribe((res: Response) => console.log(res.data))
   }
 
-  deletePorterDialog(){
+  deletePorterDialog() {
     this.dialog.open(DialogDeletePorterComponent, {
       width: '300px',
       height: '200px',

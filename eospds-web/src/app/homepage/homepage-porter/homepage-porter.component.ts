@@ -22,7 +22,7 @@ export class HomepagePorterComponent implements OnInit {
     /*this.dialog.afterAllClosed.subscribe(() => {//刪除或關閉list會更新list
       this.updatePorterList();
     });*/
-    this.api.getPorterList().subscribe((res:Response) => console.log(res.data))
+    this.api.getPorterList().subscribe((res: Response) => console.log(res.data))
   }
 
   @Input()
