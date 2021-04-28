@@ -20,6 +20,7 @@ import { DialogUpdateDepartmentComponent } from './dialog-update-department/dial
 import { DialogDeleteDepartmentComponent } from './dialog-delete-department/dialog-delete-department.component';
 import { DialogDeleteMissionTypeComponent } from './dialog-delete-mission-type/dialog-delete-mission-type.component';
 import { DialogLogoutComponent } from './dialog-logout/dialog-logout.component';
+import { SelectModule } from '../select/select.module';
 
 
 
@@ -47,7 +48,8 @@ import { DialogLogoutComponent } from './dialog-logout/dialog-logout.component';
   imports: [
     CommonModule,
     FormsModule,
-    ShareModule
+    ShareModule,
+    SelectModule,
   ],
   exports: [
     DialogMissionDataComponent,

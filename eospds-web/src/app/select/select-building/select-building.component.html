@@ -1,0 +1,8 @@
+<form>
+  <p> 選擇大樓: {{selectBuilding}} </p>
+  <mat-select class="border" [(ngModel)]="selectBuilding" name="food">
+    <mat-option *ngFor="let item of buildingList" [value]="item.ID">
+      {{item.name}}
+    </mat-option>
+  </mat-select>
+</form>

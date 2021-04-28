@@ -17,6 +17,7 @@ import { StartupService } from './service/startup.service';
 import { ShareModule } from './share/share.module';
 import { ErrorService } from './service/error.service';
 import { ApiService } from './service/api.service';
+import { SelectModule } from './select/select.module';
 export function startupServiceFactory(startupService: StartupService): Function { return () => startupService.load(); }
 
 @NgModule({
@@ -43,7 +44,8 @@ export function startupServiceFactory(startupService: StartupService): Function 
         //allowedDomains: ["localhost:4200"],
       }
     }),
-    ShareModule
+    ShareModule,
+    SelectModule
 
   ],
   bootstrap: [AppComponent],

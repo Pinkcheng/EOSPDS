@@ -1,3 +1,4 @@
+import { ErrorService } from 'src/app/service/error.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from 'src/app/service/api.service';
@@ -10,7 +11,12 @@ import { Response } from '../../models';
 })
 export class DialogDeleteDepartmentComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) private data: any, private dialogRef: MatDialog, public api: ApiService) {
+  constructor(
+    @Inject(MAT_DIALOG_DATA) private data: any,
+    private dialogRef: MatDialog,
+    public api: ApiService,
+    public err: ErrorService
+    ) {
 
   }
 
@@ -19,7 +25,7 @@ export class DialogDeleteDepartmentComponent implements OnInit {
   }
   deleteDepartment() {
     //delete porter http
-    this.api.deleteDepartment("/D0005").subscribe((res: Response) => console.log(res.message))
+    this.api.deleteDepartment("/D0005").subscribe((res: Response) => this.err.handleResponse(res))
 
     this.closeAll();
   }

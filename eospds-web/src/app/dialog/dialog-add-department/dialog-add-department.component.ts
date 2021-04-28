@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/service/api.service';
+import { ErrorService } from 'src/app/service/error.service';
 import { Response } from '../../models';
 
 @Component({
@@ -9,7 +10,10 @@ import { Response } from '../../models';
 })
 export class DialogAddDepartmentComponent implements OnInit {
 
-  constructor(public api: ApiService) { }
+  constructor(
+    public api: ApiService,
+    public err:ErrorService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -18,6 +22,6 @@ export class DialogAddDepartmentComponent implements OnInit {
     let body = new URLSearchParams();
     body.set('id', "D0005");
     body.set('name', "新醫療大樓-5F-5A病房");
-    this.api.addDepartment(body.toString()).subscribe((res: Response) => console.log(res.message))
+    this.api.addDepartment(body.toString()).subscribe((res: Response) => this.err.handleResponse(res))
   }
 }

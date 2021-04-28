@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from 'src/app/service/api.service';
+import { ErrorService } from 'src/app/service/error.service';
 import { Response } from '../../models';
 @Component({
   selector: 'app-dialog-delete-porter',
@@ -9,7 +10,11 @@ import { Response } from '../../models';
 })
 export class DialogDeletePorterComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) private data: any, private dialogRef: MatDialog, public api: ApiService) {
+  constructor(
+    @Inject(MAT_DIALOG_DATA) private data: any,
+    private dialogRef: MatDialog,
+    public api: ApiService,
+    public err: ErrorService) {
 
   }
 
@@ -17,7 +22,7 @@ export class DialogDeletePorterComponent implements OnInit {
   }
   deletePorter() {
     //delete porter http
-    this.api.deletePorter("/P100000002").subscribe((res: Response) => console.log(res.message))
+    this.api.deletePorter("/P100000002").subscribe((res: Response) => this.err.handleResponse(res))
 
     this.closeAll();
   }

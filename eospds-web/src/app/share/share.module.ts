@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
 import { AppConfig } from './app-config';
 
 
@@ -20,6 +21,7 @@ import { AppConfig } from './app-config';
     MatRadioModule,
     MatCheckboxModule,
     MatSnackBarModule,
+    MatSelectModule
   ],
   providers: [
     AppConfig
@@ -30,7 +32,8 @@ import { AppConfig } from './app-config';
     MatInputModule,
     MatRadioModule,
     MatCheckboxModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSelectModule
   ]
 })
 export class ShareModule { }
