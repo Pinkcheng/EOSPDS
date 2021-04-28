@@ -3,7 +3,11 @@
   <div class="text">單位編號: {{departmentData.id}}</div>
   <div class="text">大樓名稱: {{departmentData.building}}</div>
   <div class="text">樓層: {{departmentData.floor}}</div>
-  <div class="text">單位名稱: {{departmentData.name}}</div>
+  <mat-form-field class="example-full-width">
+    <mat-label class="darker-font">單位名稱</mat-label>
+    <input class="dark-font dark-color" matInput [(ngModel)]="departmentData.name" [ngModelOptions]="{standalone:true}"
+      required>
+  </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-button class="button delete-department-button" (click)="deleteDepartmentDialog()">刪除</button>

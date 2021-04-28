@@ -71,7 +71,7 @@ export class HomepageSettingDepartmentComponent implements OnInit {
   updateDepartmentDialog() {
     this.dialog.open(DialogUpdateDepartmentComponent, {
       width: '400px',
-      height: '300px',
+      height: '400px',
       data: {
         departmentId: this.mouseEnterDepartmentId
       }

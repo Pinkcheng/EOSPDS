@@ -15,11 +15,12 @@ export class DialogUpdateDepartmentComponent implements OnInit {
   constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) private data: any, public api: ApiService, public err: ErrorService) { }
 
   ngOnInit(): void {
+    // http get department/:id
     this.api.getDepartment('/D0002').subscribe((res: Response) => console.log(res.data))
   }
   updateDepartment() {
     let body = new URLSearchParams();
-    body.set('name', '健康中心');
+    body.set('name', this.departmentData.name);
     this.api.updateDepartment("/D0002", body.toString()).subscribe((res: Response) => this.err.handleResponse(res))
   }
   departmentData = {
