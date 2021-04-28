@@ -1,1 +1,18 @@
-<p>select-department works!</p>
+<mat-form-field appearance="fill">
+  <mat-label>大樓名稱</mat-label>
+  <mat-select class="border" [(ngModel)]="selectBuildingId" (ngModelChange)="onSelectBuildingChange(selectBuildingId)"
+    [ngModelOptions]="{standalone: true}">
+    <mat-option *ngFor="let item of buildingList" [value]="item.ID">
+      {{item.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>單位名稱</mat-label>
+  <mat-select class="border" [(ngModel)]="selectDepartmentId"
+    (ngModelChange)="onSelectDepartmentChange(selectDepartmentId)" [ngModelOptions]="{standalone: true}">
+    <mat-option *ngFor="let item of departmentList" [value]="item.id">
+      {{item.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

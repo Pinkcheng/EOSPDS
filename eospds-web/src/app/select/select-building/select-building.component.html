@@ -1,8 +1,9 @@
-<form>
-  <p> 選擇大樓: {{selectBuilding}} </p>
-  <mat-select class="border" [(ngModel)]="selectBuilding" name="food">
+<mat-form-field appearance="fill">
+  <mat-label>大樓名稱</mat-label>
+  <mat-select class="border" [(ngModel)]="selectBuildingId" (ngModelChange)="onSelectBuildingChange(selectBuildingId)"
+    [ngModelOptions]="{standalone: true}">
     <mat-option *ngFor="let item of buildingList" [value]="item.ID">
       {{item.name}}
     </mat-option>
   </mat-select>
-</form>
+</mat-form-field>

@@ -64,7 +64,7 @@ export class HomepageSettingDepartmentComponent implements OnInit {
   addDepartmentDialog() {
     this.dialog.open(DialogAddDepartmentComponent, {
       width: '500px',
-      height: '300px',
+      height: '450px',
     });
   }
 

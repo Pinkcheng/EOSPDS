@@ -6,13 +6,6 @@
   font-size:larger;
   margin:5px;
 }
-.text{
- margin: 10px;
-}
-.delete-mission-button{
-  background-color: red;
-  color: white;
-}
 .button{
   margin: auto;
   border-radius: 50px;
@@ -21,14 +14,6 @@
   cursor: pointer;
 }
 
-.example-radio-group {
-  display: inline-flex;
-  flex-direction:row;
-  margin: 0;
-}
-.text{
-  margin:5px;
-}
-.example-radio-button {
-  margin: 5px;
+.example-full-width{
+  width:100%
 }

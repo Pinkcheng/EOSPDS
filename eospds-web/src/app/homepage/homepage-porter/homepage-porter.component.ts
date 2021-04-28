@@ -240,7 +240,7 @@ export class HomepagePorterComponent implements OnInit {
   addPorterDialog() {
     this.dialog.open(DialogAddPorterComponent, {
       width: '600px',
-      height: '500px',
+      height: '600px',
     });
   }
   clickInnerCheckbox($event: any) {

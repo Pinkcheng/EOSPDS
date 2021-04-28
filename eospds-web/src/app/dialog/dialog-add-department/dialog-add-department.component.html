@@ -1,8 +1,17 @@
 <h1 mat-dialog-title class="mat-dialog-title dark-color">新增單位</h1>
 <div mat-dialog-content class="mission-content">
-  <div class="text">大樓: <app-select-building></app-select-building></div>
-  <div class="text">樓層: <input type="box"></div>
-  <div class="text">單位名稱: <input type="box"></div>
+  <app-select-building (selectBuildingEvent)="getSelectBuildingId($event)"></app-select-building>
+  <mat-form-field appearance="fill">
+    <mat-label>樓層</mat-label>
+    <mat-select class="border" [(ngModel)]="department.floor" [ngModelOptions]="{standalone: true}">
+      <mat-option *ngFor="let item of floorList" [value]="item">{{item}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label class="darker-font">單位名稱</mat-label>
+    <input class="dark-font dark-color" matInput [(ngModel)]="department.name" [ngModelOptions]="{standalone:true}"
+      required>
+  </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-button mat-dialog-close class="button dark-color" (click)="addDepartment()">確定</button>

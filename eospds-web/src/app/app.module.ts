@@ -18,6 +18,7 @@ import { ShareModule } from './share/share.module';
 import { ErrorService } from './service/error.service';
 import { ApiService } from './service/api.service';
 import { SelectModule } from './select/select.module';
+import { ReactiveFormsModule } from '@angular/forms';
 export function startupServiceFactory(startupService: StartupService): Function { return () => startupService.load(); }
 
 @NgModule({
@@ -35,6 +36,7 @@ export function startupServiceFactory(startupService: StartupService): Function 
     DialogModule,
     ButtonModule,
     MatSnackBarModule,
+    ReactiveFormsModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {

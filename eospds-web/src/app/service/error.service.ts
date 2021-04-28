@@ -26,8 +26,15 @@ export class ErrorService implements ErrorHandler {
     return throwError(errorMessage);
   }
   handleResponse = (res: Response) => {
-    if (res.message.length != 0) {
+    if (res.message.length > 0) {
       this.snackbar.open(res.message, 'OK', {
+        verticalPosition: 'top', duration: 2000
+      })
+    }
+  }
+  errorTextResponse = (text: string) => {
+    if (text.length > 0) {
+      this.snackbar.open(text, 'OK', {
         verticalPosition: 'top', duration: 2000
       })
     }
