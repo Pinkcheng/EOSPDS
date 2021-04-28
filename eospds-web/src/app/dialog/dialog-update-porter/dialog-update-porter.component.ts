@@ -23,7 +23,7 @@ export class DialogUpdatePorterComponent implements OnInit {
     "tag": 123,
     "birthday": "1987-08-07",
     "department": {
-      "id": "D1231",
+      "id": "D1002",
       "building": {
         "id": "B1100",
         "name": "新醫療大樓"
@@ -57,5 +57,8 @@ export class DialogUpdatePorterComponent implements OnInit {
         porterId: this.data.porterId
       }
     });
+  }
+  getSelectDepartmentId($event: any) {
+    console.log($event)
   }
 }

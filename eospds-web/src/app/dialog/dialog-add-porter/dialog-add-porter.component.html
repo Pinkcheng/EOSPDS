@@ -27,17 +27,14 @@
       <input class="dark-font dark-color" matInput [(ngModel)]="porterInformation.tag"
         [ngModelOptions]="{standalone:true}">
     </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label class="darker-font">生日</mat-label>
+      <input type=date class="dark-font dark-color" matInput [(ngModel)]="porterInformation.birthday"
+        [ngModelOptions]="{standalone:true}">
+    </mat-form-field>
   </form>
-  <div class="text">類型:
-    <mat-radio-group aria-labelledby="example-radio-group-label" class="text example-radio-group"
-      [(ngModel)]="porterInformation.type">
-      <mat-radio-button class="example-radio-button" *ngFor="let type of porterTypes" [value]="type.id">
-        {{type.name}}
-      </mat-radio-button>
-      <app-select-building *ngIf="porterInformation.type==2"></app-select-building>
-    </mat-radio-group>
-  </div>
-  <div class="text">性別:
+  <span class="text darker-font">性別</span>
+  <div>
     <mat-radio-group aria-labelledby="example-radio-group-label" class="text example-radio-group"
       [(ngModel)]="porterInformation.gender">
       <mat-radio-button class="example-radio-button" *ngFor="let gender of genders" [value]="gender.id">
@@ -45,12 +42,25 @@
       </mat-radio-button>
     </mat-radio-group>
   </div>
-  <mat-form-field class="example-full-width">
-    <mat-label class="darker-font">生日</mat-label>
-    <input type=date class="dark-font dark-color" matInput [(ngModel)]="porterInformation.birthday"
-      [ngModelOptions]="{standalone:true}">
-  </mat-form-field>
-  <div mat-dialog-actions>
-    <button mat-button mat-dialog-close class="button dark-color" (click)="addPorter()">確定</button>
-    <button mat-button mat-dialog-close class="button light-color">取消</button>
+  <span class="text darker-font">類型</span>
+  <div>
+    <mat-radio-group aria-labelledby="example-radio-group-label" class="text example-radio-group "
+      [(ngModel)]="porterInformation.type">
+      <mat-radio-button class="example-radio-button" *ngFor="let type of porterTypes" [value]="type.id">
+        {{type.name}}
+      </mat-radio-button>
+      <div>
+        <app-select-department *ngIf="porterInformation.type==2"
+          (selectDepartmentEvent)="getSelectDepartmentId($event)">
+        </app-select-department>
+      </div>
+    </mat-radio-group>
   </div>
+
+
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button class="button dark-color" (click)="addPorter()">確定</button>
+  <button mat-button mat-dialog-close class="button light-color">取消</button>
+</div>

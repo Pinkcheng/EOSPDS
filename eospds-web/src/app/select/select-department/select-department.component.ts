@@ -9,25 +9,34 @@ import { ApiService } from 'src/app/service/api.service';
 })
 export class SelectDepartmentComponent implements OnInit {
 
-  constructor(public api: ApiService) { }
-  selectBuildingId: string = "";
-  selectDepartmentId: string = "";
+  constructor(public api: ApiService) {
+
+  }
+
 
   buildingList: Building[] = []
   departmentList: Department[] = []
 
+  @Input()
+  selectBuildingId: string = "";
+
+  @Input()
+  selectDepartmentId: string = "";
 
   @Output()
   selectDepartmentEvent = new EventEmitter<any>();
 
   ngOnInit(): void {
-
-    this.api.getBuildingList().subscribe((res: Response) => { this.buildingList = res.data; console.log(res.data) })
+    if (this.selectBuildingId != "" && this.selectDepartmentId != "") {
+      this.api.getBuildingList().subscribe((res: Response) => { this.buildingList = res.data; })
+      this.onSelectBuildingChange(this.selectBuildingId)
+    } else {
+      this.api.getBuildingList().subscribe((res: Response) => { this.buildingList = res.data; })
+    }
   }
   onSelectBuildingChange(selectBuildingId: string) {
     //http get departmentlist of building id
     this.selectBuildingId = selectBuildingId;
-    console.log(selectBuildingId)
     if (selectBuildingId == "B1100") {
       this.departmentList = this.B1100;
     } else if (selectBuildingId == "B1200") {
@@ -38,7 +47,6 @@ export class SelectDepartmentComponent implements OnInit {
   }
   onSelectDepartmentChange(selectDepartmentId: string) {
     this.selectDepartmentId = selectDepartmentId
-    console.log(123, selectDepartmentId)
     this.selectDepartmentEvent.emit(selectDepartmentId)
   }
   B1100 = [

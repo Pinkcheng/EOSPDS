@@ -1,25 +1,25 @@
 <h1 mat-dialog-title class="mat-dialog-title dark-color">修改傳送員</h1>
 <div mat-dialog-content class="porter-content">
   <p>編號: {{porterData.id}}</p>
-  <mat-form-field class="example-full-width">
-    <mat-label class="darker-font">姓名</mat-label>
-    <input class="dark-font dark-color" matInput [(ngModel)]="porterData.name" [ngModelOptions]="{standalone:true}"
-      required>
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label class="darker-font">Tag編號</mat-label>
-    <input class="dark-font dark-color" matInput [(ngModel)]="porterData.tag" [ngModelOptions]="{standalone:true}"
-      required>
-  </mat-form-field>
-  <div class="text">類型:
-    <mat-radio-group aria-labelledby="example-radio-group-label" class="text example-radio-group"
-      [(ngModel)]="porterData.type.id">
-      <mat-radio-button class="example-radio-button" *ngFor="let type of porterTypes" [value]="type.id">
-        {{type.name}}
-      </mat-radio-button>
-    </mat-radio-group>
-  </div>
-  <div class="text">性別:
+  <form>
+    <mat-form-field class="example-full-width">
+      <mat-label class="darker-font">姓名</mat-label>
+      <input class="dark-font dark-color" matInput [(ngModel)]="porterData.name" [ngModelOptions]="{standalone:true}"
+        required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label class="darker-font">Tag編號</mat-label>
+      <input class="dark-font dark-color" matInput [(ngModel)]="porterData.tag" [ngModelOptions]="{standalone:true}"
+        required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label class="darker-font">生日</mat-label>
+      <input type=date class="dark-font dark-color" matInput [(ngModel)]="porterData.birthday"
+        [ngModelOptions]="{standalone:true}">
+    </mat-form-field>
+  </form>
+  <span class="text darker-font">性別</span>
+  <div>
     <mat-radio-group aria-labelledby="example-radio-group-label" class="text example-radio-group"
       [(ngModel)]="porterData.gender.id">
       <mat-radio-button class="example-radio-button" *ngFor="let gender of genders" [value]="gender.id">
@@ -27,13 +27,23 @@
       </mat-radio-button>
     </mat-radio-group>
   </div>
-  <mat-form-field class="example-full-width">
-    <mat-label class="darker-font">生日</mat-label>
-    <input type=date class="dark-font dark-color" matInput [(ngModel)]="porterData.birthday"
-      [ngModelOptions]="{standalone:true}">
-  </mat-form-field>
+  <span class="text darker-font">類型</span>
+  <div>
+    <mat-radio-group aria-labelledby="example-radio-group-label" class="text example-radio-group"
+      [(ngModel)]="porterData.type.id">
+      <mat-radio-button class="example-radio-button" *ngFor="let type of porterTypes" [value]="type.id">
+        {{type.name}}
+      </mat-radio-button>
+      <div>
+        <app-select-department *ngIf="porterData.type.id==2" [selectBuildingId]="porterData.department.building.id"
+          [selectDepartmentId]="porterData.department.id" (selectDepartmentEvent)="getSelectDepartmentId($event)">
+        </app-select-department>
+      </div>
+    </mat-radio-group>
+  </div>
+
 </div>
-<div mat-dialog-actions>
+<div mat-dialog-actions class="botton">
   <button mat-button class="button delete-porter-button" (click)="deletePorterDialog()">刪除</button>
   <button mat-button mat-dialog-close class="button light-color">關閉</button>
 </div>

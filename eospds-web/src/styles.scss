@@ -39,21 +39,37 @@ body{
   background-color:#B2E0DC
 }
 
-.mat-checkbox-layout{
-  margin-bottom: 0;
-}
-
-.darker-font{
-  color:#007B6D
-}
-.dark-font{
-  color:#26A89C
-}
-
 .light-font{
   color:#81CCC5
 }
 
 .lighter-font{
   color:#B2E0DC
+}
+.mat-checkbox-layout{
+  margin-bottom: 0;
+}
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: #007B6D;
+}
+.mat-select-arrow-wrapper{
+  color: #007B6D;
+}
+.mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+    color: #007B6D;
+}
+
+.mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #007B6D !important;
+ }
+
+ .mat-form-field-underline {
+  /*change color of underline*/
+  background-color: #007B6D !important;
+}
+
+.mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color: #007B6D !important;;
 }

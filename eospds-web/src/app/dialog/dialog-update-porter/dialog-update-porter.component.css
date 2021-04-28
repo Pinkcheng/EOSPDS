@@ -19,17 +19,12 @@
   outline:none;
   cursor: pointer;
 }
-::ng-deep .mat-focused .mat-form-field-label {
-  /*change color of label*/
-  color: #007B6D !important;
- }
-
- ::ng-deep.mat-form-field-underline {
-  /*change color of underline*/
-  background-color: #007B6D !important;
+.example-radio-button{
+  margin:5px
 }
+.example-full-width{
+  margin:5px
+}
+.botton{
 
-::ng-deep.mat-form-field-ripple {
- /*change color of underline when focused*/
- background-color: #007B6D !important;;
 }

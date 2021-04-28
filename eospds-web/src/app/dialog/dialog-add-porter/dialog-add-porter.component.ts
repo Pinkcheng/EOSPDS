@@ -16,6 +16,7 @@ export class DialogAddPorterComponent implements OnInit {
 
   constructor(
     public api: ApiService,
+    public dialogRef: MatDialog,
     public dialog: MatDialog,
     public err: ErrorService
   ) { }
@@ -64,12 +65,17 @@ export class DialogAddPorterComponent implements OnInit {
       if (this.checkPassword(this.porterInformation.password, this.secondPassword)) {
         var body = "name=" + name + "&account=" + account + "&password=" + password + "&tag=" + tag + "&type=" + type;
         this.api.addPorter(body.toString()).subscribe((res: Response) => this.err.handleResponse(res))
+        this.dialogRef.closeAll();
       } else {
         this.err.errorTextResponse("請確認密碼")
       }
     } else {
       this.err.errorTextResponse("請輸入完整資料")
     }
+  }
+
+  getSelectDepartmentId($event: any) {
+    console.log($event)
   }
 }
 

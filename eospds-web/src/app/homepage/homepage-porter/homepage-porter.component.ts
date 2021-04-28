@@ -231,7 +231,7 @@ export class HomepagePorterComponent implements OnInit {
   updatePorterDialog() {
     this.dialog.open(DialogUpdatePorterComponent, {
       width: '500px',
-      height: '450px',
+      height: '580px',
       data: {
         porterId: this.mouseEnterPorterId
       }
@@ -240,7 +240,7 @@ export class HomepagePorterComponent implements OnInit {
   addPorterDialog() {
     this.dialog.open(DialogAddPorterComponent, {
       width: '600px',
-      height: '600px',
+      height: '650px',
     });
   }
   clickInnerCheckbox($event: any) {
