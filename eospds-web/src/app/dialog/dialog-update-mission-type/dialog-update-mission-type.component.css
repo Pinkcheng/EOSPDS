@@ -1,12 +1,11 @@
 .mat-dialog-title{
   font-weight:bold;
   padding:10px;
+  color: white;
 }
 .mission-type-content{
-  font-size:larger
-}
-.text{
-  margin:10px;
+  font-size:larger;
+  margin:5px;
 }
 .delete-mission-type-button{
   background-color: red;
@@ -18,4 +17,7 @@
   border: 0px;
   outline:none;
   cursor: pointer;
+}
+.example-full-width{
+  width: 100%;
 }

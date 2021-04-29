@@ -24,7 +24,9 @@ import { SelectMissionLabelComponent } from './select-mission-label/select-missi
   ],
   exports: [
     SelectBuildingComponent,
-    SelectDepartmentComponent
+    SelectDepartmentComponent,
+    SelectMissionTypeComponent,
+    SelectMissionLabelComponent
   ]
 })
 export class SelectModule { }

@@ -1,13 +1,13 @@
 .mat-dialog-title{
   font-weight:bold;
   padding:10px;
+  color: white;
 }
 .department-content{
-  font-size:larger
+  font-size:larger;
+  margin:5px;
 }
-.text{
-  margin:10px;
-}
+
 .delete-department-button{
   background-color: red;
   color: white;
@@ -22,4 +22,7 @@
 
 .example-full-width{
   width:100%
+}
+.content{
+  margin:10px 0
 }

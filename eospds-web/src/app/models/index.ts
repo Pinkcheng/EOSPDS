@@ -5,3 +5,4 @@ export * from './porterType';
 export * from './gender';
 export * from './building';
 export * from './department';
+export * from './missionType';

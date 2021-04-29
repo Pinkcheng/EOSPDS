@@ -1,1 +1,9 @@
-<p>select-mission-type works!</p>
+<mat-form-field appearance="fill">
+  <mat-label>任務類型</mat-label>
+  <mat-select class="border" [(ngModel)]="selectMissionTypeId"
+    (ngModelChange)="onSelectMissionTypeChange(selectMissionTypeId)" [ngModelOptions]="{standalone: true}">
+    <mat-option *ngFor="let item of missionTypeList" [value]="item.id" required>
+      {{item.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

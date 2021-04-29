@@ -77,13 +77,13 @@ export class HomepageSettingMissionTypeComponent implements OnInit {
   addMissionTypeDialog() {
     this.dialog.open(DialogAddMissionTypeComponent, {
       width: '500px',
-      height: '300px',
+      height: '350px',
     });
   }
   updateMissionTypeDialog() {
     this.dialog.open(DialogUpdateMissionTypeComponent, {
       width: '400px',
-      height: '300px',
+      height: '400px',
       data: {
         missionTypeId: this.mouseEnterMissionTypeId
       }

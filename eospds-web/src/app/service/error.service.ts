@@ -39,4 +39,9 @@ export class ErrorService implements ErrorHandler {
       })
     }
   }
+  errorDataUnComplete = () => {
+    this.snackbar.open('請輸入完整資料', 'OK', {
+      verticalPosition: 'top', duration: 2000
+    });
+  }
 }

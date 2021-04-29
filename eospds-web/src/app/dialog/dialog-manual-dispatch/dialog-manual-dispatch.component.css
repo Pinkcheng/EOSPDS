@@ -1,6 +1,7 @@
 .mat-dialog-title{
   font-weight:bold;
   padding:10px;
+  color: white;
 }
 .porter-title{
   width:100%;
@@ -22,8 +23,6 @@
 .porter-content{
   display: flex;
   justify-content: space-between;
-}
-.radio-button{
 }
 
 .radio-group{

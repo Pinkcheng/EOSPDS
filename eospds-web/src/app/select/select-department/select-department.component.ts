@@ -52,19 +52,19 @@ export class SelectDepartmentComponent implements OnInit {
   B1100 = [
     {
       "id": "D1001",
-      "building": "新醫療大樓",
+      "building": { "ID": "B1101", "name": "新醫療大樓" },
       "floor": "B1",
       "name": "傳送中心"
     },
     {
       "id": "D1002",
-      "building": "新醫療大樓",
+      "building": { "ID": "B1101", "name": "新醫療大樓" },
       "floor": "1F",
       "name": "骨科門診"
     },
     {
       "id": "D1003",
-      "building": "新醫療大樓",
+      "building": { "ID": "B1101", "name": "新醫療大樓" },
       "floor": "1F",
       "name": "耳鼻喉科門診"
     }
@@ -72,19 +72,19 @@ export class SelectDepartmentComponent implements OnInit {
   B1102 = [
     {
       "id": "D1001",
-      "building": "新醫療大樓",
+      "building": { "ID": "B1101", "name": "新醫療大樓" },
       "floor": "B1",
       "name": "傳送中心"
     },
     {
       "id": "D1002",
-      "building": "新醫療大樓",
+      "building": { "ID": "B1101", "name": "新醫療大樓" },
       "floor": "1F",
       "name": "骨科門診"
     },
     {
       "id": "D1003",
-      "building": "新醫療大樓",
+      "building": { "ID": "B1101", "name": "新醫療大樓" },
       "floor": "1F",
       "name": "耳鼻喉科門診"
     }

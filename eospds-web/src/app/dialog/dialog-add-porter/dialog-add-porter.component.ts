@@ -67,10 +67,10 @@ export class DialogAddPorterComponent implements OnInit {
         this.api.addPorter(body.toString()).subscribe((res: Response) => this.err.handleResponse(res))
         this.dialogRef.closeAll();
       } else {
-        this.err.errorTextResponse("請確認密碼")
+        this.err.errorTextResponse('"請確認密碼"')
       }
     } else {
-      this.err.errorTextResponse("請輸入完整資料")
+      this.err.errorDataUnComplete();
     }
   }
 

@@ -171,8 +171,8 @@ export class HomepageStaffComponent implements OnInit {
   };
   updateStaffDialog() {
     this.dialog.open(DialogUpdateStaffComponent, {
-      width: '400px',
-      height: '250px',
+      width: '550px',
+      height: '400px',
       data: {
         staffId: this.mouseEnterStaffId
       }
@@ -181,7 +181,7 @@ export class HomepageStaffComponent implements OnInit {
   addStaffDialog() {
     this.dialog.open(DialogAddStaffComponent, {
       width: '400px',
-      height: '250px',
+      height: '350px',
     });
   }
   clickInnerCheckbox($event: any) {
