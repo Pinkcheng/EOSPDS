@@ -1,7 +1,7 @@
 <h1 mat-dialog-title class="mat-dialog-title dark-color">新增任務</h1>
 <div mat-dialog-content class="mission-content">
   <h3>任務類型與標籤</h3>
-  <app-select-mission-label (selectMissionLabelEvent)="getSelectMissionTypeId($event)"></app-select-mission-label>
+  <app-select-mission-label (selectMissionLabelEvent)="getSelectMissionLabelId($event)"></app-select-mission-label>
   <h3>起始單位</h3>
   <app-select-department (selectDepartmentEvent)="getSelectStartDepartmentId($event)"></app-select-department>
   <h3>送往單位</h3>

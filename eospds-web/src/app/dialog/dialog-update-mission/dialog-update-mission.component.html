@@ -24,6 +24,9 @@
     <mat-label>備註</mat-label>
     <textarea matInput placeholder="" [(ngModel)]="missionData.content"></textarea>
   </mat-form-field>
+  <h3>傳送員 {{missionData.porter}} <button mat-flat-button class="function-button manual-dispatch-button dark-color"
+      (click)="manualDispatchDiaolog()">指定人員</button></h3>
+
 </div>
 <div mat-dialog-actions>
   <button mat-button class="button delete-mission-button" (click)="deleteMissionDialog()">刪除</button>

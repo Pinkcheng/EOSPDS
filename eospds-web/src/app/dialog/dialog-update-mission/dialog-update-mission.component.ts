@@ -2,6 +2,7 @@ import { ErrorService } from 'src/app/service/error.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogDeleteMissionComponent } from '../dialog-delete-mission/dialog-delete-mission.component';
+import { DialogManualDispatchComponent } from '../dialog-manual-dispatch/dialog-manual-dispatch.component';
 
 @Component({
   selector: 'app-dialog-update-mission',
@@ -65,6 +66,16 @@ export class DialogUpdateMissionComponent implements OnInit {
   }
   getSelectEndBuildingId($event: any) {
     this.missionData.endBuildingId = $event;
+  }
+
+  manualDispatchDiaolog() {
+    this.dialog.open(DialogManualDispatchComponent, {
+      width: '500px',
+      height: '500px',
+      data: {
+        checkMissionList: [this.missionData.id]
+      }
+    });
   }
   missionInstrumentList = [
     {
