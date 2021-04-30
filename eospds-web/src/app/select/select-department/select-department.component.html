@@ -1,15 +1,15 @@
-<mat-form-field appearance="fill">
+<mat-form-field class="select-content" appearance="fill">
   <mat-label>大樓名稱</mat-label>
-  <mat-select class="border" [(ngModel)]="selectBuildingId" (ngModelChange)="onSelectBuildingChange(selectBuildingId)"
+  <mat-select [(ngModel)]="selectBuildingId" (ngModelChange)="onSelectBuildingChange(selectBuildingId)"
     [ngModelOptions]="{standalone: true}">
     <mat-option *ngFor="let item of buildingList" [value]="item.ID">
       {{item.name}}
     </mat-option>
   </mat-select>
 </mat-form-field>
-<mat-form-field appearance="fill">
+<mat-form-field  class="select-content" appearance="fill">
   <mat-label>單位名稱</mat-label>
-  <mat-select class="border" [(ngModel)]="selectDepartmentId"
+  <mat-select  [(ngModel)]="selectDepartmentId"
     (ngModelChange)="onSelectDepartmentChange(selectDepartmentId)" [ngModelOptions]="{standalone: true}">
     <mat-option *ngFor="let item of departmentList" [value]="item.id">
       {{item.name}}

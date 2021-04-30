@@ -10,12 +10,9 @@ import { Building, Response } from '../../models'
   templateUrl: './select-building.component.html',
   styleUrls: ['./select-building.component.css']
 })
-export class SelectBuildingComponent implements OnInit, OnChanges {
+export class SelectBuildingComponent implements OnInit {
 
   constructor(public api: ApiService) { }
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes)
-  }
 
   selectBuildingId: string = "";
   buildingList: Building[] = []
@@ -29,7 +26,6 @@ export class SelectBuildingComponent implements OnInit, OnChanges {
   }
   onSelectBuildingChange(selectBuildingId: string) {
     //http get departmentlist of building id
-    console.log(selectBuildingId)
     this.selectBuildingId = selectBuildingId;
     this.selectBuildingEvent.emit(selectBuildingId)
   }

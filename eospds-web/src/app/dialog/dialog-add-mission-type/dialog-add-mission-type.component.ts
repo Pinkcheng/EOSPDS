@@ -29,7 +29,7 @@ export class DialogAddMissionTypeComponent implements OnInit {
 
 
   }
-  getSelectMissionId($event: any) {
+  getSelectMissionTypeId($event: any) {
     this.missionTypeId = $event;
     console.log(this.missionTypeId)
   }

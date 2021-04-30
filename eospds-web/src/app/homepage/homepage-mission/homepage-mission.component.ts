@@ -254,8 +254,8 @@ export class HomepageMissionComponent implements OnInit {
 
   addMissionDialog() {
     this.dialog.open(DialogAddMissionComponent, {
-      width: '600px',
-      height: '500px',
+      width: '700px',
+      height: '800px',
     });
   }
 }

@@ -5,7 +5,7 @@
   <span class="mission-status">任務狀態</span>
   <span class="mission-type">任務類型</span>
   <span class="start-department">起始單位</span>
-  <span class="finish-department">送往單位</span>
+  <span class="end-department">送往單位</span>
   <span class="porter">傳送員</span>
   <span class="porter-position">目前位置</span>
 </div>
@@ -21,7 +21,7 @@
     <span class="mission-status mission-status-4" *ngIf="item.status == 4">{{item.status|missionStatus}}</span>
     <span class="mission-type">{{item.type}}</span>
     <span class="start-department">{{item.start}}</span>
-    <span class="finish-department">{{item.end}}</span>
+    <span class="end-department">{{item.end}}</span>
     <span class="porter" *ngIf="item.status != 1">{{item.porter}}</span>
     <span class="porter-position" *ngIf="item.status != 1">{{item.position}}</span>
     <span class="porter" *ngIf="item.status == 1 && (isAdminLogin$|async)">

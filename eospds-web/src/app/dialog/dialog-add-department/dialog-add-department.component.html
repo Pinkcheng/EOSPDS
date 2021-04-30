@@ -1,7 +1,7 @@
 <h1 mat-dialog-title class="mat-dialog-title dark-color">新增單位</h1>
 <div mat-dialog-content class="mission-content">
-  <app-select-building (selectBuildingEvent)="getSelectBuildingId($event)"></app-select-building>
-  <mat-form-field appearance="fill">
+  <app-select-building class="content" (selectBuildingEvent)="getSelectBuildingId($event)"></app-select-building>
+  <mat-form-field  class="content" appearance="fill">
     <mat-label>樓層</mat-label>
     <mat-select class="border" [(ngModel)]="selectFloorId" [ngModelOptions]="{standalone: true}">
       <mat-option *ngFor="let item of floorList" [value]="item">{{item}}</mat-option>

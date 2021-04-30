@@ -19,19 +19,15 @@ export class SelectDepartmentComponent implements OnInit {
 
   @Input()
   selectBuildingId: string = "";
-
   @Input()
   selectDepartmentId: string = "";
-
   @Output()
   selectDepartmentEvent = new EventEmitter<any>();
 
   ngOnInit(): void {
+    this.api.getBuildingList().subscribe((res: Response) => { this.buildingList = res.data; })
     if (this.selectBuildingId != "" && this.selectDepartmentId != "") {
-      this.api.getBuildingList().subscribe((res: Response) => { this.buildingList = res.data; })
       this.onSelectBuildingChange(this.selectBuildingId)
-    } else {
-      this.api.getBuildingList().subscribe((res: Response) => { this.buildingList = res.data; })
     }
   }
   onSelectBuildingChange(selectBuildingId: string) {
@@ -39,10 +35,10 @@ export class SelectDepartmentComponent implements OnInit {
     this.selectBuildingId = selectBuildingId;
     if (selectBuildingId == "B1100") {
       this.departmentList = this.B1100;
-    } else if (selectBuildingId == "B1200") {
+    } else if (selectBuildingId == "B1102") {
       this.departmentList = this.B1102;
     } else {
-      this.departmentList = this.B1100;
+      this.departmentList = this.B1103;
     }
   }
   onSelectDepartmentChange(selectDepartmentId: string) {
@@ -71,22 +67,42 @@ export class SelectDepartmentComponent implements OnInit {
   ]
   B1102 = [
     {
-      "id": "D1001",
+      "id": "D1004",
       "building": { "ID": "B1101", "name": "新醫療大樓" },
       "floor": "B1",
-      "name": "傳送中心"
+      "name": "傳送中心123"
     },
     {
-      "id": "D1002",
+      "id": "D1005",
       "building": { "ID": "B1101", "name": "新醫療大樓" },
       "floor": "1F",
-      "name": "骨科門診"
+      "name": "骨科門診123"
     },
     {
-      "id": "D1003",
+      "id": "D1006",
       "building": { "ID": "B1101", "name": "新醫療大樓" },
       "floor": "1F",
-      "name": "耳鼻喉科門診"
+      "name": "耳鼻喉科門診123"
+    }
+  ]
+  B1103 = [
+    {
+      "id": "D1007",
+      "building": { "ID": "B1101", "name": "新醫療大樓" },
+      "floor": "B1",
+      "name": "傳送中心321"
+    },
+    {
+      "id": "D1008",
+      "building": { "ID": "B1101", "name": "新醫療大樓" },
+      "floor": "1F",
+      "name": "骨科門診321"
+    },
+    {
+      "id": "D1009",
+      "building": { "ID": "B1101", "name": "新醫療大樓" },
+      "floor": "1F",
+      "name": "耳鼻喉科門診321"
     }
   ]
 }

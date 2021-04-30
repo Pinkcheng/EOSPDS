@@ -1,1 +1,18 @@
-<p>select-mission-label works!</p>
+<mat-form-field class="select-content" appearance="fill">
+  <mat-label>任務類型</mat-label>
+  <mat-select [(ngModel)]="selectMissionTypeId" (ngModelChange)="onSelectMissionTypeChange(selectMissionTypeId)"
+    [ngModelOptions]="{standalone: true}">
+    <mat-option *ngFor="let item of missionTypeList" [value]="item.id" required>
+      {{item.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field class="select-content" appearance="fill">
+  <mat-label>任務標籤</mat-label>
+  <mat-select [(ngModel)]="selectMissionLabelId" (ngModelChange)="onSelectMissionLabelChange(selectMissionLabelId)"
+    [ngModelOptions]="{standalone: true}">
+    <mat-option *ngFor="let item of missionLabelList" [value]="item.id" required>
+      {{item.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
