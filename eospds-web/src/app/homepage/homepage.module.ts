@@ -23,7 +23,6 @@ import { HomepageMissionListComponent } from './homepage-mission-list/homepage-m
 import { HomepageMissionDataComponent } from './homepage-mission-data/homepage-mission-data.component';
 import { HomepagePorterComponent } from './homepage-porter/homepage-porter.component';
 import { HomepagePorterCheckboxComponent } from './homepage-porter-checkbox/homepage-porter-checkbox.component';
-import { DialogMissionDataComponent } from '../dialog/dialog-mission-data/dialog-mission-data.component';
 import { DialogDeleteMissionComponent } from '../dialog/dialog-delete-mission/dialog-delete-mission.component';
 import { DialogAddMissionComponent } from './../dialog/dialog-add-mission/dialog-add-mission.component';
 import { DialogUpdateStaffComponent } from '../dialog/dialog-update-staff/dialog-update-staff.component';
@@ -36,6 +35,7 @@ import { ShareModule } from '../share';
 import { HomepageSettingDepartmentComponent } from './homepage-setting-department/homepage-setting-department.component';
 import { HomepageSettingMissionTypeComponent } from './homepage-setting-mission-type/homepage-setting-mission-type.component';
 import { HomepageSettingInformationComponent } from './homepage-setting-information/homepage-setting-information.component';
+import { DialogUpdateMissionComponent } from '../dialog/dialog-update-mission/dialog-update-mission.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +65,7 @@ import { HomepageSettingInformationComponent } from './homepage-setting-informat
   ],
   exports: [HomepageComponent],
   entryComponents: [
-    DialogMissionDataComponent,
+    DialogUpdateMissionComponent,
     DialogDeleteMissionComponent,
     DialogAddMissionComponent,
     DialogAddPorterComponent,

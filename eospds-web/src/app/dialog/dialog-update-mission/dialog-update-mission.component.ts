@@ -1,13 +1,13 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogDeleteMissionComponent } from '../dialog-delete-mission/dialog-delete-mission.component';
 
 @Component({
-  selector: 'app-dialog-mission-data',
-  templateUrl: './dialog-mission-data.component.html',
-  styleUrls: ['./dialog-mission-data.component.css']
+  selector: 'app-dialog-update-mission',
+  templateUrl: './dialog-update-mission.component.html',
+  styleUrls: ['./dialog-update-mission.component.css']
 })
-export class DialogMissionDataComponent implements OnInit {
+export class DialogUpdateMissionComponent implements OnInit {
 
   constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) private data: any) {
     //console.log(data.missionId)//欲修改之missionid
@@ -29,7 +29,7 @@ export class DialogMissionDataComponent implements OnInit {
 
   ngOnInit(): void {
     //get mission data http
-
+    console.log(123)
   }
   deleteMissionDialog() {
     this.dialog.open(DialogDeleteMissionComponent, {

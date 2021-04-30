@@ -1,8 +1,8 @@
 import { UserService } from './../../service/user.service';
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogMissionDataComponent } from 'src/app/dialog/dialog-mission-data/dialog-mission-data.component';
 import { Observable } from 'rxjs';
+import { DialogUpdateMissionComponent } from 'src/app/dialog/dialog-update-mission/dialog-update-mission.component';
 
 @Component({
   selector: 'app-homepage-mission-list',
@@ -88,7 +88,7 @@ export class HomepageMissionListComponent implements OnInit, OnInit {
   }
 
   UpdateMissionDialog() {
-    this.dialog.open(DialogMissionDataComponent, {
+    this.dialog.open(DialogUpdateMissionComponent, {
       width: '500px',
       height: '450px',
       data: {

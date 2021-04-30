@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DialogMissionDataComponent } from './dialog-mission-data/dialog-mission-data.component';
 import { DialogDeleteMissionComponent } from './dialog-delete-mission/dialog-delete-mission.component';
 import { DialogAddMissionComponent } from './dialog-add-mission/dialog-add-mission.component';
 import { FormsModule } from '@angular/forms';
@@ -21,12 +20,12 @@ import { DialogDeleteDepartmentComponent } from './dialog-delete-department/dial
 import { DialogDeleteMissionTypeComponent } from './dialog-delete-mission-type/dialog-delete-mission-type.component';
 import { DialogLogoutComponent } from './dialog-logout/dialog-logout.component';
 import { SelectModule } from '../select/select.module';
+import { DialogUpdateMissionComponent } from './dialog-update-mission/dialog-update-mission.component';
 
 
 
 @NgModule({
   declarations: [
-    DialogMissionDataComponent,
     DialogDeleteMissionComponent,
     DialogAddMissionComponent,
     DialogAddPorterComponent,
@@ -43,7 +42,8 @@ import { SelectModule } from '../select/select.module';
     DialogUpdateDepartmentComponent,
     DialogDeleteDepartmentComponent,
     DialogDeleteMissionTypeComponent,
-    DialogLogoutComponent
+    DialogLogoutComponent,
+    DialogUpdateMissionComponent
   ],
   imports: [
     CommonModule,
@@ -52,8 +52,6 @@ import { SelectModule } from '../select/select.module';
     SelectModule,
   ],
   exports: [
-    DialogMissionDataComponent,
-    DialogDeleteMissionComponent
   ]
 })
 export class DialogModule { }
