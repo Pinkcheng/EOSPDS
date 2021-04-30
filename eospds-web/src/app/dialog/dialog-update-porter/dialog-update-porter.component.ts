@@ -19,6 +19,7 @@ export class DialogUpdatePorterComponent implements OnInit {
 
   porterData = {
     "id": "P10000001",
+    "account": "0975879856",
     "name": "李冠億",
     "tag": 123,
     "birthday": "1987-08-07",

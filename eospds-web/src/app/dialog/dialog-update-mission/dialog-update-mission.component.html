@@ -1,8 +1,32 @@
 <h1 mat-dialog-title class="mat-dialog-title dark-color">修改任務</h1>
 <div mat-dialog-content class="mission-content">
-
+  <h3>編號:{{missionData.id}}</h3>
+  <h3>任務類型與標籤</h3>
+  <app-select-mission-label (selectMissionLabelEvent)="getSelectMIssionLabelId($event)"
+    [selectMissionLabelId]="missionData.label" [selectMissionTypeId]="missionData.type"></app-select-mission-label>
+  <h3>起始單位</h3>
+  <app-select-department [selectBuildingId]="missionData.startBuildingId"
+    [selectDepartmentId]="missionData.startDepartmentId" (selectDepartmentEvent)="getSelectStartDepartmentId($event)">
+  </app-select-department>
+  <h3>送往單位</h3>
+  <app-select-department [selectBuildingId]="missionData.endBuildingId"
+    [selectDepartmentId]="missionData.endDepartmentId" (selectDepartmentEvent)="getSelectEndDepartmentId($event)">
+  </app-select-department>
+  <h3>運送工具</h3>
+  <mat-radio-group aria-labelledby="example-radio-group-label" class="text example-radio-group"
+    [(ngModel)]="missionData.instrument">
+    <mat-radio-button class="example-radio-button" *ngFor="let instrument of missionInstrumentList"
+      [value]="instrument.id">
+      {{instrument.name}}
+    </mat-radio-button>
+  </mat-radio-group>
+  <mat-form-field class="example-full-width">
+    <mat-label>備註</mat-label>
+    <textarea matInput placeholder="" [(ngModel)]="missionData.content"></textarea>
+  </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-button class="button delete-mission-button" (click)="deleteMissionDialog()">刪除</button>
+  <button mat-button class="button update-department-button dark-color" (click)="updateMission()">修改</button>
   <button mat-button mat-dialog-close class="button light-color">關閉</button>
 </div>

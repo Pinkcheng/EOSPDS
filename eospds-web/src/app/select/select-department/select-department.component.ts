@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Building, Department, Response } from 'src/app/models';
 import { ApiService } from 'src/app/service/api.service';
 
@@ -27,12 +27,21 @@ export class SelectDepartmentComponent implements OnInit {
   ngOnInit(): void {
     this.api.getBuildingList().subscribe((res: Response) => { this.buildingList = res.data; })
     if (this.selectBuildingId != "" && this.selectDepartmentId != "") {
-      this.onSelectBuildingChange(this.selectBuildingId)
+      //http get department list of selectBuildingId
+      if (this.selectBuildingId == "B1100") {
+        this.departmentList = this.B1100;
+      } else if (this.selectBuildingId == "B1102") {
+        this.departmentList = this.B1102;
+      } else {
+        this.departmentList = this.B1103;
+      }
     }
   }
   onSelectBuildingChange(selectBuildingId: string) {
-    //http get departmentlist of building id
     this.selectBuildingId = selectBuildingId;
+    this.selectDepartmentId = "";
+    this.selectDepartmentEvent.emit(this.selectDepartmentId)
+    //http get departmentlist of building id
     if (selectBuildingId == "B1100") {
       this.departmentList = this.B1100;
     } else if (selectBuildingId == "B1102") {

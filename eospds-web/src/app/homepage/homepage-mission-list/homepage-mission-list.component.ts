@@ -90,7 +90,7 @@ export class HomepageMissionListComponent implements OnInit, OnInit {
   UpdateMissionDialog() {
     this.dialog.open(DialogUpdateMissionComponent, {
       width: '500px',
-      height: '450px',
+      height: '800px',
       data: {
         missionId: this.mouseEnterMissionId
       }

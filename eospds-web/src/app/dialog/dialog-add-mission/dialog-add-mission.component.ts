@@ -42,7 +42,7 @@ export class DialogAddMissionComponent implements OnInit {
     }
   }
 
-  getSelectMissionTypeId($event: any) {
+  getSelectMissionLabelId($event: any) {
     this.selectMissionLabelId = $event;
   }
   getSelectStartDepartmentId($event: any) {

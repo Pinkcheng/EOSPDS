@@ -20,3 +20,9 @@
   outline:none;
   cursor: pointer;
 }
+.example-radio-button {
+  margin: 5px;
+}
+.example-full-width{
+  width:100%;
+}

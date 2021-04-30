@@ -28,13 +28,20 @@ export class SelectMissionLabelComponent implements OnInit {
   ngOnInit(): void {
     //http get mission type list
     this.missionTypeList = this.missionTypeListData;
-    if (this.selectMissionLabelId != "") {
-      this.onSelectMissionTypeChange(this.selectMissionTypeId);
+    if (this.selectMissionLabelId != "" && this.selectMissionTypeId != "") {
+      //http get mission label of mission type
+      if (this.selectMissionTypeId == 'T0001') {
+        this.missionLabelList = this.T0001;
+      } else {
+        this.missionLabelList = this.T0002;
+      }
     }
   }
   onSelectMissionTypeChange(selectMissionTypeId: string) {
     //http get mission label of mission type
     this.selectMissionTypeId = selectMissionTypeId;
+    this.selectMissionLabelId = "";
+    this.selectMissionLabelEvent.emit(this.selectMissionLabelId)
     if (selectMissionTypeId == 'T0001') {
       this.missionLabelList = this.T0001;
     } else {
