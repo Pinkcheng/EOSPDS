@@ -1,6 +1,6 @@
 <div class="function-bar">
   <div class="button-container">
-    <button mat-flat-button class="button update-list-button darker-color">更新列表</button>
+    <button mat-flat-button class="button update-list-button darker-color" (click)="getMissionLabelList()">更新列表</button>
     <button mat-flat-button class="button add-mission-type-button" (click)="addMissionTypeDialog()">新增任務標籤</button>
   </div>
 </div>
@@ -11,10 +11,10 @@
 
 </div>
 <div class="mission-type-list">
-  <div class="mission-type-list-content" id="missiontype_{{idx}}" *ngFor="let item of missionTypeList; let idx = index"
+  <div class="mission-type-list-content" id="missiontype_{{idx}}" *ngFor="let item of missionLabelList; let idx = index"
     (mouseenter)="getMouseEnter($event)" (click)="updateMissionTypeDialog()">
-    <span class="mission-type-type">{{item.type}}</span>
-    <span class="mission-type-name">{{item.name}}</span>
-    <span class="mission-type-class">{{item.class}}</span>
+    <span class="mission-type-name">{{item.type.name}}</span>
+    <span class="mission-type-transport">{{item.type.transport}}</span>
+    <span class="mission-label-name">{{item.name}}</span>
   </div>
 </div>

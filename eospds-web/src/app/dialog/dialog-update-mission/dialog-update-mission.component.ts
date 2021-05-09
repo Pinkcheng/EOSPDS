@@ -17,7 +17,7 @@ export class DialogUpdateMissionComponent implements OnInit {
   missionInstrumentList: MissionInstrument[] = [];
   constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) private data: any, public err: ErrorService, public api: ApiService) {
     //console.log(data.missionId)//欲修改之missionid
-    this.api.getMissionInstrument().subscribe(res => this.missionInstrumentList = res.data)
+    this.api.getMissionInstrumentList().subscribe(res => this.missionInstrumentList = res.data)
   }
 
   missionData = {

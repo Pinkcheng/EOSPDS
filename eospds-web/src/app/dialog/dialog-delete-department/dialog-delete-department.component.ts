@@ -25,7 +25,7 @@ export class DialogDeleteDepartmentComponent implements OnInit {
   }
   deleteDepartment() {
     //delete porter http
-    this.api.deleteDepartment("/D0005").subscribe((res: Response) => this.err.handleResponse(res))
+    this.api.deleteDepartment("D0005").subscribe((res: Response) => this.err.handleResponse(res))
 
     this.closeAll();
   }

@@ -46,7 +46,7 @@ export class DialogUpdatePorterComponent implements OnInit {
     "time": "2021/03/30 10:20"
   }
   ngOnInit(): void {
-    this.api.getPorter("/P100000002").subscribe((res: Response) => console.log(res.data))
+    this.api.getPorterData("P100000002").subscribe((res: Response) => console.log(res.data))
 
   }
 

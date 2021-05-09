@@ -36,23 +36,23 @@ export class ApiService {
   /*-----------------------department------------------------------*/
   //新增請求單位
   addDepartment(body: any): Observable<Response> {
-    return this.http.post<Response>(this.apiURL + this.apiDepartment, body, this.app.apiOptions).pipe(catchError(this.err.handleError))
+    return this.http.post<Response>(this.apiURL + this.apiDepartment, body.toString(), this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
   //取得請求單位列表
   getDepartmentList(): Observable<Response> {
     return this.http.get<Response>(this.apiURL + this.apiDepartment, this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
   //取得特定請求單位資料
-  getDepartment(departmentId: string): Observable<Response> {
-    return this.http.get<Response>(this.apiURL + this.apiDepartment + departmentId, this.app.apiOptions).pipe(catchError(this.err.handleError))
+  getDepartmentData(departmentId: string): Observable<Response> {
+    return this.http.get<Response>(this.apiURL + this.apiDepartment + '/' + departmentId, this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
   //刪除特定請求單位
   deleteDepartment(departmentId: string): Observable<Response> {
-    return this.http.delete<Response>(this.apiURL + this.apiDepartment + departmentId, this.app.apiOptions).pipe(catchError(this.err.handleError))
+    return this.http.delete<Response>(this.apiURL + this.apiDepartment + '/' + departmentId, this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
-  //更新特定請求單位
-  updateDepartment(departmentId: string, body: any): Observable<Response> {
-    return this.http.patch<Response>(this.apiURL + this.apiDepartment + departmentId, body, this.app.apiOptions).pipe(catchError(this.err.handleError))
+  //更新特定請求單位資料
+  updateDepartmentData(departmentId: string, body: any): Observable<Response> {
+    return this.http.patch<Response>(this.apiURL + this.apiDepartment + '/' + departmentId, body.toString(), this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
   /*-----------------------staff------------------------------*/
   /*-----------------------porter------------------------------ */
@@ -65,36 +65,43 @@ export class ApiService {
     return this.http.get<Response>(this.apiURL + this.apiPorter, this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
   //取得特定傳送員資料
-  getPorter(porterId: string): Observable<Response> {
-    return this.http.get<Response>(this.apiURL + this.apiPorter + porterId, this.app.apiOptions).pipe(catchError(this.err.handleError))
+  getPorterData(porterId: string): Observable<Response> {
+    return this.http.get<Response>(this.apiURL + this.apiPorter + '/' + porterId, this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
   //刪除特定傳送員
   deletePorter(porterId: string): Observable<Response> {
-    return this.http.delete<Response>(this.apiURL + this.apiPorter + porterId, this.app.apiOptions).pipe(catchError(this.err.handleError))
+    return this.http.delete<Response>(this.apiURL + this.apiPorter + '/' + porterId, this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
   /*-----------------------mission------------------------------*/
   /*-----------------------mission_instrument------------------------------*/
-  //取得任務工具
-  getMissionInstrument(): Observable<Response> {
+  //取得任務工具列表
+  getMissionInstrumentList(): Observable<Response> {
     return this.http.get<Response>(this.apiURL + this.apiMissionInstrument, this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
   /*-----------------------mission_type------------------------------*/
   //取得任務類型列表
-  getMissionType(): Observable<Response> {
+  getMissionTypeList(): Observable<Response> {
     return this.http.get<Response>(this.apiURL + this.apiMissionType, this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
   /*-----------------------mission_label------------------------------*/
   addMissionLabel(body: any): Observable<Response> {
-
     return this.http.post<Response>(this.apiURL + this.apimissionLabel, body, this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
   //取得任務標籤列表
-  getMissionLabel(): Observable<Response> {
+  getMissionLabelList(): Observable<Response> {
     return this.http.get<Response>(this.apiURL + this.apimissionLabel, this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
-  //取得特定任務類型之任務標籤列表
-  getMissionLabelParams(body: any): Observable<Response> {
-    return this.http.get<Response>(this.apiURL + this.apimissionLabel + body, this.app.apiOptions).pipe(catchError(this.err.handleError))
+  //取得特定任務標籤列表
+  getMissionLabelParamsList(param: any): Observable<Response> {
+    return this.http.get<Response>(this.apiURL + this.apimissionLabel + '?' + param.toString(), this.app.apiOptions).pipe(catchError(this.err.handleError))
+  }
+  //取得特定任務標籤資料
+  getMissionLabelData(missionLabelId: string): Observable<Response> {
+    return this.http.get<Response>(this.apiURL + this.apimissionLabel + '/' + missionLabelId, this.app.apiOptions).pipe(catchError(this.err.handleError))
+  }
+  //更新特定任務標籤資料
+  updateMissionLableData(missionLabelId: string, body: any): Observable<Response> {
+    return this.http.patch<Response>(this.apiURL + this.apimissionLabel + '/' + missionLabelId, body.toString(), this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
   /*-----------------------dispatch------------------------------*/
   /*-----------------------action------------------------------*/

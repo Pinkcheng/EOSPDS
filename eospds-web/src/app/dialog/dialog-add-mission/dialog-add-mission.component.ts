@@ -24,7 +24,7 @@ export class DialogAddMissionComponent implements OnInit {
   missionContent: string = "";
   ngOnInit(): void {
     //http get mission instrument
-    this.api.getMissionInstrument().subscribe(res => this.missionInstrumentList = res.data)
+    this.api.getMissionInstrumentList().subscribe(res => this.missionInstrumentList = res.data)
   }
 
 

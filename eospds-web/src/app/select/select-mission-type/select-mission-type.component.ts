@@ -20,7 +20,7 @@ export class SelectMissionTypeComponent implements OnInit {
 
   constructor(public api: ApiService) { }
   ngOnInit(): void {
-    this.api.getMissionType().subscribe(res => this.missionTypeList = res.data)
+    this.api.getMissionTypeList().subscribe(res => this.missionTypeList = res.data)
     if (this.selectMissionTypeId != "") {
       this.onSelectMissionTypeChange(this.selectMissionTypeId)
     }

@@ -16,12 +16,12 @@ export class DialogUpdateDepartmentComponent implements OnInit {
 
   ngOnInit(): void {
     // http get department/:id
-    this.api.getDepartment('/D0002').subscribe((res: Response) => console.log(res.data))
+    this.api.getDepartmentData('D0002').subscribe((res: Response) => console.log(res.data))
   }
   updateDepartment() {
     let body = new URLSearchParams();
     body.set('name', this.departmentData.name);
-    this.api.updateDepartment("/D0002", body.toString()).subscribe((res: Response) => this.err.handleResponse(res))
+    this.api.updateDepartmentData("D0002", body).subscribe((res: Response) => this.err.handleResponse(res))
   }
   departmentData = {
     "id": "D2101",
