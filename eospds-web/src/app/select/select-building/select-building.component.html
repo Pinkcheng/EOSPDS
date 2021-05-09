@@ -1,8 +1,8 @@
 <mat-form-field class="select-content" appearance="fill">
   <mat-label>大樓名稱</mat-label>
-  <mat-select  [(ngModel)]="selectBuildingId" (ngModelChange)="onSelectBuildingChange(selectBuildingId)"
+  <mat-select [(ngModel)]="selectBuildingId" (ngModelChange)="onSelectBuildingChange(selectBuildingId)"
     [ngModelOptions]="{standalone: true}">
-    <mat-option *ngFor="let item of buildingList" [value]="item.ID">
+    <mat-option *ngFor="let item of buildingList" [value]="item.id">
       {{item.name}}
     </mat-option>
   </mat-select>

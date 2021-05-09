@@ -1,3 +1,4 @@
+import { ApiService } from 'src/app/service/api.service';
 import { ErrorService } from './../../service/error.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -10,7 +11,8 @@ import { MatDialog } from '@angular/material/dialog';
 export class DialogAddMissionTypeComponent implements OnInit {
 
   constructor(public err: ErrorService,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    public api: ApiService) { }
 
   ngOnInit(): void {
   }
@@ -19,9 +21,9 @@ export class DialogAddMissionTypeComponent implements OnInit {
   addMissionType() {
     if (this.missionTypeId != "" && this.missionLabelName != "") {
       let body = new URLSearchParams();
-      body.set('id', this.missionTypeId)
       body.set('name', this.missionLabelName)
-      //http post add mission label
+      body.set('missionTypeID', this.missionTypeId)
+      this.api.addMissionLabel(body.toString()).subscribe(res => this.err.handleResponse(res))
       this.dialog.closeAll();
     } else {
       this.err.errorDataUnComplete();

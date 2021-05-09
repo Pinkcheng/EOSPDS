@@ -21,7 +21,7 @@ export class SelectBuildingComponent implements OnInit {
   selectBuildingEvent = new EventEmitter<any>();
 
   ngOnInit(): void {
-    this.api.getBuildingList().subscribe((res: Response) => { this.buildingList = res.data; console.log(res.data) })
+    this.api.getBuildingList().subscribe((res: Response) => { this.buildingList = res.data })
 
   }
   onSelectBuildingChange(selectBuildingId: string) {

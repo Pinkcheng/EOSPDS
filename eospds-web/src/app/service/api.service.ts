@@ -23,7 +23,7 @@ export class ApiService {
   apiStaff: string = '/staff';
   apiPorter: string = '/porter';
   apiMission: string = '/mission';
-  apiInstrument: string = '/instrument';
+  apiMissionInstrument: string = '/mission_instrument';
   apiMissionType: string = '/mission_type';
   apimissionLabel: string = '/mission_label';
   apiDispatch: string = '/dispatch';
@@ -73,9 +73,29 @@ export class ApiService {
     return this.http.delete<Response>(this.apiURL + this.apiPorter + porterId, this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
   /*-----------------------mission------------------------------*/
-  /*-----------------------instrument------------------------------*/
+  /*-----------------------mission_instrument------------------------------*/
+  //取得任務工具
+  getMissionInstrument(): Observable<Response> {
+    return this.http.get<Response>(this.apiURL + this.apiMissionInstrument, this.app.apiOptions).pipe(catchError(this.err.handleError))
+  }
   /*-----------------------mission_type------------------------------*/
+  //取得任務類型列表
+  getMissionType(): Observable<Response> {
+    return this.http.get<Response>(this.apiURL + this.apiMissionType, this.app.apiOptions).pipe(catchError(this.err.handleError))
+  }
   /*-----------------------mission_label------------------------------*/
+  addMissionLabel(body: any): Observable<Response> {
+
+    return this.http.post<Response>(this.apiURL + this.apimissionLabel, body, this.app.apiOptions).pipe(catchError(this.err.handleError))
+  }
+  //取得任務標籤列表
+  getMissionLabel(): Observable<Response> {
+    return this.http.get<Response>(this.apiURL + this.apimissionLabel, this.app.apiOptions).pipe(catchError(this.err.handleError))
+  }
+  //取得特定任務類型之任務標籤列表
+  getMissionLabelParams(body: any): Observable<Response> {
+    return this.http.get<Response>(this.apiURL + this.apimissionLabel + body, this.app.apiOptions).pipe(catchError(this.err.handleError))
+  }
   /*-----------------------dispatch------------------------------*/
   /*-----------------------action------------------------------*/
 }

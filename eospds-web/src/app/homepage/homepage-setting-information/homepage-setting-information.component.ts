@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/service/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageSettingInformationComponent implements OnInit {
 
-  constructor() { }
+  constructor(public auth: AuthService) { }
   passwordLength: string = "";
+  userId: string | null = this.auth.getUserId()
+  userName: string | null = this.auth.getUserName()
   ngOnInit(): void {
     //get department information
   }

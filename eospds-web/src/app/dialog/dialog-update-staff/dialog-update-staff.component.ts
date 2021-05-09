@@ -28,7 +28,7 @@ export class DialogUpdateStaffComponent implements OnInit {
     "department": {
       "id": "D1001",
       "building": {
-        "ID": "B1100",
+        "id": "B1100",
         "name": "新醫療大樓"
       },
       "floor": "B1",

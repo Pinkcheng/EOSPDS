@@ -1,3 +1,4 @@
+import { ApiService } from 'src/app/service/api.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MissionType } from 'src/app/models';
 
@@ -17,36 +18,15 @@ export class SelectMissionTypeComponent implements OnInit {
   @Output()
   selectMissionTypeEvent = new EventEmitter<any>();
 
-  constructor() { }
+  constructor(public api: ApiService) { }
   ngOnInit(): void {
+    this.api.getMissionType().subscribe(res => this.missionTypeList = res.data)
     if (this.selectMissionTypeId != "") {
-      //api get mission type list
-      this.missionTypeList = this.missionTypeListData;
       this.onSelectMissionTypeChange(this.selectMissionTypeId)
-    } else {
-      this.missionTypeList = this.missionTypeListData;
     }
   }
   onSelectMissionTypeChange(selectMissionTypeId: string) {
     this.selectMissionTypeId = selectMissionTypeId;
     this.selectMissionTypeEvent.emit(selectMissionTypeId)
   }
-  missionTypeListData = [
-    {
-      "id": "T0001",
-      "name": "物品衛材",
-      "transport": {
-        "id": 2,
-        "name": "運物"
-      }
-    },
-    {
-      "id": "T0002",
-      "name": "轉床",
-      "transport": {
-        "id": 1,
-        "name": "運人"
-      }
-    }
-  ]
 }

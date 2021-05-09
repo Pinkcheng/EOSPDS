@@ -1,3 +1,4 @@
+import { ApiService } from 'src/app/service/api.service';
 import { MissionType, MissionLabel } from 'src/app/models';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -21,13 +22,13 @@ export class SelectMissionLabelComponent implements OnInit {
   missionLabelList: MissionLabel[] = []
 
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, public api: ApiService) {
 
   }
 
   ngOnInit(): void {
     //http get mission type list
-    this.missionTypeList = this.missionTypeListData;
+    this.api.getMissionType().subscribe(res => this.missionTypeList = res.data)
     if (this.selectMissionLabelId != "" && this.selectMissionTypeId != "") {
       //http get mission label of mission type
       if (this.selectMissionTypeId == 'T0001') {
@@ -52,24 +53,7 @@ export class SelectMissionLabelComponent implements OnInit {
     this.selectMissionLabelId = selectMissionLabelId;
     this.selectMissionLabelEvent.emit(selectMissionLabelId)
   }
-  missionTypeListData = [
-    {
-      "id": "T0001",
-      "name": "轉床",
-      "transport": {
-        "id": 1,
-        "name": "運人"
-      }
-    },
-    {
-      "id": "T0002",
-      "name": "一般檢查",
-      "transport": {
-        "id": 1,
-        "name": "運人"
-      }
-    }
-  ]
+
   T0001 = [
     {
       "id": "L0001",
@@ -77,10 +61,7 @@ export class SelectMissionLabelComponent implements OnInit {
       "type": {
         "id": "T0001",
         "name": "轉床",
-        "transport": {
-          "id": 1,
-          "name": "運人"
-        }
+        "transport": "運人"
       }
     },
     {
@@ -89,10 +70,7 @@ export class SelectMissionLabelComponent implements OnInit {
       "type": {
         "id": "T0001",
         "name": "轉床",
-        "transport": {
-          "id": 1,
-          "name": "運人"
-        }
+        "transport": "運人"
       }
     }
   ]
@@ -103,10 +81,7 @@ export class SelectMissionLabelComponent implements OnInit {
       "type": {
         "id": "T0002",
         "name": "一般檢查",
-        "transport": {
-          "id": 1,
-          "name": "運人"
-        }
+        "transport": "運人"
       }
     },
     {
@@ -115,10 +90,7 @@ export class SelectMissionLabelComponent implements OnInit {
       "type": {
         "id": "T0002",
         "name": "一般檢查",
-        "transport": {
-          "id": 1,
-          "name": "運人"
-        }
+        "transport": "運人"
       }
     }
   ]

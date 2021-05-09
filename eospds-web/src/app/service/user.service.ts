@@ -33,6 +33,7 @@ export class UserService {
         if (res.status == 1) {
           this.loginStatus.next(true);
           this.auth.writeToken(res.data);
+          this.auth.writeUserInfo(res.data);
         }
         return res
       }),
@@ -44,6 +45,7 @@ export class UserService {
   logout() {
     this.loginStatus.next(false);
     this.auth.removeToken();
+    this.auth.removeUserInfo();
   }
   //取得登入狀態
   getLoginStatus(): Observable<boolean> {
@@ -56,6 +58,7 @@ export class UserService {
       return of(true);
     } else {
       this.auth.removeToken();
+      this.auth.removeUserInfo();
       return of(false);
     }
   }

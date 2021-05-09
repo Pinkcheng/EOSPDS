@@ -34,9 +34,9 @@ export class LoginpageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.eventManager.addGlobalEventListener('window', 'keyup.enter', () => {
-      this.login();
-    });
+    // this.eventManager.addGlobalEventListener('window', 'keyup.enter', () => {
+    //   this.login();
+    // });
   }
   @HostListener('window:resize', ['$event'])
   getScreenSize() {

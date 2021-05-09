@@ -1,3 +1,4 @@
+import { AuthService } from './../../service/auth.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
@@ -7,15 +8,16 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class HomepageHeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public auth: AuthService) { }
 
-
+  department: string | null = this.auth.getUserName();
   ngOnInit(): void {
+
   }
 
   switchNumber!: number;
   title = '傳送員管理系統';
-  department = '傳送中心';
+
 
   @Input()
   headerHeight!: number;

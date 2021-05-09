@@ -1,3 +1,4 @@
+import { MissionInstrument } from './../../models/missionInstrument';
 import { ErrorService } from './../../service/error.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
@@ -15,6 +16,7 @@ export class DialogAddMissionComponent implements OnInit {
     public err: ErrorService,
     public api: ApiService
   ) { }
+  missionInstrumentList: MissionInstrument[] = [];
   selectMissionLabelId: string = "";
   selectStartDepartmentId: string = "";
   selectEndDepartmentId: string = "";
@@ -22,6 +24,7 @@ export class DialogAddMissionComponent implements OnInit {
   missionContent: string = "";
   ngOnInit(): void {
     //http get mission instrument
+    this.api.getMissionInstrument().subscribe(res => this.missionInstrumentList = res.data)
   }
 
 
@@ -51,26 +54,4 @@ export class DialogAddMissionComponent implements OnInit {
   getSelectEndDepartmentId($event: any) {
     this.selectEndDepartmentId = $event;
   }
-  missionInstrumentList = [
-    {
-      "id": "I0000",
-      "name": "無"
-    },
-    {
-      "id": "I0001",
-      "name": "輪椅"
-    },
-    {
-      "id": "I0002",
-      "name": "大床"
-    },
-    {
-      "id": "I0003",
-      "name": "小床"
-    },
-    {
-      "id": "I0004",
-      "name": "升降小床"
-    }
-  ]
 }

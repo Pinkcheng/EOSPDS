@@ -25,15 +25,15 @@ export class SelectDepartmentComponent implements OnInit {
   selectDepartmentEvent = new EventEmitter<any>();
 
   ngOnInit(): void {
-    this.api.getBuildingList().subscribe((res: Response) => { this.buildingList = res.data; })
+    this.api.getBuildingList().subscribe((res: Response) => { this.buildingList = res.data; console.log(this.buildingList)})
     if (this.selectBuildingId != "" && this.selectDepartmentId != "") {
       //http get department list of selectBuildingId
-      if (this.selectBuildingId == "B1100") {
-        this.departmentList = this.B1100;
-      } else if (this.selectBuildingId == "B1102") {
-        this.departmentList = this.B1102;
+      if (this.selectBuildingId == "B0001") {
+        this.departmentList = this.B0001;
+      } else if (this.selectBuildingId == "B0002") {
+        this.departmentList = this.B0002;
       } else {
-        this.departmentList = this.B1103;
+        this.departmentList = this.B0003;
       }
     }
   }
@@ -42,74 +42,74 @@ export class SelectDepartmentComponent implements OnInit {
     this.selectDepartmentId = "";
     this.selectDepartmentEvent.emit(this.selectDepartmentId)
     //http get departmentlist of building id
-    if (selectBuildingId == "B1100") {
-      this.departmentList = this.B1100;
-    } else if (selectBuildingId == "B1102") {
-      this.departmentList = this.B1102;
+    if (selectBuildingId == "B0001") {
+      this.departmentList = this.B0001;
+    } else if (selectBuildingId == "B0002") {
+      this.departmentList = this.B0002;
     } else {
-      this.departmentList = this.B1103;
+      this.departmentList = this.B0003;
     }
   }
   onSelectDepartmentChange(selectDepartmentId: string) {
     this.selectDepartmentId = selectDepartmentId
     this.selectDepartmentEvent.emit(selectDepartmentId)
   }
-  B1100 = [
+  B0001 = [
     {
       "id": "D1001",
-      "building": { "ID": "B1101", "name": "新醫療大樓" },
+      "building": { "id": "B1101", "name": "新醫療大樓" },
       "floor": "B1",
       "name": "傳送中心"
     },
     {
       "id": "D1002",
-      "building": { "ID": "B1101", "name": "新醫療大樓" },
+      "building": { "id": "B1101", "name": "新醫療大樓" },
       "floor": "1F",
       "name": "骨科門診"
     },
     {
       "id": "D1003",
-      "building": { "ID": "B1101", "name": "新醫療大樓" },
+      "building": { "id": "B1101", "name": "新醫療大樓" },
       "floor": "1F",
       "name": "耳鼻喉科門診"
     }
   ]
-  B1102 = [
+  B0002 = [
     {
       "id": "D1004",
-      "building": { "ID": "B1101", "name": "新醫療大樓" },
+      "building": { "id": "B1101", "name": "新醫療大樓" },
       "floor": "B1",
       "name": "傳送中心123"
     },
     {
       "id": "D1005",
-      "building": { "ID": "B1101", "name": "新醫療大樓" },
+      "building": { "id": "B1101", "name": "新醫療大樓" },
       "floor": "1F",
       "name": "骨科門診123"
     },
     {
       "id": "D1006",
-      "building": { "ID": "B1101", "name": "新醫療大樓" },
+      "building": { "id": "B1101", "name": "新醫療大樓" },
       "floor": "1F",
       "name": "耳鼻喉科門診123"
     }
   ]
-  B1103 = [
+  B0003 = [
     {
       "id": "D1007",
-      "building": { "ID": "B1101", "name": "新醫療大樓" },
+      "building": { "id": "B1101", "name": "新醫療大樓" },
       "floor": "B1",
       "name": "傳送中心321"
     },
     {
       "id": "D1008",
-      "building": { "ID": "B1101", "name": "新醫療大樓" },
+      "building": { "id": "B1101", "name": "新醫療大樓" },
       "floor": "1F",
       "name": "骨科門診321"
     },
     {
       "id": "D1009",
-      "building": { "ID": "B1101", "name": "新醫療大樓" },
+      "building": { "id": "B1101", "name": "新醫療大樓" },
       "floor": "1F",
       "name": "耳鼻喉科門診321"
     }

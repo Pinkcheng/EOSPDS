@@ -1,3 +1,6 @@
+import { ApiService } from 'src/app/service/api.service';
+import { AuthService } from 'src/app/service/auth.service';
+import { MissionInstrument } from './../../models/missionInstrument';
 import { ErrorService } from 'src/app/service/error.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -11,8 +14,10 @@ import { DialogManualDispatchComponent } from '../dialog-manual-dispatch/dialog-
 })
 export class DialogUpdateMissionComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) private data: any, public err: ErrorService) {
+  missionInstrumentList: MissionInstrument[] = [];
+  constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) private data: any, public err: ErrorService, public api: ApiService) {
     //console.log(data.missionId)//欲修改之missionid
+    this.api.getMissionInstrument().subscribe(res => this.missionInstrumentList = res.data)
   }
 
   missionData = {
@@ -21,9 +26,9 @@ export class DialogUpdateMissionComponent implements OnInit {
     "type": "T0001",
     "label": "L0001",
     "instrument": "I0001",
-    "startBuildingId": "B1100",
+    "startBuildingId": "B0001",
     "startDepartmentId": "D1001",
-    "endBuildingId": "B1102",
+    "endBuildingId": "B0002",
     "endDepartmentId": "D1004",
     "porter": "沈泓成",
   }
@@ -77,26 +82,4 @@ export class DialogUpdateMissionComponent implements OnInit {
       }
     });
   }
-  missionInstrumentList = [
-    {
-      "id": "I0000",
-      "name": "無"
-    },
-    {
-      "id": "I0001",
-      "name": "輪椅"
-    },
-    {
-      "id": "I0002",
-      "name": "大床"
-    },
-    {
-      "id": "I0003",
-      "name": "小床"
-    },
-    {
-      "id": "I0004",
-      "name": "升降小床"
-    }
-  ]
 }
