@@ -1,7 +1,12 @@
 <div class="progess">
-  <h3 class=mission-data-title>{{missionData.type}}</h3>
-  <h3 class=mission-data-title>{{missionData.content}}</h3>
-  <h4 class="staff-text">交接人員 {{missionData.staff}}</h4>
+  <div *ngIf="missionData == null">
+    <h3 class=mission-data-title> </h3>
+    <h3 class=mission-data-title> </h3>
+  </div>
+  <div *ngIf="missionData">
+    <h3 class=mission-data-title>{{missionData.label.name}}</h3>
+    <h3 class=mission-data-title>{{missionData.content}}</h3>
+  </div>
   <div class="progress-img">
     <span class="circle">
       <div>新增</div>
@@ -20,15 +25,19 @@
     </span>
   </div>
   <div class="progress-content">
-    <span class="progress-text">{{missionData.add_time}}</span>
-    <span class="progress-text">{{missionData.dispatch_time}}</span>
-    <span class="progress-text">{{missionData.start_time}}</span>
-    <span class="progress-text">{{missionData.finish_time}}</span>
+    <span class="progress-text" *ngFor="let item of missionProcess; let idx = index">
+      <span *ngIf="missionProcess[idx].time != null">
+        {{missionProcess[idx].time|date: 'yyyy/MM/dd hh:mm:ss'}}
+      </span>
+      <span *ngIf="missionProcess[idx].time == null"></span>
+    </span>
   </div>
   <div class="progress-content">
-    <span class="progress-text">{{missionData.add_department}}</span>
-    <span class="progress-text">{{missionData.dispatch}}</span>
-    <span class="progress-text">{{missionData.start_department}}</span>
-    <span class="progress-text">{{missionData.end_department}}</span>
+    <span class="progress-text" *ngFor="let item of missionProcess; let idx = index">
+      <span *ngIf="missionProcess[idx].department != null">
+        {{missionProcess[idx].department.name}}
+      </span>
+      <span *ngIf="missionProcess[idx].department == null"></span>
+    </span>
   </div>
 </div>

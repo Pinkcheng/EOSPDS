@@ -14,16 +14,16 @@
     (mouseenter)="getMouseEnter($event)" (mouseleave)="getMouseLeave($event)" (click)="UpdateMissionDialog()">
     <mat-checkbox class="checkbox" (click)="clickInnerCheckbox($event)" [(ngModel)]="missionListCheckStatus[idx]"
       (ngModelChange)="updateAllCheckboxStatus()" (ngModelChange)="getCheckMissionIdList()"></mat-checkbox>
-    <span class="start-time">{{item.add_time}}</span>
+    <span class="start-time">{{item.createTime | date: 'yyyy/MM/dd hh:mm:ss'}}</span>
     <span class="mission-status mission-status-1" *ngIf="item.status == 1">{{item.status|missionStatus}}</span>
     <span class="mission-status mission-status-2" *ngIf="item.status == 2">{{item.status|missionStatus}}</span>
     <span class="mission-status mission-status-3" *ngIf="item.status == 3">{{item.status|missionStatus}}</span>
     <span class="mission-status mission-status-4" *ngIf="item.status == 4">{{item.status|missionStatus}}</span>
-    <span class="mission-type">{{item.type}}</span>
-    <span class="start-department">{{item.start}}</span>
-    <span class="end-department">{{item.end}}</span>
-    <span class="porter" *ngIf="item.status != 1">{{item.porter}}</span>
-    <span class="porter-position" *ngIf="item.status != 1">{{item.position}}</span>
+    <span class="mission-type">{{item.label.name}}</span>
+    <span class="start-department">{{item.startDepartment.name}}</span>
+    <span class="end-department">{{item.endDepartment.name}}</span>
+    <span class="porter" *ngIf="item.status != 1">{{item.porter.name}}</span>
+    <span class="porter-position" *ngIf="item.status != 1">{{item.porter.tagNumber}}</span>
     <span class="porter" *ngIf="item.status == 1 && (isAdminLogin$|async)">
       <app-button-manual-dispatch [missionId]="mouseEnterMissionId"></app-button-manual-dispatch>
       <app-button-auto-dispatch [missionId]="mouseEnterMissionId"></app-button-auto-dispatch>

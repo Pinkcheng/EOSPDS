@@ -27,7 +27,6 @@ export class ApiService {
   apiMissionType: string = '/mission_type';
   apimissionLabel: string = '/mission_label';
   apiDispatch: string = '/dispatch';
-  apiAction: string = '/action';
 
   /*-----------------------building------------------------------*/
   getBuildingList(): Observable<Response> {
@@ -73,6 +72,18 @@ export class ApiService {
     return this.http.delete<Response>(this.apiURL + this.apiPorter + '/' + porterId, this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
   /*-----------------------mission------------------------------*/
+  //新增任務
+  addMission(body: any): Observable<Response> {
+    return this.http.post<Response>(this.apiURL + this.apiMission, body.toString(), this.app.apiOptions).pipe(catchError(this.err.handleError))
+  }
+  //取得任務列表
+  getMissionList(): Observable<Response> {
+    return this.http.get<Response>(this.apiURL + this.apiMission, this.app.apiOptions).pipe(catchError(this.err.handleError))
+  }
+  //取得特定任務資料
+  getMissionData(missionId: string): Observable<Response> {
+    return this.http.get<Response>(this.apiURL + this.apiMission + '/' + missionId, this.app.apiOptions).pipe(catchError(this.err.handleError))
+  }
   /*-----------------------mission_instrument------------------------------*/
   //取得任務工具列表
   getMissionInstrumentList(): Observable<Response> {
@@ -103,6 +114,4 @@ export class ApiService {
   updateMissionLableData(missionLabelId: string, body: any): Observable<Response> {
     return this.http.patch<Response>(this.apiURL + this.apimissionLabel + '/' + missionLabelId, body.toString(), this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
-  /*-----------------------dispatch------------------------------*/
-  /*-----------------------action------------------------------*/
 }

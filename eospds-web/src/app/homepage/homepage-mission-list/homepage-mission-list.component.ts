@@ -1,3 +1,4 @@
+import { MissionList } from './../../models/missionList';
 import { UserService } from './../../service/user.service';
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -20,7 +21,7 @@ export class HomepageMissionListComponent implements OnInit, OnInit {
   }
 
   @Input()
-  missionList: Array<any> = [];
+  missionList: Array<MissionList> = [];
   @Output()
   mouseEnterEvent = new EventEmitter<any>();
   @Output()

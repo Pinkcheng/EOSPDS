@@ -12,15 +12,7 @@ import { DialogDeleteMissionTypeComponent } from '../dialog-delete-mission-type/
 })
 export class DialogUpdateMissionTypeComponent implements OnInit {
 
-  missionLabelData: MissionLabel = {
-    "id": "",
-    "name": "",
-    "type": {
-      "id": "",
-      "name": "",
-      "transport": ""
-    }
-  }
+  missionLabelData!: MissionLabel;
   constructor(
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) private data: any,
@@ -55,7 +47,6 @@ export class DialogUpdateMissionTypeComponent implements OnInit {
     }
 
   }
-
   getSelectMissionTypeChange($event: any) {
     this.missionLabelData.type.id = $event;
   }

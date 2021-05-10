@@ -12,7 +12,7 @@
       [ngModelOptions]="{standalone:true}" required>
   </mat-form-field>
   <div class="content">隸屬單位</div>
-  <app-select-department class="content" [selectBuildingId]="staffData.department.building.ID"
+  <app-select-department class="content" [selectBuildingId]="staffData.department.building.id"
     [selectDepartmentId]="staffData.department.id" (selectDepartmentEvent)="getSelectDepartmentId($event)">
   </app-select-department>
 </div>
