@@ -1,7 +1,7 @@
 import { logging } from 'protractor';
 import { ApiService } from 'src/app/service/api.service';
 import { missionProcess } from './../../models/missionProcess';
-import { MissionData } from './../../models/MissionData';
+import { MissionData } from '../../models/missionData';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
@@ -19,7 +19,6 @@ export class HomepageMissionDataComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.api.getMissionData(this.mouseEnterMissionId).subscribe(res => {
       this.missionData = res.data;
-      console.log(this.missionData.label.name)
       this.missionProcess = this.missionData.process;
     })
   }

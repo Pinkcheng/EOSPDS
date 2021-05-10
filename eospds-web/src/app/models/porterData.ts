@@ -1,10 +1,10 @@
 import { PorterType } from "./porterType";
 
 export interface PorterData {
-  ID: string;
-  birthday: string;
-  gender: boolean;
+  id: string;
   name: string;
   tagNumber: string;
+  birthday: Date;
+  gender: boolean;
   type: PorterType;
 }

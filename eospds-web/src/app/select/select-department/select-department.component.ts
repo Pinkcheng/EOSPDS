@@ -25,7 +25,7 @@ export class SelectDepartmentComponent implements OnInit {
   selectDepartmentEvent = new EventEmitter<any>();
 
   ngOnInit(): void {
-    this.api.getBuildingList().subscribe((res: Response) => { this.buildingList = res.data; console.log(this.buildingList)})
+    this.api.getBuildingList().subscribe((res: Response) => { this.buildingList = res.data })
     if (this.selectBuildingId != "" && this.selectDepartmentId != "") {
       //http get department list of selectBuildingId
       if (this.selectBuildingId == "B0001") {

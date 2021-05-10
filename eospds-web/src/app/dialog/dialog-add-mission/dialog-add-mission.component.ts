@@ -38,7 +38,7 @@ export class DialogAddMissionComponent implements OnInit {
       body.set('endDepartment', this.selectEndDepartmentId);
       body.set('instrument', this.selectMissionInstrumentId);
       body.set('content', this.missionContent);
-      console.log(this.selectMissionLabelId, this.selectStartDepartmentId, this.selectEndDepartmentId, this.selectMissionInstrumentId, this.missionContent)
+      this.api.addMission(body).subscribe(res =>this.err.handleResponse(res))
       this.dialog.closeAll()
     } else {
       this.err.errorDataUnComplete();
