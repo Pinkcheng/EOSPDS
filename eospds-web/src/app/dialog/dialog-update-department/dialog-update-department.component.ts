@@ -1,3 +1,4 @@
+import { Department } from './../../models/department';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from 'src/app/service/api.service';
@@ -13,23 +14,28 @@ import { ErrorService } from 'src/app/service/error.service';
 export class DialogUpdateDepartmentComponent implements OnInit {
 
   constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) private data: any, public api: ApiService, public err: ErrorService) { }
-
+  departmentData: Department = {
+    id: "",
+    building: {
+      id: "",
+      name: "",
+    },
+    floor: "",
+    name: "",
+  };
   ngOnInit(): void {
-    // http get department/:id
-    this.api.getDepartmentData('D0002').subscribe((res: Response) => console.log(res.data))
+    this.api.getDepartmentData(this.data.departmentId).subscribe((res: Response) => this.departmentData = res.data)
   }
   updateDepartment() {
     let body = new URLSearchParams();
     body.set('name', this.departmentData.name);
-    this.api.updateDepartmentData("D0002", body).subscribe((res: Response) => this.err.handleResponse(res))
+    this.api.updateDepartmentData(this.data.departmentId, body).subscribe(
+      (res: Response) => {
+        this.err.handleResponse(res);
+        this.dialog.closeAll();
+      })
   }
-  departmentData = {
-    "id": "D2101",
-    "department": "舊醫療大樓-1F-抽血站",
-    "building": "新醫療大樓",
-    "floor": "1F",
-    "name": "抽血站"
-  }
+
   deleteDepartmentDialog() {
     this.dialog.open(DialogDeleteDepartmentComponent, {
       width: '350px',

@@ -12,7 +12,15 @@ import { DialogDeleteMissionTypeComponent } from '../dialog-delete-mission-type/
 })
 export class DialogUpdateMissionTypeComponent implements OnInit {
 
-  missionLabelData!: MissionLabel;
+  missionLabelData: MissionLabel = {
+    id: "",
+    name: "",
+    type: {
+      id: "",
+      name: "",
+      transport: ""
+    }
+  };
   constructor(
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) private data: any,
@@ -40,8 +48,11 @@ export class DialogUpdateMissionTypeComponent implements OnInit {
       let body = new URLSearchParams();
       body.set('missionTypeID', this.missionLabelData.type.id);
       body.set('name', this.missionLabelData.name)
-      this.api.updateMissionLableData(this.data.missionTypeId, body).subscribe(res => this.err.handleResponse(res))
-      this.dialog.closeAll();
+      this.api.updateMissionLableData(this.data.missionTypeId, body).subscribe(
+        res => {
+          this.err.handleResponse(res);
+          this.dialog.closeAll();
+        })
     } else {
       this.err.errorDataUnComplete();
     }

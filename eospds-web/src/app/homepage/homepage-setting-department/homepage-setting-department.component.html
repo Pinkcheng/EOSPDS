@@ -1,6 +1,7 @@
 <div class="function-bar">
   <div class="button-container">
-    <button mat-flat-button class="button update-list-button darker-color">更新列表</button>
+    <button mat-flat-button class="button update-list-button darker-color"
+      (click)=" updateDepartmentList()">更新列表</button>
     <button mat-flat-button class="button add-department-button" (click)="addDepartmentDialog()">新增單位</button>
   </div>
 </div>
@@ -12,7 +13,7 @@
 <div class="department-list">
   <div class="department-list-content" id="department_{{idx}}" *ngFor="let item of departmentList; let idx = index"
     (mouseenter)="getMouseEnter($event)" (click)="updateDepartmentDialog()">
-    <span class="department-building">{{item.building}}</span>
+    <span class="department-building">{{item.building.name}}</span>
     <span class="department-floor">{{item.floor}}</span>
     <span class="department-name">{{item.name}}</span>
   </div>

@@ -1,3 +1,4 @@
+import { Department } from './../../models/department';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddDepartmentComponent } from 'src/app/dialog/dialog-add-department/dialog-add-department.component';
@@ -14,46 +15,10 @@ export class HomepageSettingDepartmentComponent implements OnInit {
   constructor(public dialog: MatDialog, public api: ApiService) { }
 
   ngOnInit(): void {
-    this.api.getDepartmentList().subscribe((res: Response) => console.log(res.data))
+    this.api.getDepartmentList().subscribe((res: Response) => this.departmentList = res.data)
   }
 
-  departmentList = [
-    {
-      "id": "D1001",
-      "department": "新醫療大樓-B1-傳送中心",
-      "building": "新醫療大樓",
-      "floor": "B1",
-      "name": "傳送中心"
-    },
-    {
-      "id": "D2101",
-      "department": "舊醫療大樓-1F-抽血站",
-      "building": "新醫療大樓",
-      "floor": "1F",
-      "name": "抽血站"
-    },
-    {
-      "id": "D2101",
-      "department": "舊醫療大樓-1F-抽血站",
-      "building": "新醫療大樓",
-      "floor": "1F",
-      "name": "抽血站"
-    },
-    {
-      "id": "D2101",
-      "department": "舊醫療大樓-1F-抽血站",
-      "building": "新醫療大樓",
-      "floor": "1F",
-      "name": "抽血站"
-    },
-    {
-      "id": "D2101",
-      "department": "舊醫療大樓-1F-抽血站",
-      "building": "新醫療大樓",
-      "floor": "1F",
-      "name": "抽血站"
-    }
-  ]
+  departmentList!: Department[];
   mouseEnterIndex: number = 0;
   mouseEnterDepartmentId: string = "";
   getMouseEnter($event: any) {
@@ -66,6 +31,9 @@ export class HomepageSettingDepartmentComponent implements OnInit {
       width: '550px',
       height: '350px',
     });
+  }
+  updateDepartmentList() {
+    this.api.getDepartmentList().subscribe((res: Response) => this.departmentList = res.data)
   }
 
   updateDepartmentDialog() {
