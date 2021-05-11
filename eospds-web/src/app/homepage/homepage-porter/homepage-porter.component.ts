@@ -17,230 +17,21 @@ export class HomepagePorterComponent implements OnInit {
     public api: ApiService) { }
 
   ngOnInit(): void {
-    this.getCheckboxList(this.checkboxList)
+
     /*this.dialog.afterAllClosed.subscribe(() => {//刪除或關閉list會更新list
       this.updatePorterList();
     });*/
-    this.api.getPorterList().subscribe((res: Response) => console.log(res.data))
+    this.api.getPorterList().subscribe((res: Response) => {
+      this.porterList = res.data;
+      this.getCheckboxList(this.checkboxList);
+    })
+
   }
 
   @Input()
   articleHeight!: number;
-  porterList2 = [
-    {
-      "id": "P10000001",
-      "name": "李冠億",
-      "type": 1,
-      "status": 1,
-      "mission": 1,
-      "position": "新醫療大樓-5B病房",
-      "time": "2021/03/30 10:20"
-    },
-    {
-      "id": "P10000002",
-      "name": "蔡明智",
-      "type": 1,
-      "status": 2,
-      "mission": 0,
-      "position": "新醫療大樓-5B病房",
-      "time": "2021/03/30 10:20"
-    },
-    {
-      "id": "P10000003",
-      "name": "李冠億",
-      "type": 1,
-      "status": 1,
-      "mission": 1,
-      "position": "新醫療大樓-5B病房",
-      "time": "2021/03/30 10:20"
-    },
-    {
-      "id": "P10000004",
-      "name": "蔡明智",
-      "type": 1,
-      "status": 2,
-      "mission": 0,
-      "position": "新醫療大樓-5B病房",
-      "time": "2021/03/30 10:20"
-    },
-    {
-      "id": "P10000005",
-      "name": "李冠億",
-      "type": 1,
-      "status": 1,
-      "mission": 1,
-      "position": "新醫療大樓-5B病房",
-      "time": "2021/03/30 10:20"
-    },
-    {
-      "id": "P10000006",
-      "name": "蔡明智",
-      "type": 1,
-      "status": 2,
-      "mission": 0,
-      "position": "新醫療大樓-5B病房",
-      "time": "2021/03/30 10:20"
-    },
-    {
-      "id": "P10000007",
-      "name": "李冠億",
-      "type": 1,
-      "status": 1,
-      "mission": 1,
-      "position": "新醫療大樓-5B病房",
-      "time": "2021/03/30 10:20"
-    },
-    {
-      "id": "P10000008",
-      "name": "蔡明智",
-      "type": 1,
-      "status": 2,
-      "mission": 0,
-      "position": "新醫療大樓-5B病房",
-      "time": "2021/03/30 10:20"
-    }, {
-      "id": "P10000009",
-      "name": "李冠億",
-      "type": 1,
-      "status": 1,
-      "mission": 1,
-      "position": "新醫療大樓-5B病房",
-      "time": "2021/03/30 10:20"
-    },
-    {
-      "id": "P10000010",
-      "name": "蔡明智",
-      "type": 1,
-      "status": 2,
-      "mission": 0,
-      "position": "新醫療大樓-5B病房",
-      "time": "2021/03/30 10:20"
-    }
-  ];
-  porterListChange2 = [
-    {
-      "id": "P10000003",
-      "name": "蔡明智",
-      "type": 1,
-      "status": 2,
-      "mission": 0,
-      "position": "新醫療大樓-5B病房",
-      "time": "2021/03/30 10:20"
-    }, {
-      "id": "P10000002",
-      "name": "李冠億",
-      "type": 1,
-      "status": 1,
-      "mission": 1,
-      "position": "新醫療大樓-5B病房",
-      "time": "2021/03/30 10:20"
-    },
-    {
-      "id": "P10000001",
-      "name": "蔡明智",
-      "type": 1,
-      "status": 2,
-      "mission": 0,
-      "position": "新醫療大樓-5B病房",
-      "time": "2021/03/30 10:20"
-    }
-  ];
-  porterList = [
-    {
-      "id": "P10000001",
-      "name": "李冠億",
-      "tag": 123,
-      "birthday": "1987/08/07",
-      "department": {
-        "id": "D1231",
-        "building": {
-          "id": "B1234",
-          "name": "新醫療大樓"
-        },
-        "floor": "B1",
-        "name": "傳送中心"
-      },
-      "gender": {
-        "id": 1,
-        "name": "男"
-      },
-      "type": {
-        "id": 1,
-        "name": "全院"
-      },
-      "status": {
-        "id": 1,
-        "name": "上班中"
-      },
-      "mission": 1,
-      "position": "新醫療大樓-5F-5B病房",
-      "time": "2021/03/30 10:20"
-    }
-  ]
-  porterListChange = [
-    {
-      "id": "P10000001",
-      "name": "李冠億",
-      "tag": 123,
-      "birthday": "1987/08/07",
-      "department": {
-        "id": "D1231",
-        "building": {
-          "id": "B1234",
-          "name": "新醫療大樓"
-        },
-        "floor": "B1",
-        "name": "傳送中心"
-      },
-      "gender": {
-        "id": 1,
-        "name": "男"
-      },
-      "type": {
-        "id": 1,
-        "name": "全院"
-      },
-      "status": {
-        "id": 1,
-        "name": "上班中"
-      },
-      "mission": 1,
-      "position": "新醫療大樓-5F-5B病房",
-      "time": "2021/03/30 10:20"
-    },
-    {
-      "id": "P10000001",
-      "name": "李冠億",
-      "tag": 123,
-      "birthday": "1987/08/07",
-      "department": {
-        "id": "D1231",
-        "building": {
-          "id": "B1234",
-          "name": "新醫療大樓"
-        },
-        "floor": "B1",
-        "name": "傳送中心"
-      },
-      "gender": {
-        "id": 1,
-        "name": "男"
-      },
-      "type": {
-        "id": 1,
-        "name": "全院"
-      },
-      "status": {
-        "id": 2,
-        "name": "未上班"
-      },
-      "mission": 1,
-      "position": "新醫療大樓-5F-5B病房",
-      "time": "2021/03/30 10:20"
-    }
-  ]
-
   checkboxList: Array<number> = [1, 2];
+  porterList: Array<any> = []
   porterListFilter: Array<any> = []
 
 
@@ -255,7 +46,7 @@ export class HomepagePorterComponent implements OnInit {
     this.porterListFilter = []
     this.porterList.forEach((value: any, index) => {
       for (let i = 0; i < checkboxList.length; i++) {
-        if (value.status.id == checkboxList[i]) {
+        if (value.status == checkboxList[i]) {
           this.porterListFilter.push(value)
         }
       }
@@ -266,9 +57,10 @@ export class HomepagePorterComponent implements OnInit {
   //手動更新傳送員列表
   updatePorterList() {
     //get porter list
-
-    this.porterList = this.porterListChange;
-    this.changePorterList(this.checkboxList);
+    this.api.getPorterList().subscribe((res: Response) => {
+      this.porterList = res.data;
+      this.getCheckboxList(this.checkboxList);
+    })
   }
 
   allPorterCheckStatus: boolean = false; //全選checkbox狀態

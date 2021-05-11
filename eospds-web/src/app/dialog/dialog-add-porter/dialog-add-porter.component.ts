@@ -1,4 +1,5 @@
 
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Gender } from 'src/app/models/gender';
@@ -29,15 +30,16 @@ export class DialogAddPorterComponent implements OnInit {
 
   secondPassword: string = "123";
   porterInformation: PorterInformation = {
-    name: "123ewertwer",
-    account: "12twert3",
-    password: "123",
-    tag: "12wertw3",
-    type: 1,
-    department: "wertw",
-    gender: 1,
-    birthday: "2021-02-10"
+    name: "",
+    mobile: "",
+    password: "",
+    tag: "",
+    type: 0,
+    department: "",
+    gender: 0,
+    birthday: "",
   }
+
   checkPassword(password: string, secondPassword: string): boolean {
     if (password == secondPassword) {
       return true
@@ -46,42 +48,59 @@ export class DialogAddPorterComponent implements OnInit {
     }
   }
   addPorter() {
-    let name = this.porterInformation.name.trim();
-    let account = this.porterInformation.account.trim();
-    let password = this.porterInformation.password.trim();
-    let secondPassword = this.secondPassword.trim();
-    let tag = this.porterInformation.tag.trim();
-    let type = this.porterInformation.type;
-    let gender = this.porterInformation.gender;
-    let birthday = this.porterInformation.birthday.trim();
-    if (this.porterInformation.type == 1) {
-      let department = "D1234"
-      this.porterInformation.department = department
-    } else {
-      let department = "D4321"
-      this.porterInformation.department = department
-    }
-    if (name != "" && account != "" && password != "" && secondPassword != "" && birthday != "" && type != 0 && gender != 0) {
-      if (this.checkPassword(this.porterInformation.password, this.secondPassword)) {
-        var body = "name=" + name + "&account=" + account + "&password=" + password + "&tag=" + tag + "&type=" + type;
-        this.api.addPorter(body.toString()).subscribe((res: Response) => this.err.handleResponse(res))
-        this.dialogRef.closeAll();
+    let body = new URLSearchParams();
+    if (this.porterInformation.name.trim() != "") {
+      body.set('name', this.porterInformation.name.trim())
+      if (this.porterInformation.mobile.trim() != "") {
+        body.set('mobile', this.porterInformation.mobile.trim())
+        if (this.porterInformation.password.trim() != "" &&
+          this.checkPassword(this.porterInformation.password.trim(), this.secondPassword.trim())) {
+          body.set('password', this.porterInformation.password.trim())
+          if (this.porterInformation.tag.trim() != "") {
+            body.set('tag', this.porterInformation.tag.trim())
+            if (this.porterInformation.type != 0) {
+              body.set('type', this.porterInformation.type.toString())
+              if (this.porterInformation.type.toString() == '2') {
+                if (this.porterInformation.department != "") {
+                  body.set('department', this.porterInformation.department)
+                  this.addPorterApi(body);
+                } else {
+                  this.err.errorDataUnComplete();
+                }
+              } else {
+                this.addPorterApi(body);
+              }
+            } else {
+              this.err.errorDataUnComplete();
+            }
+          } else {
+            this.err.errorDataUnComplete();
+          }
+        } else {
+          this.err.errorTextResponse('請確認密碼')
+        }
       } else {
-        this.err.errorTextResponse('"請確認密碼"')
+        this.err.errorDataUnComplete();
       }
     } else {
       this.err.errorDataUnComplete();
     }
   }
+  addPorterApi(body: any) {
+    this.api.addPorter(body.toString()).subscribe((res: Response) => {
+      this.err.handleResponse(res);
+      this.dialogRef.closeAll();
+    })
+  }
 
   getSelectDepartmentId($event: any) {
-    console.log($event)
+    this.porterInformation.department = $event;
   }
 }
 
 export interface PorterInformation {
   name: string;
-  account: string;
+  mobile: string;
   password: string;
   tag: string;
   type: number;

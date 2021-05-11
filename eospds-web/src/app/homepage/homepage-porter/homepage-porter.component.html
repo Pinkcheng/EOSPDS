@@ -27,11 +27,11 @@
           [(ngModel)]="porterListCheckStatus[idx]" (ngModelChange)="updateAllCheckboxStatus()"></mat-checkbox>
         <span class="porter_name">{{item.name}}</span>
         <span class="porter-type">{{item.type.name}}</span>
-        <span class="porter-status porter-status-1" *ngIf="item.status.id ==1">{{item.status.name}}</span>
-        <span class="porter-status porter-status-2" *ngIf="item.status.id ==2">{{item.status.name}}</span>
-        <span class="porter-mission">{{item.mission}} 件</span>
-        <span class="porter-position">{{item.position}}</span>
-        <span class="porter-time">{{item.time}}</span>
+        <span class="porter-status porter-status-1" *ngIf="item.status ==1">{{item.status| porterStatus}}</span>
+        <span class="porter-status porter-status-2" *ngIf="item.status ==2">{{item.status| porterStatus}}</span>
+        <span class="porter-mission">(待完成) 件</span>
+        <span class="porter-position">(待完成)</span>
+        <span class="porter-time">(待完成)</span>
       </div>
     </div>
   </div>

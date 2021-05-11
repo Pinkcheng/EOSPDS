@@ -5,13 +5,14 @@ import { Gender } from "./gender";
 export interface PorterData {
   "id": string,
   "name": string,
-  "tag": string,
-  "birthday": Date,
-  "department": Department,
-  "gender": Gender,
+  "tagNumber": string,
+  "birthday": null,
+  "department": {
+    "id": string;
+    "name": string;
+    "floor": string;
+  },
+  "gender": number,
   "type": PorterType,
-  "status": PorterStatus,
-  "mission": number,
-  "position": string,
-  "time": string
+  "status": number,
 }

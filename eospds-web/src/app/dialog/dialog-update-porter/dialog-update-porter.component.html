@@ -4,8 +4,8 @@
   <form>
     <mat-form-field class="example-full-width">
       <mat-label class="darker-font">帳號(電話)</mat-label>
-      <input class="dark-font dark-color" matInput [(ngModel)]="porterData.account"
-        [ngModelOptions]="{standalone:true}" required>
+      <input class="dark-font dark-color" matInput [(ngModel)]="porterData.id" [ngModelOptions]="{standalone:true}"
+        required>
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label class="darker-font">姓名</mat-label>
@@ -14,8 +14,8 @@
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label class="darker-font">Tag編號</mat-label>
-      <input class="dark-font dark-color" matInput [(ngModel)]="porterData.tag" [ngModelOptions]="{standalone:true}"
-        required>
+      <input class="dark-font dark-color" matInput [(ngModel)]="porterData.tagNumber"
+        [ngModelOptions]="{standalone:true}" required>
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label class="darker-font">生日</mat-label>
@@ -26,7 +26,7 @@
   <span class="text darker-font">性別</span>
   <div>
     <mat-radio-group aria-labelledby="example-radio-group-label" class="text example-radio-group"
-      [(ngModel)]="porterData.gender.id">
+      [(ngModel)]="porterData.gender">
       <mat-radio-button class="example-radio-button" *ngFor="let gender of genders" [value]="gender.id">
         {{gender.name}}
       </mat-radio-button>
@@ -40,7 +40,7 @@
         {{type.name}}
       </mat-radio-button>
       <div>
-        <app-select-department *ngIf="porterData.type.id==2" [selectBuildingId]="porterData.department.building.id"
+        <app-select-department *ngIf="porterData.type.id==2" [selectBuildingId]="porterData.department.id"
           [selectDepartmentId]="porterData.department.id" (selectDepartmentEvent)="getSelectDepartmentId($event)">
         </app-select-department>
       </div>
@@ -49,6 +49,7 @@
 
 </div>
 <div mat-dialog-actions class="botton">
-  <button mat-button class="button delete-porter-button" (click)="deletePorterDialog()">刪除</button>
+  <!--<button mat-button class="button delete-porter-button" (click)="deletePorterDialog()">刪除</button>--->
+  <button mat-button class="button update-department-button dark-color" (click)="updatePorter()">修改</button>
   <button mat-button mat-dialog-close class="button light-color">關閉</button>
 </div>
