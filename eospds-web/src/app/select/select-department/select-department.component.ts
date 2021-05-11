@@ -8,10 +8,16 @@ import { ApiService } from 'src/app/service/api.service';
   templateUrl: './select-department.component.html',
   styleUrls: ['./select-department.component.css']
 })
-export class SelectDepartmentComponent implements OnInit {
+export class SelectDepartmentComponent implements OnInit, OnChanges {
 
   constructor(public api: ApiService) {
 
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.selectBuildingId) {
+      let params = new HttpParams().set('building', changes.selectBuildingId.currentValue);
+      this.api.getDepartmentListParams(params).subscribe(res => this.departmentList = res.data)
+    }
   }
 
 
@@ -27,11 +33,6 @@ export class SelectDepartmentComponent implements OnInit {
 
   ngOnInit(): void {
     this.api.getBuildingList().subscribe((res: Response) => { this.buildingList = res.data })
-    if (this.selectBuildingId != "" && this.selectDepartmentId != "") {
-      //http get department list of selectBuildingId
-      let params = new HttpParams().set('building', this.selectBuildingId);
-      this.api.getDepartmentListParams(params).subscribe(res=>this.departmentList = res.data)
-    }
   }
   onSelectBuildingChange(selectBuildingId: string) {
     this.selectBuildingId = selectBuildingId;

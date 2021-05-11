@@ -1,9 +1,11 @@
+import { MissionLabel } from 'src/app/models';
+import { Department } from './department';
 import { missionProcess } from './missionProcess';
 export interface MissionData {
   "id": string,
   "content": string,
   "status": number,
-  "createTime": Date,
+  "createTime": string,
   "label": {
     "id": string,
     "name": string
@@ -12,20 +14,15 @@ export interface MissionData {
     "id": string,
     "name": string
   },
-  "startDepartment": {
-    "id": string,
-    "name": string
-  },
-  "endDepartment": {
-    "id": string,
-    "name": string
-  },
+  "startDepartment": Department,
+  "endDepartment": Department,
   "porter": {
     "id": string,
     "name": string,
     "tagNumber": string,
     "birthday": null,
-    "gender": false
+    "gender": number,
+    "status": number
   },
   "process": missionProcess[]
 }

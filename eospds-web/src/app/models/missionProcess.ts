@@ -1,8 +1,8 @@
 export interface missionProcess {
   "status": string,
-  "time": Date,
+  "time": Date | null,
   "department": {
     "id": string,
     "name": string
-  }
+  } | null
 }

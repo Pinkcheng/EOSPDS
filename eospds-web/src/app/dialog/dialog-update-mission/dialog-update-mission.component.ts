@@ -1,3 +1,4 @@
+import { MissionData } from 'src/app/models/missionData';
 import { ApiService } from 'src/app/service/api.service';
 import { AuthService } from 'src/app/service/auth.service';
 import { MissionInstrument } from './../../models/missionInstrument';
@@ -13,7 +14,68 @@ import { DialogManualDispatchComponent } from '../dialog-manual-dispatch/dialog-
   styleUrls: ['./dialog-update-mission.component.css']
 })
 export class DialogUpdateMissionComponent implements OnInit {
-
+  missionData: MissionData = {
+    "id": "",
+    "content": "",
+    "status": 0,
+    "createTime": "",
+    "label": {
+      "id": "",
+      "name": ""
+    },
+    "instrument": {
+      "id": "",
+      "name": ""
+    },
+    "startDepartment": {
+      "id": "",
+      "name": "",
+      "floor": "",
+      "building": {
+        "id": "",
+        "name": ""
+      }
+    },
+    "endDepartment": {
+      "id": "",
+      "name": "",
+      "floor": "",
+      "building": {
+        "id": "",
+        "name": ""
+      }
+    },
+    "porter": {
+      "id": "",
+      "name": "",
+      "tagNumber": "",
+      "birthday": null,
+      "gender": 0,
+      "status": 0
+    },
+    "process": [
+      {
+        "status": "add",
+        "time": null,
+        "department": null
+      },
+      {
+        "status": "start",
+        "time": null,
+        "department": null
+      },
+      {
+        "status": "in_progress",
+        "time": null,
+        "department": null
+      },
+      {
+        "status": "finish",
+        "time": null,
+        "department": null
+      }
+    ]
+  };
   missionInstrumentList: MissionInstrument[] = [];
   constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) private data: any, public err: ErrorService, public api: ApiService) {
     //console.log(data.missionId)//欲修改之missionid
@@ -22,19 +84,6 @@ export class DialogUpdateMissionComponent implements OnInit {
       console.log(this.missionData)
     })
     this.api.getMissionInstrumentList().subscribe(res => this.missionInstrumentList = res.data)
-  }
-
-  missionData = {
-    "id": "M100100000000202103310001",
-    "content": "5055-1 李冠億",
-    "type": "T0001",
-    "label": "L0001",
-    "instrument": "I0001",
-    "startBuildingId": "B0001",
-    "startDepartmentId": "D1001",
-    "endBuildingId": "B0002",
-    "endDepartmentId": "D1004",
-    "porter": "沈泓成",
   }
 
   ngOnInit(): void {
@@ -52,29 +101,29 @@ export class DialogUpdateMissionComponent implements OnInit {
     });
   }
   updateMission() {
-    if (this.missionData.label != "" && this.missionData.instrument != "" &&
-      this.missionData.startDepartmentId != "" && this.missionData.endDepartmentId != "" && this.missionData.porter != "") {
-      console.log(this.missionData.label, this.missionData.instrument,
-        this.missionData.startDepartmentId, this.missionData.endDepartmentId, this.missionData.porter)
+    if (this.missionData.label.id != "" && this.missionData.instrument.id != "" &&
+      this.missionData.startDepartment.id != "" && this.missionData.endDepartment.id != "") {
+      console.log(this.missionData.label, this.missionData.instrument.id,
+        this.missionData.startDepartment.id, this.missionData.endDepartment.id)
     } else {
       this.err.errorDataUnComplete();
     }
   }
 
   getSelectMIssionLabelId($event: any) {
-    this.missionData.label = $event;
+    this.missionData.label.id = $event;
   }
   getSelectStartDepartmentId($event: any) {
-    this.missionData.startDepartmentId = $event;
+    this.missionData.startDepartment.id = $event;
   }
   getSelectEndDepartmentId($event: any) {
-    this.missionData.endDepartmentId = $event;
+    this.missionData.endDepartment.id = $event;
   }
   getSelectStartBuildingId($event: any) {
-    this.missionData.startBuildingId = $event;
+    this.missionData.startDepartment.building.id = $event;
   }
   getSelectEndBuildingId($event: any) {
-    this.missionData.endBuildingId = $event;
+    this.missionData.endDepartment.building.id = $event;
   }
 
   manualDispatchDiaolog() {

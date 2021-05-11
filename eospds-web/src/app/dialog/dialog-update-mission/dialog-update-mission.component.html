@@ -2,19 +2,19 @@
 <div mat-dialog-content class="mission-content">
   <h3>編號:{{missionData.id}}</h3>
   <h3>任務類型與標籤</h3>
-  <app-select-mission-label (selectMissionLabelEvent)="getSelectMIssionLabelId($event)"
-    [selectMissionLabelId]="missionData.label" [selectMissionTypeId]="missionData.type"></app-select-mission-label>
+  <!--<app-select-mission-label (selectMissionLabelEvent)="getSelectMIssionLabelId($event)"
+    [selectMissionLabelId]="missionData.label.id" [selectMissionTypeId]="missionData.type"></app-select-mission-label>-->
   <h3>起始單位</h3>
-  <app-select-department [selectBuildingId]="missionData.startBuildingId"
-    [selectDepartmentId]="missionData.startDepartmentId" (selectDepartmentEvent)="getSelectStartDepartmentId($event)">
+  <app-select-department [selectBuildingId]="missionData.startDepartment.building.id"
+    [selectDepartmentId]="missionData.startDepartment.id" (selectDepartmentEvent)="getSelectStartDepartmentId($event)">
   </app-select-department>
   <h3>送往單位</h3>
-  <app-select-department [selectBuildingId]="missionData.endBuildingId"
-    [selectDepartmentId]="missionData.endDepartmentId" (selectDepartmentEvent)="getSelectEndDepartmentId($event)">
+  <app-select-department [selectBuildingId]="missionData.endDepartment.building.id"
+    [selectDepartmentId]="missionData.endDepartment.id" (selectDepartmentEvent)="getSelectEndDepartmentId($event)">
   </app-select-department>
   <h3>運送工具</h3>
   <mat-radio-group aria-labelledby="example-radio-group-label" class="text example-radio-group"
-    [(ngModel)]="missionData.instrument">
+    [(ngModel)]="missionData.instrument.id">
     <mat-radio-button class="example-radio-button" *ngFor="let instrument of missionInstrumentList"
       [value]="instrument.id">
       {{instrument.name}}
@@ -24,7 +24,7 @@
     <mat-label>備註</mat-label>
     <textarea matInput placeholder="" [(ngModel)]="missionData.content"></textarea>
   </mat-form-field>
-  <h3>傳送員 {{missionData.porter}} <button mat-flat-button class="function-button manual-dispatch-button dark-color"
+  <h3>傳送員 {{missionData.porter.name}} <button mat-flat-button class="function-button manual-dispatch-button dark-color"
       (click)="manualDispatchDiaolog()">指定人員</button></h3>
 
 </div>
