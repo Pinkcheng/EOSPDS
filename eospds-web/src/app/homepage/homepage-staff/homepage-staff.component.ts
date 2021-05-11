@@ -115,13 +115,14 @@ export class HomepageStaffComponent implements OnInit {
 
   allStaffCheckStatus: boolean = false; //全選checkbox狀態
   staffListCheckStatus: boolean[] = []; //staff list的checkbox狀態
-  staffIdList: Array<any> = this.staffList.map(item => Object.values(item)[0]) //所有staff的id
+  staffIdList: Array<any> = [] //所有staff的id
   checkedStaffIdList: Array<string> = [] //已勾選的staff id
 
   //重設全選checkbox
   resetStaffListCheckbox() {
     this.allStaffCheckStatus = false;
     this.staffListCheckStatus = [];
+    this.staffIdList = this.staffList.map(staff => staff.id)
     for (let i = 0; i < this.staffList.length; i++) {
       this.staffListCheckStatus[i] = false;
     }
@@ -149,7 +150,7 @@ export class HomepageStaffComponent implements OnInit {
   getCheckStaffList(): Array<string> {
     this.checkedStaffIdList = [];
     if (this.staffListCheckStatus != null && this.staffList != null) {
-      this.staffIdList = this.staffList.map(item => Object.values(item)[0])
+      //this.staffIdList = this.staffList.map(item => Object.values(item)[0])
       for (let i = 0; i < this.staffIdList.length; i++) {
         if (this.staffListCheckStatus[i]) {
           this.checkedStaffIdList.push(this.staffIdList[i])
@@ -160,7 +161,8 @@ export class HomepageStaffComponent implements OnInit {
   }
 
   printQRcode() {
-    window.print();
+    console.log(this.getCheckStaffList())
+    //window.print();
   }
 
   mouseEnterIndex: number = 0;

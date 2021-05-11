@@ -12,7 +12,7 @@
   <mat-select [(ngModel)]="selectDepartmentId" (ngModelChange)="onSelectDepartmentChange(selectDepartmentId)"
     [ngModelOptions]="{standalone: true}">
     <mat-option *ngFor="let item of departmentList" [value]="item.id">
-      {{item.name}}
+      {{item.floor + '-' + item.name}}
     </mat-option>
   </mat-select>
 </mat-form-field>

@@ -33,13 +33,13 @@ export class SelectMissionLabelComponent implements OnInit {
     if (this.selectMissionLabelId != "" && this.selectMissionTypeId != "") {
       //http get mission label of mission type
       let param = new HttpParams().set('mission_type_id', this.selectMissionTypeId);
-      this.api.getMissionLabelParamsList(param).subscribe(res => this.missionLabelList = res.data)
+      this.api.getMissionLabelListParams(param).subscribe(res => this.missionLabelList = res.data)
 
     }
   }
   onSelectMissionTypeChange(selectMissionTypeId: string) {
     let param = new HttpParams().set('mission_type_id', selectMissionTypeId);
-    this.api.getMissionLabelParamsList(param).subscribe(res => this.missionLabelList = res.data)
+    this.api.getMissionLabelListParams(param).subscribe(res => this.missionLabelList = res.data)
     this.selectMissionTypeId = selectMissionTypeId;
     //如果重選Type label為空
     this.selectMissionLabelId = "";

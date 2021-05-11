@@ -5,12 +5,14 @@
         <app-homepage-porter-checkbox (returnListEvent)="getCheckboxList($event)"></app-homepage-porter-checkbox>
       </span>
       <span class="button-container">
-        <button mat-flat-button class="button update-list-button darker-color" (click)="updatePorterList()">更新列表</button>
+        <button mat-flat-button class="button update-list-button darker-color"
+          (click)="updatePorterList()">更新列表</button>
         <button mat-flat-button class="button add-porter-button" (click)="addPorterDialog()">新增傳送員</button>
       </span>
     </div>
     <div class="porter-list-title lighter-color">
-      <mat-checkbox class="porter-checkbox" [checked]="allPorterCheckStatus" (change)="setAllCheckboxStatus($event.checked)"></mat-checkbox>
+      <mat-checkbox class="porter-checkbox" [checked]="allPorterCheckStatus"
+        (change)="setAllCheckboxStatus($event.checked)"></mat-checkbox>
       <span class="porter_name">姓名</span>
       <span class="porter-type">傳送類型</span>
       <span class="porter-status">人員狀態</span>
@@ -19,12 +21,14 @@
       <span class="porter-time">最後停留位置</span>
     </div>
     <div class="porter-list">
-      <div class="porter-list-content" id="porter_{{idx}}" *ngFor="let item of porterListFilter; let idx = index" (mouseenter)="getMouseEnter($event)" (click)="updatePorterDialog()">
-        <mat-checkbox class="porter-checkbox" (click)="clickInnerCheckbox($event)"[(ngModel)]="porterListCheckStatus[idx]" (ngModelChange)="updateAllCheckboxStatus()"></mat-checkbox>
+      <div class="porter-list-content" id="porter_{{idx}}" *ngFor="let item of porterListFilter; let idx = index"
+        (mouseenter)="getMouseEnter($event)" (click)="updatePorterDialog()">
+        <mat-checkbox class="porter-checkbox" (click)="clickInnerCheckbox($event)"
+          [(ngModel)]="porterListCheckStatus[idx]" (ngModelChange)="updateAllCheckboxStatus()"></mat-checkbox>
         <span class="porter_name">{{item.name}}</span>
-        <span class="porter-type">{{item.type|porterType}}</span>
-        <span class="porter-status porter-status-1" *ngIf="item.status ==1">{{item.status|porterStatus}}</span>
-        <span class="porter-status porter-status-2" *ngIf="item.status ==2">{{item.status|porterStatus}}</span>
+        <span class="porter-type">{{item.type.name}}</span>
+        <span class="porter-status porter-status-1" *ngIf="item.status.id ==1">{{item.status.name}}</span>
+        <span class="porter-status porter-status-2" *ngIf="item.status.id ==2">{{item.status.name}}</span>
         <span class="porter-mission">{{item.mission}} 件</span>
         <span class="porter-position">{{item.position}}</span>
         <span class="porter-time">{{item.time}}</span>

@@ -34,8 +34,8 @@ export class DialogAddMissionComponent implements OnInit {
       && this.selectEndDepartmentId != "" && this.selectMissionInstrumentId != "") {
       let body = new URLSearchParams();
       body.set('label', this.selectMissionLabelId);
-      body.set('startDepartment', this.selectStartDepartmentId);
-      body.set('endDepartment', this.selectEndDepartmentId);
+      body.set('start', this.selectStartDepartmentId);
+      body.set('end', this.selectEndDepartmentId);
       body.set('instrument', this.selectMissionInstrumentId);
       body.set('content', this.missionContent);
       this.api.addMission(body).subscribe(res =>this.err.handleResponse(res))

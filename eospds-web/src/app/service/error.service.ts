@@ -1,3 +1,4 @@
+import { UserService } from './user.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorHandler, Injectable } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
@@ -9,7 +10,7 @@ import { Response } from '../models';
 })
 export class ErrorService implements ErrorHandler {
 
-  constructor(public snackbar: MatSnackBar) { }
+  constructor(public snackbar: MatSnackBar, public user: UserService) { }
 
   handleError = (error: HttpErrorResponse) => {
     let errorMessage = '';
@@ -21,8 +22,11 @@ export class ErrorService implements ErrorHandler {
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     this.snackbar.open(error.error.message, 'OK', {
-      verticalPosition: 'top', duration: 2000
+      verticalPosition: 'top', duration: 5000
     })
+    if (error.status == 401) {//token過期
+      this.user.logout();
+    }
     return throwError(errorMessage);
   }
   handleResponse = (res: Response) => {
@@ -41,7 +45,7 @@ export class ErrorService implements ErrorHandler {
   }
   errorDataUnComplete = () => {
     this.snackbar.open('請輸入完整資料', 'OK', {
-      verticalPosition: 'top', duration: 2000
+      verticalPosition: 'top', duration: 5000
     });
   }
 }
