@@ -1,3 +1,4 @@
+import { HttpParams } from '@angular/common/http';
 import { MissionData } from '../../models/missionData';
 import { MissionList } from './../../models/missionList';
 import { ApiService } from 'src/app/service/api.service';
@@ -27,7 +28,7 @@ export class HomepageMissionComponent implements OnInit {
 
   isAdminLogin$ = new Observable<boolean>();
   isAdminLogin: boolean = false;
-
+  userId: string | null = '';
   mouseEnterMissionId: string = '';
   missionData!: MissionData;
 
@@ -39,6 +40,7 @@ export class HomepageMissionComponent implements OnInit {
 
   ngOnInit(): void {
     this.isAdminLogin$ = this.user.getAdminLogin();
+    this.userId = this.user.getUserId()
     this.getMissionList();
     /*this.dialog.afterAllClosed.subscribe(() => {//刪除任務或關閉list會更新list
 
@@ -56,10 +58,14 @@ export class HomepageMissionComponent implements OnInit {
         this.changeMissionList(this.checkboxList);
       })
     } else {
-      this.api.getMissionList().subscribe(res => {
-        this.missionList = res.data;
-        this.changeMissionList(this.checkboxList);
-      })
+      if (this.userId != null) {
+        let params = new HttpParams().set('department', this.userId)
+        this.api.getMissionListParams(params).subscribe(res => {
+          this.missionList = res.data;
+          console.log(res.data)
+          this.changeMissionList(this.checkboxList);
+        })
+      }
     }
   }
   //手動更新任務列表

@@ -70,4 +70,10 @@ export class UserService {
   setAdminLogin(isAdmin: boolean) {
     this.adminLogin.next(isAdmin);
   }
+  getUserId() {
+    return this.auth.getUserId()
+  }
+  getUserName() {
+    return this.auth.getUserName()
+  }
 }

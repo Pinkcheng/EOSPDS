@@ -88,6 +88,10 @@ export class ApiService {
   getMissionList(): Observable<Response> {
     return this.http.get<Response>(this.apiURL + this.apiMission, this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
+  //取得特定單位的任務列表
+  getMissionListParams(params: any): Observable<Response> {
+    return this.http.get<Response>(this.apiURL + this.apiMission + '?' + params.toString(), this.app.apiOptions).pipe(catchError(this.err.handleError))
+  }
   //取得特定任務資料
   getMissionData(missionId: string): Observable<Response> {
     return this.http.get<Response>(this.apiURL + this.apiMission + '/' + missionId, this.app.apiOptions).pipe(catchError(this.err.handleError))
