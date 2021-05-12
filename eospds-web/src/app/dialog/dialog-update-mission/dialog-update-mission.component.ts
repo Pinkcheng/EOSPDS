@@ -36,6 +36,7 @@ export class DialogUpdateMissionComponent implements OnInit {
   ngOnInit(): void {
     this.api.getMissionData(this.data.missionId).subscribe(res => {
       this.missionData = res.data;
+      this.missionId = this.missionData.id;
       //this.missionTypeId = this.missionData.type.id;
       this.missionLabelId = this.missionData.label.id;
       this.startBuildingId = this.missionData.startDepartment.building.id;

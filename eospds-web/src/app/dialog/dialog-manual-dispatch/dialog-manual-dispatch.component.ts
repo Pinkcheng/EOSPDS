@@ -1,5 +1,9 @@
+import { ErrorService } from 'src/app/service/error.service';
+import { ApiService } from 'src/app/service/api.service';
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { PorterData } from 'src/app/models';
+import { URL } from 'node:url';
 
 @Component({
   selector: 'app-dialog-manual-dispatch',
@@ -8,45 +12,31 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class DialogManualDispatchComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) private data: any) { }
+  constructor(@Inject(MAT_DIALOG_DATA) private data: any, public api: ApiService, public err: ErrorService, public dialog: MatDialog) { }
+
+  porterList: PorterData[] = [];
 
   ngOnInit(): void {
     //get porter list with work status
+    this.api.getPorterList().subscribe(res => { this.porterList = res.data })
   }
   manualDispatch() {
-
-    if (this.data.checkMissionList.length != 0 && this.porterId != "") {
-      //http auto dispatch
+    let missionList = this.data.checkMissionList;
+    let body = new URLSearchParams();
+    body.set('dispatch', '1');
+    body.set('porter', this.porterId);
+    if (missionList.length != 0 && this.porterId != "") {
+      for (let i = 0; i <= missionList.length; i++) {
+        this.api.manualDispatch(missionList[i], body).subscribe(
+          res => {
+            this.err.handleResponse(res);
+            this.dialog.closeAll()
+          })
+      }
+    }else{
+      this.err.errorTextResponse('請選擇傳送員')
     }
 
   }
   porterId: string = "";
-  porterList = [
-    {
-      "id": "P10000003",
-      "name": "蔡明智",
-      "type": 1,
-      "status": 2,
-      "mission": 0,
-      "position": "新醫療大樓-5B病房",
-      "time": "2021/03/30 10:20"
-    }, {
-      "id": "P10000002",
-      "name": "李冠億",
-      "type": 1,
-      "status": 1,
-      "mission": 1,
-      "position": "新醫療大樓-5B病房",
-      "time": "2021/03/30 10:20"
-    },
-    {
-      "id": "P10000001",
-      "name": "蔡明智",
-      "type": 1,
-      "status": 2,
-      "mission": 0,
-      "position": "新醫療大樓2F-開刀房",
-      "time": "2021/03/30 10:20"
-    }
-  ];
 }

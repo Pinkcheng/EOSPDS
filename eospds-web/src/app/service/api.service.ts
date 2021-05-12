@@ -95,6 +95,12 @@ export class ApiService {
   updateMission(missionId: string, body: any): Observable<Response> {
     return this.http.patch<Response>(this.apiURL + this.apiMission + '/' + missionId, body.toString(), this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
+  deleteMission(missionId: string) {
+    return this.http.delete<Response>(this.apiURL + this.apiMission + '/' + missionId, this.app.apiOptions).pipe(catchError(this.err.handleError))
+  }
+  manualDispatch(missionId: string, body: any) {
+    return this.http.post<Response>(this.apiURL + this.apiMission + '/' + missionId + '/dispatch', body.toString(), this.app.apiOptions).pipe(catchError(this.err.handleError))
+  }
   /*-----------------------mission_instrument------------------------------*/
   //取得任務工具列表
   getMissionInstrumentList(): Observable<Response> {

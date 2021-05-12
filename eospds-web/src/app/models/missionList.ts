@@ -1,3 +1,4 @@
+import { Department } from 'src/app/models';
 import { MissionInstrument } from './missionInstrument';
 import { MissionLabel } from './missionLabel';
 export interface MissionList {
@@ -7,14 +8,8 @@ export interface MissionList {
   "createTime": Date,
   "label": MissionLabel,
   "instrument": MissionInstrument,
-  "startDepartment": {
-    "id": string,
-    "name": string
-  },
-  "endDepartment": {
-    "id": string,
-    "name": string
-  },
+  "startDepartment": Department
+  "endDepartment": Department
   "porter": {
     "id": string,
     "name": string,

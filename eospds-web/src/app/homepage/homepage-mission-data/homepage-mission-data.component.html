@@ -35,7 +35,7 @@
   <div class="progress-content">
     <span class="progress-text" *ngFor="let item of missionProcess; let idx = index">
       <span *ngIf="missionProcess[idx].department != null">
-        {{missionProcess[idx].department.name}}
+        {{missionProcess[idx].department}}
       </span>
       <span *ngIf="missionProcess[idx].department == null"></span>
     </span>
