@@ -1,11 +1,11 @@
 <h1 mat-dialog-title class="mat-dialog-title dark-color">修改請求單位</h1>
 <div mat-dialog-content class="department-content">
-  <div class="content">單位編號: {{departmentData.id}}</div>
-  <div class="content">大樓名稱: {{departmentData.building.name}}</div>
-  <div class="content">樓層: {{departmentData.floor}}</div>
+  <div class="content">單位編號: {{departmentId}}</div>
+  <div class="content">大樓名稱: {{buildingName}}</div>
+  <div class="content">樓層: {{floor}}</div>
   <mat-form-field class="example-full-width content">
     <mat-label class="darker-font">單位名稱</mat-label>
-    <input class="dark-font dark-color" matInput [(ngModel)]="departmentData.name" [ngModelOptions]="{standalone:true}"
+    <input class="dark-font dark-color" matInput [(ngModel)]="departmentName" [ngModelOptions]="{standalone:true}"
       required>
   </mat-form-field>
 </div>

@@ -1,11 +1,11 @@
 <h1 mat-dialog-title class="mat-dialog-title dark-color">修改任務標籤</h1>
 <div mat-dialog-content class="mission-type-content">
-  <app-select-mission-type [selectMissionTypeId]="missionLabelData.type.id"
+  <app-select-mission-type [selectMissionTypeId]="missionTypeId"
     (selectMissionTypeEvent)="getSelectMissionTypeChange($event)"></app-select-mission-type>
   <mat-form-field class="example-full-width content">
-    <mat-label class="darker-font">單位名稱</mat-label>
-    <input class="dark-font dark-color" matInput [(ngModel)]="missionLabelData.name"
-      [ngModelOptions]="{standalone:true}" required>
+    <mat-label class="darker-font">任務標籤名稱</mat-label>
+    <input class="dark-font dark-color" matInput [(ngModel)]="missionLabelName" [ngModelOptions]="{standalone:true}"
+      required>
   </mat-form-field>
 </div>
 <div mat-dialog-actions>

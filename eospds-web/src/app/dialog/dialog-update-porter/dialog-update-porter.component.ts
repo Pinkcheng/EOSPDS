@@ -81,6 +81,7 @@ export class DialogUpdatePorterComponent implements OnInit {
       if (isChange) {
         console.log(body.toString())
         //this.api.updatePorter(this.data.porterId, body).subscribe(res => this.err.handleResponse(res))
+        this.dialog.closeAll()
       } else {
         this.err.errorDataUnChange()
       }

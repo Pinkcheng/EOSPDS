@@ -12,15 +12,9 @@ import { DialogDeleteMissionTypeComponent } from '../dialog-delete-mission-type/
 })
 export class DialogUpdateMissionTypeComponent implements OnInit {
 
-  missionLabelData: MissionLabel = {
-    id: "",
-    name: "",
-    type: {
-      id: "",
-      name: "",
-      transport: ""
-    }
-  };
+  missionTypeId: string = "";
+  missionLabelName: string = "";
+  missionLabelData!: MissionLabel;
   constructor(
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) private data: any,
@@ -30,7 +24,12 @@ export class DialogUpdateMissionTypeComponent implements OnInit {
 
   ngOnInit(): void {
     //get specific mission label data
-    this.api.getMissionLabelData(this.data.missionTypeId).subscribe(res => this.missionLabelData = res.data)
+    this.api.getMissionLabelData(this.data.missionTypeId).subscribe(
+      res => {
+        this.missionLabelData = res.data;
+        this.missionTypeId = this.missionLabelData.type.id;
+        this.missionLabelName = this.missionLabelData.name;
+      })
   }
 
   deleteMissionTypeDialog() {
@@ -44,15 +43,24 @@ export class DialogUpdateMissionTypeComponent implements OnInit {
   }
   updateMissionLabel() {
     //patch specific mission label data
-    if (this.missionLabelData.type.id != "" && this.missionLabelData.name != "") {
+    if (this.missionLabelName != "") {
       let body = new URLSearchParams();
-      body.set('missionTypeID', this.missionLabelData.type.id);
-      body.set('name', this.missionLabelData.name)
-      this.api.updateMissionLableData(this.data.missionTypeId, body).subscribe(
-        res => {
-          this.err.handleResponse(res);
-          this.dialog.closeAll();
-        })
+      let isChange: boolean = false;
+      if (this.missionTypeId != this.missionLabelData.type.id || this.missionLabelName != this.missionLabelData.name) {
+        body.set('missionTypeID', this.missionTypeId);
+        body.set('name', this.missionLabelName);
+        isChange = true;
+      }
+      if (isChange) {
+        this.api.updateMissionLableData(this.data.missionTypeId, body).subscribe(
+          res => {
+            this.err.handleResponse(res);
+            this.dialog.closeAll();
+          })
+      } else {
+        this.err.errorDataUnChange
+      }
+
     } else {
       this.err.errorDataUnComplete();
     }

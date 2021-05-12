@@ -14,28 +14,40 @@ import { ErrorService } from 'src/app/service/error.service';
 export class DialogUpdateDepartmentComponent implements OnInit {
 
   constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) private data: any, public api: ApiService, public err: ErrorService) { }
-  departmentData: Department = {
-    id: "",
-    building: {
-      id: "",
-      name: "",
-    },
-    floor: "",
-    name: "",
-  };
+  departmentData!: Department;
+
+  departmentId: string = "";
+  departmentName: string = "";
+  buildingName: string = "";
+  floor: string = "";
   ngOnInit(): void {
-    this.api.getDepartmentData(this.data.departmentId).subscribe((res: Response) => this.departmentData = res.data)
-  }
-  updateDepartment() {
-    let body = new URLSearchParams();
-    body.set('name', this.departmentData.name);
-    this.api.updateDepartmentData(this.data.departmentId, body).subscribe(
+    this.api.getDepartmentData(this.data.departmentId).subscribe(
       (res: Response) => {
-        this.err.handleResponse(res);
-        this.dialog.closeAll();
+        this.departmentData = res.data;
+        this.departmentId = this.departmentData.id;
+        this.buildingName = this.departmentData.building.id;
+        this.floor = this.departmentData.floor;
+        this.departmentName = this.departmentData.name;
       })
   }
+  updateDepartment() {
 
+    if (this.departmentName != "") {
+      let body = new URLSearchParams();
+      if (this.departmentName != this.departmentData.name) {
+        body.set('name', this.departmentName);
+        this.api.updateDepartmentData(this.data.departmentId, body).subscribe(
+          (res: Response) => {
+            this.err.handleResponse(res);
+            this.dialog.closeAll();
+          })
+      } else {
+        this.err.errorDataUnChange()
+      }
+    } else {
+      this.err.errorDataUnComplete()
+    }
+  }
   deleteDepartmentDialog() {
     this.dialog.open(DialogDeleteDepartmentComponent, {
       width: '350px',
