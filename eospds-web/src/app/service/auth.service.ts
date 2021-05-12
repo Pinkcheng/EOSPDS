@@ -62,17 +62,17 @@ export class TokenAuthHttpInterceptor implements HttpInterceptor {
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // token 可以來自任何地方
     this.token = this.auth.getToken('access_token')
-    console.log(req)
+    console.warn(req.url.split('.0')[1])
     if (this.token) {
       req = req.clone({
         setHeaders: {
           Authorization: `Bearer ${this.token}`
         }
       });
-      console.log("TokenAuthHttpInterceptor")
+      //console.log("TokenAuthHttpInterceptor")
       return next.handle(req);
     } else {
-      console.log("NoTokenHttpRequest")
+      //console.log("NoTokenHttpRequest")
       return next.handle(req);
     }
   }

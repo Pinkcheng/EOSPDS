@@ -76,6 +76,9 @@ export class ApiService {
   deletePorter(porterId: string): Observable<Response> {
     return this.http.delete<Response>(this.apiURL + this.apiPorter + '/' + porterId, this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
+  updatePorter(porterId: string, body: any) {
+    return this.http.patch<Response>(this.apiURL + this.apiPorter + '/' + porterId, body.toString(), this.app.apiOptions).pipe(catchError(this.err.handleError))
+  }
   /*-----------------------mission------------------------------*/
   //新增任務
   addMission(body: any): Observable<Response> {

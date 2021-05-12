@@ -7,11 +7,7 @@ export interface PorterData {
   "name": string,
   "tagNumber": string,
   "birthday": null,
-  "department": {
-    "id": string;
-    "name": string;
-    "floor": string;
-  },
+  "department": Department,
   "gender": number,
   "type": PorterType,
   "status": number,
