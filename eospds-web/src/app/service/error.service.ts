@@ -48,4 +48,9 @@ export class ErrorService implements ErrorHandler {
       verticalPosition: 'top', duration: 5000
     });
   }
+  errorDataUnChange = () => {
+    this.snackbar.open('資料未變更', 'OK', {
+      verticalPosition: 'top', duration: 5000
+    });
+  }
 }

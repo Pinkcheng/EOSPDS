@@ -14,80 +14,39 @@ import { DialogManualDispatchComponent } from '../dialog-manual-dispatch/dialog-
   styleUrls: ['./dialog-update-mission.component.css']
 })
 export class DialogUpdateMissionComponent implements OnInit {
-  missionData: MissionData = {
-    "id": "",
-    "content": "",
-    "status": 0,
-    "createTime": "",
-    "label": {
-      "id": "",
-      "name": ""
-    },
-    "instrument": {
-      "id": "",
-      "name": ""
-    },
-    "startDepartment": {
-      "id": "",
-      "name": "",
-      "floor": "",
-      "building": {
-        "id": "",
-        "name": ""
-      }
-    },
-    "endDepartment": {
-      "id": "",
-      "name": "",
-      "floor": "",
-      "building": {
-        "id": "",
-        "name": ""
-      }
-    },
-    "porter": {
-      "id": "",
-      "name": "",
-      "tagNumber": "",
-      "birthday": null,
-      "gender": 0,
-      "status": 0
-    },
-    "process": [
-      {
-        "status": "add",
-        "time": null,
-        "department": null
-      },
-      {
-        "status": "start",
-        "time": null,
-        "department": null
-      },
-      {
-        "status": "in_progress",
-        "time": null,
-        "department": null
-      },
-      {
-        "status": "finish",
-        "time": null,
-        "department": null
-      }
-    ]
-  };
+
+  missionId = "";
+  missionTypeId: string = "";
+  missionLabelId: string = "";
+  startBuildingId: string = "";
+  startDepartmentId: string = "";
+  endBuildingId: string = "";
+  endDepartmentId: string = "";
+  missionInstrumentId: string = "";
+  content: string = "";
+  porter: any;
+
+  missionData!: MissionData;
+
   missionInstrumentList: MissionInstrument[] = [];
   constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) private data: any, public err: ErrorService, public api: ApiService) {
-    //console.log(data.missionId)//欲修改之missionid
-    this.api.getMissionData(data.missionId).subscribe(res => {
-      this.missionData = res.data;
-      console.log(this.missionData)
-    })
-    this.api.getMissionInstrumentList().subscribe(res => this.missionInstrumentList = res.data)
+
   }
 
   ngOnInit(): void {
-    //get mission data http
+    this.api.getMissionData(this.data.missionId).subscribe(res => {
+      this.missionData = res.data;
+      //this.missionTypeId = this.missionData.type.id;
+      this.missionLabelId = this.missionData.label.id;
+      this.startBuildingId = this.missionData.startDepartment.building.id;
+      this.startDepartmentId = this.missionData.startDepartment.id;
+      this.endBuildingId = this.missionData.endDepartment.building.id;
+      this.endDepartmentId = this.missionData.endDepartment.id;
+      this.missionInstrumentId = this.missionData.instrument.id;
+      this.content = this.missionData.content;
+      this.porter = this.missionData.porter;
+    })
+    this.api.getMissionInstrumentList().subscribe(res => this.missionInstrumentList = res.data)
 
   }
 
@@ -101,29 +60,49 @@ export class DialogUpdateMissionComponent implements OnInit {
     });
   }
   updateMission() {
-    if (this.missionData.label.id != "" && this.missionData.instrument.id != "" &&
-      this.missionData.startDepartment.id != "" && this.missionData.endDepartment.id != "") {
-      console.log(this.missionData.label, this.missionData.instrument.id,
-        this.missionData.startDepartment.id, this.missionData.endDepartment.id)
+    let body = new URLSearchParams();
+    let isChange = false;
+    if (this.missionLabelId != this.missionData.label.id) {
+      body.set('label', this.missionLabelId);
+      isChange = true;
+    }
+    if (this.missionInstrumentId != this.missionData.instrument.id) {
+      body.set('instrument', this.missionInstrumentId);
+      isChange = true;
+    }
+    if (this.startDepartmentId != this.missionData.startDepartment.id) {
+      body.set('startDepartment', this.startDepartmentId);
+      isChange = true;
+    }
+    if (this.endDepartmentId != this.missionData.endDepartment.id) {
+      body.set('endDepartment', this.endDepartmentId);
+      isChange = true;
+    }
+    if (this.content != this.missionData.content) {
+      body.set('content', this.content);
+      isChange = true;
+    }
+    if (isChange) {
+      this.api.updateMission(this.data.missionId, body).subscribe(res => this.err.handleResponse(res))
     } else {
-      this.err.errorDataUnComplete();
+      this.err.errorDataUnChange();
     }
   }
 
-  getSelectMIssionLabelId($event: any) {
-    this.missionData.label.id = $event;
+  getSelectMissionLabelId($event: any) {
+    this.missionLabelId = $event;
   }
   getSelectStartDepartmentId($event: any) {
-    this.missionData.startDepartment.id = $event;
+    this.startDepartmentId = $event;
   }
   getSelectEndDepartmentId($event: any) {
-    this.missionData.endDepartment.id = $event;
+    this.endDepartmentId = $event;
   }
   getSelectStartBuildingId($event: any) {
-    this.missionData.startDepartment.building.id = $event;
+    this.startBuildingId = $event;
   }
   getSelectEndBuildingId($event: any) {
-    this.missionData.endDepartment.building.id = $event;
+    this.endBuildingId = $event;
   }
 
   manualDispatchDiaolog() {

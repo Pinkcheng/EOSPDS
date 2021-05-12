@@ -1,20 +1,20 @@
 <h1 mat-dialog-title class="mat-dialog-title dark-color">修改任務</h1>
 <div mat-dialog-content class="mission-content">
-  <h3>編號:{{missionData.id}}</h3>
+  <h3>編號:{{missionId}}</h3>
   <h3>任務類型與標籤</h3>
-  <!--<app-select-mission-label (selectMissionLabelEvent)="getSelectMIssionLabelId($event)"
-    [selectMissionLabelId]="missionData.label.id" [selectMissionTypeId]="missionData.type"></app-select-mission-label>-->
+  <app-select-mission-label [selectMissionLabelId]="missionLabelId" [selectMissionTypeId]="missionTypeId"
+    (selectMissionLabelEvent)="getSelectMissionLabelId($event)"></app-select-mission-label>
   <h3>起始單位</h3>
-  <app-select-department [selectBuildingId]="missionData.startDepartment.building.id"
-    [selectDepartmentId]="missionData.startDepartment.id" (selectDepartmentEvent)="getSelectStartDepartmentId($event)">
+  <app-select-department [selectBuildingId]="startBuildingId" [selectDepartmentId]="startDepartmentId"
+    (selectDepartmentEvent)="getSelectStartDepartmentId($event)">
   </app-select-department>
   <h3>送往單位</h3>
-  <app-select-department [selectBuildingId]="missionData.endDepartment.building.id"
-    [selectDepartmentId]="missionData.endDepartment.id" (selectDepartmentEvent)="getSelectEndDepartmentId($event)">
+  <app-select-department [selectBuildingId]="endBuildingId" [selectDepartmentId]="endDepartmentId"
+    (selectDepartmentEvent)="getSelectEndDepartmentId($event)">
   </app-select-department>
   <h3>運送工具</h3>
   <mat-radio-group aria-labelledby="example-radio-group-label" class="text example-radio-group"
-    [(ngModel)]="missionData.instrument.id">
+    [value]="missionInstrumentId">
     <mat-radio-button class="example-radio-button" *ngFor="let instrument of missionInstrumentList"
       [value]="instrument.id">
       {{instrument.name}}
@@ -22,10 +22,10 @@
   </mat-radio-group>
   <mat-form-field class="example-full-width">
     <mat-label>備註</mat-label>
-    <textarea matInput placeholder="" [(ngModel)]="missionData.content"></textarea>
+    <textarea matInput placeholder="" [(ngModel)]="content"></textarea>
   </mat-form-field>
-  <h3>傳送員 {{missionData.porter.name}} <button mat-flat-button class="function-button manual-dispatch-button dark-color"
-      (click)="manualDispatchDiaolog()">指定人員</button></h3>
+  <h3 *ngIf="porter !=null">傳送員 {{porter.name}} <button mat-flat-button
+      class="function-button manual-dispatch-button dark-color" (click)="manualDispatchDiaolog()">指定人員</button></h3>
 
 </div>
 <div mat-dialog-actions>

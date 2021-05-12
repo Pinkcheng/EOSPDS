@@ -89,6 +89,9 @@ export class ApiService {
   getMissionData(missionId: string): Observable<Response> {
     return this.http.get<Response>(this.apiURL + this.apiMission + '/' + missionId, this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
+  updateMission(missionId: string, body: any): Observable<Response> {
+    return this.http.patch<Response>(this.apiURL + this.apiMission + '/' + missionId, body.toString(), this.app.apiOptions).pipe(catchError(this.err.handleError))
+  }
   /*-----------------------mission_instrument------------------------------*/
   //取得任務工具列表
   getMissionInstrumentList(): Observable<Response> {
