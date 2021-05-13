@@ -64,11 +64,17 @@ export class ApiService {
   addStaff(body: URLSearchParams): Observable<Response> {
     return this.http.post<Response>(this.apiURL + this.apiStaff, body.toString(), this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
+  //取得特定單位人員
   getStaffListParams(params: HttpParams): Observable<Response> {
     return this.http.get<Response>(this.apiURL + this.apiStaff + '?' + params.toString(), this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
+  //取得特定單位人員資料
   getStaffData(staffId: string): Observable<Response> {
     return this.http.get<Response>(this.apiURL + this.apiStaff + '/' + staffId, this.app.apiOptions).pipe(catchError(this.err.handleError))
+  }
+  //更新特定單位人員資料
+  updateStaff(staffId: string, body: URLSearchParams) {
+    return this.http.patch<Response>(this.apiURL + this.apiStaff + '/' + staffId, body.toString(), this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
   /*-----------------------porter------------------------------ */
   //新增傳送員

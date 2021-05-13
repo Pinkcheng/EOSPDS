@@ -1,23 +1,22 @@
 <h1 mat-dialog-title class="mat-dialog-title dark-color">修改人員</h1>
 <div mat-dialog-content class="staff-content">
-  <div class="content">編號: {{staffData.id}}</div>
+  <div class="content">編號: {{staffId}}</div>
   <mat-form-field class="content">
     <mat-label class="darker-font">姓名</mat-label>
-    <input class="dark-font dark-color" matInput [(ngModel)]="staffData.name" [ngModelOptions]="{standalone:true}"
-      required>
+    <input class="dark-font dark-color" matInput [(ngModel)]="name" [ngModelOptions]="{standalone:true}" required>
   </mat-form-field>
   <mat-form-field class="content">
     <mat-label class="darker-font">職稱</mat-label>
-    <input class="dark-font dark-color" matInput [(ngModel)]="staffData.professional"
-      [ngModelOptions]="{standalone:true}" required>
+    <input class="dark-font dark-color" matInput [(ngModel)]="professional" [ngModelOptions]="{standalone:true}"
+      required>
   </mat-form-field>
   <div class="content">隸屬單位</div>
-  <app-select-department class="content" [selectBuildingId]="staffData.department.id"
-    [selectDepartmentId]="staffData.department.id" (selectDepartmentEvent)="getSelectDepartmentId($event)">
+  <app-select-department class="content" [selectBuildingId]="departmentId" [selectDepartmentId]="departmentId"
+    (selectDepartmentEvent)="getSelectDepartmentId($event)">
   </app-select-department>
 </div>
 <div mat-dialog-actions>
-  <button mat-button class="button delete-staff-button" (click)="deleteStaffDialog()">刪除</button>
+  <!--<button mat-button class="button delete-staff-button" (click)="deleteStaffDialog()">刪除</button>-->
   <button mat-button class="button update-department-button dark-color" (click)="updateStaff()">修改</button>
   <button mat-button mat-dialog-close class="button light-color">關閉</button>
 </div>

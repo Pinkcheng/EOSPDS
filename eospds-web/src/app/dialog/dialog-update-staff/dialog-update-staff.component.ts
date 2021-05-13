@@ -1,4 +1,5 @@
-import { ErrorService } from 'src/app/service/error.service';
+import { ErrorService } from './../../service/error.service';
+import { ApiService } from './../../service/api.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Staff } from 'src/app/models/staff';
@@ -14,32 +15,53 @@ export class DialogUpdateStaffComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) private data: any,
-    public err: ErrorService) {
+    public err: ErrorService,
+    public api: ApiService) {
   }
 
   ngOnInit(): void {
+    this.api.getStaffData(this.data.staffId).subscribe(res => {
+      this.staffData = res.data;
+      this.staffId = this.staffData.id;
+      this.name = this.staffData.name;
+      this.professional = this.staffData.professional;
+      //this.buildingId =this.stadff.department.building.id;
+      this.departmentId = this.staffData.department.id;
+    })
   }
+  staffId: string = ""
+  name: string = "";
+  professional: string = "";
+  building: string = "";
+  departmentId: string = "";
 
-  staffData: Staff = {
-    "id": "S00000001",
-    "name": "王士嘉",
-    "professional": "護理師",
-    "handover": 10,
-    "department": {
-      "id": "D1001",
-      "floor": "B1",
-      "name": "傳送中心"
-    }
-  }
+  staffData!: Staff;
   updateStaff() {
-    //patch specific staff
-    if (this.staffData.name != "" && this.staffData.professional != "" && this.staffData.department.id != "") {
+    //patch specific staff //bug body需全部欄位
+    if (this.name.trim() != "" && this.professional.trim() != "" && this.departmentId != "") {
       let body = new URLSearchParams();
-      body.set('name', this.staffData.name);
-      body.set('professional', this.staffData.professional);
-      body.set('department', this.staffData.department.id);
-      console.log(this.staffData.name, this.staffData.professional, this.staffData.department.id);
-      this.dialog.closeAll();
+      let isChange: boolean = false;
+      if (this.name.trim() != this.staffData.name) {
+        body.set('name', this.name.trim());
+        isChange = true;
+      }
+      if (this.professional.trim() != this.staffData.professional) {
+        body.set('professional', this.professional.trim());
+        isChange = true;
+      }
+      if (this.departmentId != this.staffData.department.id) {
+        body.set('department', this.departmentId);
+        isChange = true;
+      }
+      if (isChange) {
+        console.log(body.toString())
+        this.api.updateStaff(this.data.staffId, body).subscribe(res => {
+          this.err.handleResponse(res);
+          this.dialog.closeAll();
+        })
+      } else {
+        this.err.errorDataUnChange();
+      }
     } else {
       this.err.errorDataUnComplete();
     }
