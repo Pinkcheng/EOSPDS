@@ -40,10 +40,10 @@ export class HomepageMissionComponent implements OnInit {
 
   ngOnInit(): void {
     this.isAdminLogin$ = this.user.getAdminLogin();
-    //this.getMissionList();
-    this.dialog.afterAllClosed.subscribe(() => {//初始取得list&關閉dialog會更新list
+    this.getMissionList();
+    /*this.dialog.afterAllClosed.subscribe(() => {//初始取得list&關閉dialog會更新list
       this.updateMissionList();
-    })
+    })*/
   }
 
 

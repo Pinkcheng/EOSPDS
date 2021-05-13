@@ -18,13 +18,10 @@ export class HomepagePorterComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.dialog.afterAllClosed.subscribe(() => {//初始+關閉dialog會更新list
+    /*this.dialog.afterAllClosed.subscribe(() => {//初始+關閉dialog會更新list
       this.updatePorterList();
-    });
-    /*this.api.getPorterList().subscribe((res: Response) => {
-      this.porterList = res.data;
-      this.getCheckboxList(this.checkboxList);
-    })*/
+    });*/
+    this.getPorterList();
 
   }
 
@@ -55,7 +52,7 @@ export class HomepagePorterComponent implements OnInit {
   }
 
   //手動更新傳送員列表
-  updatePorterList() {
+  getPorterList() {
     //get porter list
     this.api.getPorterList().subscribe((res: Response) => {
       this.porterList = res.data;
