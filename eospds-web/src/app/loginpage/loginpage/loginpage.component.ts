@@ -17,8 +17,8 @@ export class LoginpageComponent implements OnInit {
   height: number = 0;
   width: number = 0;
 
-  account: string = "admin"; //d1000002
-  password: string = "admin"; //00000
+  account: string = "d1000002"; //d1000002 //admin
+  password: string = "00000"; //00000 //admin
 
   loginData: User = { account: "", password: "" };
 

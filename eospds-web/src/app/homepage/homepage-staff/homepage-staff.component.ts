@@ -29,11 +29,10 @@ export class HomepageStaffComponent implements OnInit {
   staffList: Staff[] = []
   ngOnInit(): void {
     //get staff data
-    this.updateStaffList()
-    /*this.dialog.afterAllClosed.subscribe(() => {//刪除或關閉list會更新list
-
+    //this.updateStaffList()
+    this.dialog.afterAllClosed.subscribe(() => {//刪除或關閉list會更新list
       this.updateStaffList();
-    });*/
+    });
   }
 
   allStaffCheckStatus: boolean = false; //全選checkbox狀態

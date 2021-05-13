@@ -18,13 +18,13 @@ export class HomepagePorterComponent implements OnInit {
 
   ngOnInit(): void {
 
-    /*this.dialog.afterAllClosed.subscribe(() => {//刪除或關閉list會更新list
+    this.dialog.afterAllClosed.subscribe(() => {//初始+關閉dialog會更新list
       this.updatePorterList();
-    });*/
-    this.api.getPorterList().subscribe((res: Response) => {
+    });
+    /*this.api.getPorterList().subscribe((res: Response) => {
       this.porterList = res.data;
       this.getCheckboxList(this.checkboxList);
-    })
+    })*/
 
   }
 

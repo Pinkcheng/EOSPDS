@@ -40,12 +40,10 @@ export class HomepageMissionComponent implements OnInit {
 
   ngOnInit(): void {
     this.isAdminLogin$ = this.user.getAdminLogin();
-    this.userId = this.user.getUserId()
-    this.getMissionList();
-    /*this.dialog.afterAllClosed.subscribe(() => {//刪除任務或關閉list會更新list
-
+    //this.getMissionList();
+    this.dialog.afterAllClosed.subscribe(() => {//初始取得list&關閉dialog會更新list
       this.updateMissionList();
-    });*/
+    })
   }
 
 
@@ -58,6 +56,7 @@ export class HomepageMissionComponent implements OnInit {
         this.changeMissionList(this.checkboxList);
       })
     } else {
+      this.userId = this.user.getUserId()
       if (this.userId != null) {
         let params = new HttpParams().set('department', this.userId)
         this.api.getMissionListParams(params).subscribe(res => {
