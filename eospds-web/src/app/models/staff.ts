@@ -4,5 +4,9 @@ export interface Staff {
   name: string;
   professional: string;
   handover: number;
-  department: Department;
+  department: {
+    id: string;
+    name: string;
+    floor: string;
+  };
 }

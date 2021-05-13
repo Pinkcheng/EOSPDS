@@ -8,19 +8,22 @@
       </div>
     </div>
     <div class="staff-list-title lighter-color">
-      <mat-checkbox class="staff-checkbox" [checked]="allStaffCheckStatus" (change)="setAllCheckboxStatus($event.checked)"></mat-checkbox>
+      <mat-checkbox class="staff-checkbox" [checked]="allStaffCheckStatus"
+        (change)="setAllCheckboxStatus($event.checked)"></mat-checkbox>
       <span class="staff-name">姓名</span>
       <span class="staff-handover">交接次數</span>
       <span class="staff-professional">職稱</span>
       <span class="staff-department">隸屬單位</span>
     </div>
     <div class="staff-list">
-      <div class="staff-list-content" id="staff_{{idx}}" *ngFor="let item of staffList; let idx = index" (mouseenter)="getMouseEnter($event)" (click)="updateStaffDialog()">
-        <mat-checkbox class="staff-checkbox" (click)="clickInnerCheckbox($event)" [(ngModel)]="staffListCheckStatus[idx]" (ngModelChange)="updateAllCheckboxStatus()"></mat-checkbox>
+      <div class="staff-list-content" id="staff_{{idx}}" *ngFor="let item of staffList; let idx = index"
+        (mouseenter)="getMouseEnter($event)" (click)="updateStaffDialog()">
+        <mat-checkbox class="staff-checkbox" (click)="clickInnerCheckbox($event)"
+          [(ngModel)]="staffListCheckStatus[idx]" (ngModelChange)="updateAllCheckboxStatus()"></mat-checkbox>
         <span class="staff-name">{{item.name}}</span>
         <span class="staff-handover">{{item.handover}} 件</span>
         <span class="staff-professional">{{item.professional}}</span>
-        <span class="staff-department">{{item.department}}</span>
+        <span class="staff-department">{{item.department.floor}}-{{item.department.name}}</span>
       </div>
     </div>
   </div>

@@ -23,13 +23,11 @@ export class DialogAddMissionTypeComponent implements OnInit {
       let body = new URLSearchParams();
       body.set('name', this.missionLabelName)
       body.set('missionTypeID', this.missionTypeId)
-      this.api.addMissionLabel(body.toString()).subscribe(res => this.err.handleResponse(res))
+      this.api.addMissionLabel(body).subscribe(res => this.err.handleResponse(res))
       this.dialog.closeAll();
     } else {
       this.err.errorDataUnComplete();
     }
-
-
   }
   getSelectMissionTypeId($event: any) {
     this.missionTypeId = $event;

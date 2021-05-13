@@ -27,10 +27,6 @@ export class DialogUpdateStaffComponent implements OnInit {
     "handover": 10,
     "department": {
       "id": "D1001",
-      "building": {
-        "id": "B1100",
-        "name": "新醫療大樓"
-      },
       "floor": "B1",
       "name": "傳送中心"
     }

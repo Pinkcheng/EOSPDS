@@ -1,7 +1,12 @@
+import { HttpParams } from '@angular/common/http';
+import { ApiService } from 'src/app/service/api.service';
+import { UserService } from 'src/app/service/user.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddStaffComponent } from 'src/app/dialog/dialog-add-staff/dialog-add-staff.component';
 import { DialogUpdateStaffComponent } from 'src/app/dialog/dialog-update-staff/dialog-update-staff.component';
+import { ErrorService } from 'src/app/service/error.service';
+import { Staff } from 'src/app/models/staff';
 
 @Component({
   selector: 'app-homepage-staff',
@@ -10,108 +15,26 @@ import { DialogUpdateStaffComponent } from 'src/app/dialog/dialog-update-staff/d
 })
 export class HomepageStaffComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(
+    public dialog: MatDialog,
+    public user: UserService,
+    public api: ApiService,
+    public err: ErrorService) { }
+
+  userId: string | null = "";
 
   @Input()
   articleHeight!: number;
+
+  staffList: Staff[] = []
   ngOnInit(): void {
     //get staff data
-    this.resetStaffListCheckbox();
+    this.updateStaffList()
     /*this.dialog.afterAllClosed.subscribe(() => {//刪除或關閉list會更新list
 
       this.updateStaffList();
     });*/
   }
-  staffList = [
-    {
-      "id": "S00000001",
-      "name": "王士嘉",
-      "handover": 10,
-      "professional": "護理師",
-      "department": "新醫療大樓-5B病房",
-    },
-    {
-      "id": "S00000002",
-      "name": "王士嘉",
-      "handover": 10,
-      "professional": "護理師",
-      "department": "新醫療大樓-5B病房",
-    },
-    {
-      "id": "S00000003",
-      "name": "王士嘉",
-      "handover": 10,
-      "professional": "護理師",
-      "department": "新醫療大樓-5B病房",
-    },
-    {
-      "id": "S00000004",
-      "name": "王士嘉",
-      "handover": 10,
-      "professional": "護理師",
-      "department": "新醫療大樓-5B病房",
-    },
-    {
-      "id": "S00000005",
-      "name": "王士嘉",
-      "handover": 10,
-      "professional": "護理師",
-      "department": "新醫療大樓-5B病房",
-    },
-    {
-      "id": "S00000007",
-      "name": "王士嘉",
-      "handover": 10,
-      "professional": "護理師",
-      "department": "新醫療大樓-5B病房",
-    },
-    {
-      "id": "S00000008",
-      "name": "王士嘉",
-      "handover": 10,
-      "professional": "護理師",
-      "department": "新醫療大樓-5B病房",
-    },
-    {
-      "id": "S00000009",
-      "name": "王士嘉",
-      "handover": 10,
-      "professional": "護理師",
-      "department": "新醫療大樓-5B病房",
-    },
-    {
-      "id": "S000000010",
-      "name": "王士嘉",
-      "handover": 10,
-      "professional": "護理師",
-      "department": "新醫療大樓-5B病房",
-    },
-
-  ]
-
-  staffListChange = [
-    {
-      "id": "S00000001",
-      "name": "王士嘉",
-      "handover": 10,
-      "professional": "護理師",
-      "department": "新醫療大樓-5B病房",
-    },
-    {
-      "id": "S00000003",
-      "name": "王士嘉",
-      "handover": 10,
-      "professional": "護理師",
-      "department": "新醫療大樓-5B病房",
-    },
-    {
-      "id": "S00000002",
-      "name": "王士嘉",
-      "handover": 10,
-      "professional": "護理師",
-      "department": "新醫療大樓-5B病房",
-    }
-  ]
 
   allStaffCheckStatus: boolean = false; //全選checkbox狀態
   staffListCheckStatus: boolean[] = []; //staff list的checkbox狀態
@@ -130,7 +53,15 @@ export class HomepageStaffComponent implements OnInit {
 
   updateStaffList() {
     //get staff list
-    this.staffList = this.staffListChange;
+    this.userId = this.user.getUserId();
+    if (this.userId != null) {
+      let params = new HttpParams().set('department', this.userId);
+      this.api.getStaffListParams(params).subscribe(res => {
+        this.staffList = res.data;
+        this.resetStaffListCheckbox();
+      })
+    }
+
   }
   //全選或取消全選list的checkbox
   setAllCheckboxStatus($event: boolean) {
