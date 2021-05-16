@@ -4,7 +4,7 @@ import { ApiService } from 'src/app/service/api.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogDeletePorterComponent } from '../dialog-delete-porter/dialog-delete-porter.component';
-import { Gender, PorterData, PorterType, Response } from '../../models';
+import { Gender, PorterList, PorterType, Response } from '../../models';
 import { VirtualTimeScheduler } from 'rxjs';
 
 @Component({
@@ -30,7 +30,7 @@ export class DialogUpdatePorterComponent implements OnInit {
   buildingId: string = "";
   departmentId: string = "";
 
-  porterData!: PorterData;
+  porterData!: PorterList;
   ngOnInit(): void {
     this.api.getPorterData(this.data.porterId).subscribe(
       (res: Response) => {

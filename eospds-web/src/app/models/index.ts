@@ -1,6 +1,6 @@
 export * from './user';
 export * from './response';
-export * from './porterData';
+export * from './porterList';
 export * from './porterType';
 export * from './gender';
 export * from './building';

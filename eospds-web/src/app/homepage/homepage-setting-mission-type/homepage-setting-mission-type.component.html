@@ -14,7 +14,8 @@
   <div class="mission-type-list-content" id="missiontype_{{idx}}" *ngFor="let item of missionLabelList; let idx = index"
     (mouseenter)="getMouseEnter($event)" (click)="updateMissionTypeDialog()">
     <span class="mission-type-name">{{item.type.name}}</span>
-    <span class="mission-type-transport">{{item.type.transport}}</span>
+    <span class="mission-type-transport" *ngIf="item.type.transport == 1">運人</span>
+    <span class="mission-type-transport" *ngIf="item.type.transport == 2">運物</span>
     <span class="mission-label-name">{{item.name}}</span>
   </div>
 </div>

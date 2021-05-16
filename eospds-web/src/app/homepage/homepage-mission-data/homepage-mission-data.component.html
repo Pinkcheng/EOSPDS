@@ -4,6 +4,7 @@
     <h3 class=mission-data-title> </h3>
   </div>
   <div *ngIf="missionData">
+    <h3 class=mission-data-title>{{missionData.label.type.name}}</h3>
     <h3 class=mission-data-title>{{missionData.label.name}}</h3>
     <h3 class=mission-data-title>{{missionData.content}}</h3>
   </div>

@@ -85,6 +85,10 @@ export class ApiService {
   getPorterList(): Observable<Response> {
     return this.http.get<Response>(this.apiURL + this.apiPorter, this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
+  //取得特定狀態的傳送員
+  getPorterListParams(params: HttpParams) {
+    return this.http.get<Response>(this.apiURL + this.apiPorter + '?' + params.toString(), this.app.apiOptions).pipe(catchError(this.err.handleError))
+  }
   //取得特定傳送員資料
   getPorterData(porterId: string): Observable<Response> {
     return this.http.get<Response>(this.apiURL + this.apiPorter + '/' + porterId, this.app.apiOptions).pipe(catchError(this.err.handleError))
@@ -93,6 +97,7 @@ export class ApiService {
   deletePorter(porterId: string): Observable<Response> {
     return this.http.delete<Response>(this.apiURL + this.apiPorter + '/' + porterId, this.app.apiOptions).pipe(catchError(this.err.handleError))
   }
+  //更新傳送員資料
   updatePorter(porterId: string, body: URLSearchParams) {
     return this.http.patch<Response>(this.apiURL + this.apiPorter + '/' + porterId, body.toString(), this.app.apiOptions).pipe(catchError(this.err.handleError))
   }

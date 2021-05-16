@@ -1,6 +1,7 @@
 import { Department } from 'src/app/models';
 import { MissionInstrument } from './missionInstrument';
 import { MissionLabel } from './missionLabel';
+import { PorterData } from './porterData';
 export interface MissionList {
   "id": string,
   "content": string,
@@ -9,12 +10,6 @@ export interface MissionList {
   "label": MissionLabel,
   "instrument": MissionInstrument,
   "startDepartment": Department
-  "endDepartment": Department
-  "porter": {
-    "id": string,
-    "name": string,
-    "tagNumber": string,
-    "birthday": null,
-    "gender": false
-  }
+  "endDepartment": Department,
+  "porter": PorterData
 }

@@ -19,12 +19,12 @@
     <span class="mission-status mission-status-2" *ngIf="item.status == 2">{{item.status|missionStatus}}</span>
     <span class="mission-status mission-status-3" *ngIf="item.status == 3">{{item.status|missionStatus}}</span>
     <span class="mission-status mission-status-4" *ngIf="item.status == 4">{{item.status|missionStatus}}</span>
-    <span class="mission-type">{{item.label.name}}</span>
+    <span class="mission-type">{{item.label.type.name}}</span>
     <span
       class="start-department">{{item.startDepartment.building.name}}-{{item.startDepartment.floor}}-{{item.startDepartment.name}}</span>
     <span
       class="end-department">{{item.endDepartment.building.name}}-{{item.endDepartment.floor}}-{{item.endDepartment.name}}</span>
-    <span class="porter" *ngIf="item.status != 1">{{item.porter.name}}</span>
+    <span class="porter" *ngIf="item.status != 1">{{item.porter.name}}<br>({{item.porter.mobile}})</span>
     <span class="porter-position" *ngIf="item.status != 1">(待完成)</span>
     <span class="porter" *ngIf="item.status == 1 && (isAdminLogin$|async)">
       <app-button-manual-dispatch [missionId]="mouseEnterMissionId"></app-button-manual-dispatch>

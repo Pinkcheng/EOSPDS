@@ -1,19 +1,14 @@
-import { MissionLabel } from 'src/app/models';
+import { MissionLabel } from './missionLabel';
 import { Department } from './department';
 import { missionProcess } from './missionProcess';
+import { MissionInstrument } from './missionInstrument';
 export interface MissionData {
   "id": string,
   "content": string,
   "status": number,
   "createTime": string,
-  "label": {
-    "id": string,
-    "name": string
-  },
-  "instrument": {
-    "id": string,
-    "name": string
-  },
+  "label": MissionLabel,
+  "instrument": MissionInstrument,
   "startDepartment": Department,
   "endDepartment": Department,
   "porter": {

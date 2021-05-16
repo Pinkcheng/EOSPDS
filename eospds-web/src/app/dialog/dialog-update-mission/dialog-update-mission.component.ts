@@ -37,7 +37,7 @@ export class DialogUpdateMissionComponent implements OnInit {
     this.api.getMissionData(this.data.missionId).subscribe(res => {
       this.missionData = res.data;
       this.missionId = this.missionData.id;
-      //this.missionTypeId = this.missionData.type.id;
+      this.missionTypeId = this.missionData.label.type.id;
       this.missionLabelId = this.missionData.label.id;
       this.startBuildingId = this.missionData.startDepartment.building.id;
       this.startDepartmentId = this.missionData.startDepartment.id;
