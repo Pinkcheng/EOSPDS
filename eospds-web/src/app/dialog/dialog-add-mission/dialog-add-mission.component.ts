@@ -1,3 +1,4 @@
+import { UserService } from 'src/app/service/user.service';
 import { MissionInstrument } from './../../models/missionInstrument';
 import { ErrorService } from './../../service/error.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -14,8 +15,10 @@ export class DialogAddMissionComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     public err: ErrorService,
+    public user: UserService,
     public api: ApiService
   ) { }
+  userId!: string | null;
   missionInstrumentList: MissionInstrument[] = [];
   selectMissionLabelId: string = "";
   selectStartDepartmentId: string = "";
@@ -24,27 +27,49 @@ export class DialogAddMissionComponent implements OnInit {
   missionContent: string = "";
   ngOnInit(): void {
     //http get mission instrument
+    this.userId = this.user.getUserId();
     this.api.getMissionInstrumentList().subscribe(res => this.missionInstrumentList = res.data)
   }
 
-
   addMission() {
     //http post add  mission
-    if (this.selectMissionLabelId != "" && this.selectStartDepartmentId != ""
-      && this.selectEndDepartmentId != "" && this.selectMissionInstrumentId != "") {
-      let body = new URLSearchParams();
+    let body = new URLSearchParams();
+    if (this.selectStartDepartmentId != "") {
       body.set('label', this.selectMissionLabelId);
-      body.set('start', this.selectStartDepartmentId);
-      body.set('end', this.selectEndDepartmentId);
-      body.set('instrument', this.selectMissionInstrumentId);
-      body.set('content', this.missionContent);
-      this.api.addMission(body).subscribe(res =>this.err.handleResponse(res))
-      this.dialog.closeAll()
+      if (this.selectMissionLabelId != "") {
+        body.set('instrument', this.selectMissionInstrumentId);
+        if (this.selectStartDepartmentId != "" && this.selectEndDepartmentId != "") {
+          if (this.checkUserDepartment()) {
+            body.set('start', this.selectStartDepartmentId);
+            body.set('end', this.selectEndDepartmentId);
+            if (this.missionContent != "") {
+              body.set('content', this.missionContent);
+            }
+            this.api.addMission(body).subscribe(res => {
+              this.err.handleResponse(res);
+              this.dialog.closeAll();
+            })
+          } else {
+            this.err.errorTextResponse("起始或送往單位需有一項為您的單位")
+          }
+        } else {
+          this.err.errorDataUnComplete()
+        }
+      } else {
+        this.err.errorDataUnComplete()
+      }
     } else {
-      this.err.errorDataUnComplete();
+      this.err.errorDataUnComplete()
     }
   }
-
+  //檢查起始或送往單位是否有一項為自己的單位
+  checkUserDepartment(): boolean {
+    if (this.selectStartDepartmentId == this.userId || this.selectEndDepartmentId == this.userId || this.userId == '-1' || this.userId == '-2') {
+      return true
+    } else {
+      return false
+    }
+  }
   getSelectMissionLabelId($event: any) {
     this.selectMissionLabelId = $event;
   }

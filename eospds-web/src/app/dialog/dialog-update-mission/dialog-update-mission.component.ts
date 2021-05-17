@@ -1,3 +1,4 @@
+import { UserService } from './../../service/user.service';
 import { MissionData } from 'src/app/models/missionData';
 import { ApiService } from 'src/app/service/api.service';
 import { AuthService } from 'src/app/service/auth.service';
@@ -15,6 +16,7 @@ import { DialogManualDispatchComponent } from '../dialog-manual-dispatch/dialog-
 })
 export class DialogUpdateMissionComponent implements OnInit {
 
+  userId!: string | null;
   missionId = "";
   missionTypeId: string = "";
   missionLabelId: string = "";
@@ -29,11 +31,17 @@ export class DialogUpdateMissionComponent implements OnInit {
   missionData!: MissionData;
 
   missionInstrumentList: MissionInstrument[] = [];
-  constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) private data: any, public err: ErrorService, public api: ApiService) {
+  constructor(
+    public dialog: MatDialog,
+    @Inject(MAT_DIALOG_DATA) private data: any,
+    public err: ErrorService,
+    public api: ApiService,
+    public user: UserService) {
 
   }
 
   ngOnInit(): void {
+    this.userId = this.user.getUserId();
     this.api.getMissionData(this.data.missionId).subscribe(res => {
       this.missionData = res.data;
       this.missionId = this.missionData.id;
@@ -84,12 +92,24 @@ export class DialogUpdateMissionComponent implements OnInit {
       isChange = true;
     }
     if (isChange) {
-      this.api.updateMission(this.data.missionId, body).subscribe(res => this.err.handleResponse(res))
+      if (this.checkUserDepartment()) {
+        this.api.updateMission(this.data.missionId, body).subscribe(res => this.err.handleResponse(res))
+      } else {
+        this.err.errorTextResponse("起始或送往單位需有一項為您的單位")
+      }
+
     } else {
       this.err.errorDataUnChange();
     }
   }
-
+  //檢查起始或送往單位是否有一項為自己的單位
+  checkUserDepartment(): boolean {
+    if (this.startDepartmentId == this.userId || this.endDepartmentId == this.userId || this.userId == '-1' || this.userId == '-2') {
+      return true
+    } else {
+      return false
+    }
+  }
   getSelectMissionLabelId($event: any) {
     this.missionLabelId = $event;
   }
