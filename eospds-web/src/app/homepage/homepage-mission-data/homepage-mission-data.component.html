@@ -4,7 +4,6 @@
     <h3 class=mission-data-title> </h3>
   </div>
   <div *ngIf="missionData">
-    <h3 class=mission-data-title>{{missionData.label.type.name}}</h3>
     <h3 class=mission-data-title>{{missionData.label.name}}</h3>
     <h3 class=mission-data-title>{{missionData.content}}</h3>
   </div>
@@ -26,19 +25,31 @@
     </span>
   </div>
   <div class="progress-content">
-    <span class="progress-text" *ngFor="let item of missionProcess; let idx = index">
-      <span *ngIf="missionProcess[idx].time != null">
-        {{missionProcess[idx].time|date: 'yyyy/MM/dd hh:mm:ss'}}
-      </span>
-      <span *ngIf="missionProcess[idx].time == null"></span>
+    <span class="progress-text">
+      {{addTime|date: 'yyyy/MM/dd hh:mm:ss'}}
+    </span>
+    <span class="progress-text">
+      {{startTime|date: 'yyyy/MM/dd hh:mm:ss'}}
+    </span>
+    <span class="progress-text">
+      {{processTime|date: 'yyyy/MM/dd hh:mm:ss'}}
+    </span>
+    <span class="progress-text">
+      {{finishTime|date: 'yyyy/MM/dd hh:mm:ss'}}
     </span>
   </div>
   <div class="progress-content">
-    <span class="progress-text" *ngFor="let item of missionProcess; let idx = index">
-      <span *ngIf="missionProcess[idx].department != null">
-        {{missionProcess[idx].department}}
-      </span>
-      <span *ngIf="missionProcess[idx].department == null"></span>
+    <span class="progress-text">
+      {{addHandOver}}
+    </span>
+    <span class="progress-text">
+      {{startHandOver}}
+    </span>
+    <span class="progress-text">
+      {{processHandOver}}
+    </span>
+    <span class="progress-text">
+      {{finishHandOver}}
     </span>
   </div>
 </div>

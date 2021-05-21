@@ -24,8 +24,9 @@
       class="start-department">{{item.startDepartment.building.name}}-{{item.startDepartment.floor}}-{{item.startDepartment.name}}</span>
     <span
       class="end-department">{{item.endDepartment.building.name}}-{{item.endDepartment.floor}}-{{item.endDepartment.name}}</span>
-    <span class="porter" *ngIf="item.status != 1">{{item.porter.name}}<br>({{item.porter.mobile}})</span>
-    <span class="porter-position" *ngIf="item.status != 1">(待完成)</span>
+    <span class="porter" *ngIf="item.status != 1">{{item.porter.name}}<br>{{item.porter.mobile}}</span>
+    <span class="porter-position" *ngIf="item.status != 1">{{item.porter.location}}<br>{{item.porter.locationTime|date:
+      'yyyy/MM/dd hh:mm:ss'}}</span>
     <span class="porter" *ngIf="item.status == 1 && (isAdminLogin$|async)">
       <app-button-manual-dispatch [missionId]="mouseEnterMissionId"></app-button-manual-dispatch>
       <app-button-auto-dispatch [missionId]="mouseEnterMissionId"></app-button-auto-dispatch>

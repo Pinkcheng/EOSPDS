@@ -7,4 +7,7 @@ export interface PorterData {
   "mobile": string;
   "status": number;
   "count": number;
+  "location": string,
+  "locationTime": string,
+  "mission": number
 }

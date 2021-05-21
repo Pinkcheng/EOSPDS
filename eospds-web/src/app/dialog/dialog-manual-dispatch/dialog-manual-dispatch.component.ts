@@ -27,7 +27,7 @@ export class DialogManualDispatchComponent implements OnInit {
     body.set('dispatch', '1');
     body.set('porter', this.porterId);
     if (missionList.length != 0 && this.porterId != "") {
-      for (let i = 0; i <= missionList.length; i++) {
+      for (let i = 0; i < missionList.length; i++) {
         this.api.manualDispatch(missionList[i], body).subscribe(
           res => {
             this.err.handleResponse(res);

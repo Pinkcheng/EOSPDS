@@ -5,8 +5,7 @@
         <app-homepage-porter-checkbox (returnListEvent)="getCheckboxList($event)"></app-homepage-porter-checkbox>
       </span>
       <span class="button-container">
-        <button mat-flat-button class="button update-list-button darker-color"
-          (click)="getPorterList()">更新列表</button>
+        <button mat-flat-button class="button update-list-button darker-color" (click)="getPorterList()">更新列表</button>
         <button mat-flat-button class="button add-porter-button" (click)="addPorterDialog()">新增傳送員</button>
       </span>
     </div>
@@ -29,9 +28,9 @@
         <span class="porter-type">{{item.type.name}}</span>
         <span class="porter-status porter-status-1" *ngIf="item.status ==1">{{item.status| porterStatus}}</span>
         <span class="porter-status porter-status-2" *ngIf="item.status ==2">{{item.status| porterStatus}}</span>
-        <span class="porter-mission">(待完成) 件</span>
-        <span class="porter-position">(待完成)</span>
-        <span class="porter-time">(待完成)</span>
+        <span class="porter-mission">{{item.mission}} 件</span>
+        <span class="porter-position">{{item.location}}</span>
+        <span class="porter-time">{{item.locationTime | date: 'yyyy/MM/dd hh:mm:ss'}}</span>
       </div>
     </div>
   </div>

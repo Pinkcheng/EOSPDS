@@ -10,8 +10,8 @@
     <div class="porter-content" *ngFor="let item of porterList">
       <mat-radio-button class="radio-button" [value]="item.id"></mat-radio-button>
       <span class="text porter-name">{{item.name}}</span>
-      <span class="text porter-mission">(待完成) 件</span>
-      <span class="text porter-position">(待完成)</span>
+      <span class="text porter-mission">{{item.mission}} 件</span>
+      <span class="text porter-position">{{item.location}}</span>
     </div>
   </mat-radio-group>
 </div>

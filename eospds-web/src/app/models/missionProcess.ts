@@ -1,8 +1,20 @@
+import { Department, Staff } from '.';
+
 export interface missionProcess {
-  "status": string,
-  "time": Date | null,
-  "department": {
-    "id": string,
-    "name": string
-  } | null
+  add: {
+    time: Date | null,
+    handover: any | null
+  },
+  start: {
+    time: Date | null,
+    handover: any | null
+  },
+  in_process: {
+    time: Date | null,
+    handover: any | null
+  },
+  finish: {
+    time: Date | null,
+    handover: any | null
+  },
 }
