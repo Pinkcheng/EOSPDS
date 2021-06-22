@@ -24,12 +24,13 @@ body{
   margin: 0;
   font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;
 }
-/*#6CBAD9 #517C8C #A3C9D9 #F2DFCE #BFB6B0*/
-$color-primary: #6CBAD9;
-$color-secondary: #517C8C;
-$color-tertiary: #A3C9D9;
-$color-success: #F2DFCE;
-$color-warning: #BFB6B0;
+/*1. #6CBAD9 #517C8C #A3C9D9 #F2DFCE #BFB6B0*/
+/*2. #D19E5F #91422D #E3DB8E #7BC1F2 #406BB8*/
+$color-primary: #D19E5F;
+$color-secondary: #91422D;
+$color-tertiary: #E3DB8E;
+$color-success: #7BC1F2;
+$color-warning: #406BB8;
 
 .secondary-background{
   background-color: $color-secondary
@@ -62,7 +63,9 @@ $color-warning: #BFB6B0;
 .warning-font{
   color: $color-warning
 }
-
+.white-font{
+  color:white
+}
 .mat-checkbox-layout{
   margin-bottom: 0;
 }
