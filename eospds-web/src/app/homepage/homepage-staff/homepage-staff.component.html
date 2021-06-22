@@ -2,12 +2,12 @@
   <div class="article-left">
     <div class="function-bar">
       <div class="button-container">
-        <button mat-flat-button class="button update-list-button darker-color" (click)="getStaffList()">更新列表</button>
-        <button mat-flat-button class="button print-qrcode-button light-color" (click)="printQRcode()">列印QRcode</button>
+        <button mat-flat-button class="button update-list-button secondary-background" (click)="getStaffList()">更新列表</button>
+        <button mat-flat-button class="button print-qrcode-button tertiary-background" (click)="printQRcode()">列印QRcode</button>
         <button mat-flat-button class="button add-staff-button" (click)="addStaffDialog()">新增人員</button>
       </div>
     </div>
-    <div class="staff-list-title lighter-color">
+    <div class="staff-list-title warning-background">
       <mat-checkbox class="staff-checkbox" [checked]="allStaffCheckStatus"
         (change)="setAllCheckboxStatus($event.checked)"></mat-checkbox>
       <span class="staff-name">姓名</span>
@@ -28,5 +28,5 @@
     </div>
   </div>
 
-  <div class="article-right light-color"></div>
+  <div class="article-right tertiary-background"></div>
 </div>

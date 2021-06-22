@@ -1,4 +1,4 @@
-<h1 mat-dialog-title class="mat-dialog-title dark-color">新增任務</h1>
+<h1 mat-dialog-title class="mat-dialog-title primary-background">新增任務</h1>
 <div mat-dialog-content class="mission-content">
   <h3>任務類型與標籤</h3>
   <app-select-mission-label (selectMissionLabelEvent)="getSelectMissionLabelId($event)"></app-select-mission-label>
@@ -20,6 +20,6 @@
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button class="button dark-color" (click)="addMission()">確定</button>
-  <button mat-button mat-dialog-close class="button light-color">取消</button>
+  <button mat-button class="button primary-background" (click)="addMission()">確定</button>
+  <button mat-button mat-dialog-close class="button tertiary-background">取消</button>
 </div>

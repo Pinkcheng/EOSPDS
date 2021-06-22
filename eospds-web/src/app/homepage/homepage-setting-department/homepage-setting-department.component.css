@@ -53,5 +53,8 @@
   cursor: pointer;
 }
 .department-list-content:hover{
-  background-color: gray;
+  cursor: pointer;
+  background-color :#F2DFCE;
+  color:#517C8C;
+  font-weight:bold;
 }

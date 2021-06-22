@@ -1,30 +1,30 @@
 <div class="progess">
   <div *ngIf="missionData == null">
-    <h3 class=mission-data-title> </h3>
-    <h3 class=mission-data-title> </h3>
+    <h3 class=mission-data-title></h3>
+    <h3 class=mission-data-title></h3>
   </div>
   <div *ngIf="missionData">
-    <h3 class=mission-data-title>{{missionData.label.name}}</h3>
-    <h3 class=mission-data-title>{{missionData.content}}</h3>
+    <h3 class="mission-data-title secondary-font">{{missionData.label.name}}</h3>
+    <h3 class="mission-data-title secondary-font">{{missionData.content}}</h3>
   </div>
   <div class="progress-img">
-    <span class="circle">
-      <div>新增</div>
+    <span class="circle secondary-background">
+      <div class="success-font">新增</div>
     </span>
-    <span class="rectangle"></span>
-    <span class="circle">
-      <div>派遣</div>
+    <span class="rectangle secondary-background"></span>
+    <span class="circle secondary-background">
+      <div class="success-font">派遣</div>
     </span>
-    <span class="rectangle"></span>
-    <span class="circle">
-      <div>開始</div>
+    <span class="rectangle secondary-background"></span>
+    <span class="circle secondary-background">
+      <div class="success-font">開始</div>
     </span>
-    <span class="rectangle"></span>
-    <span class="circle">
-      <div>完成</div>
+    <span class="rectangle secondary-background"></span>
+    <span class="circle secondary-background">
+      <div class="success-font">完成</div>
     </span>
   </div>
-  <div class="progress-content">
+  <div class="progress-content secondary-font">
     <span class="progress-text">
       {{addTime|date: 'yyyy/MM/dd hh:mm:ss'}}
     </span>
@@ -38,7 +38,7 @@
       {{finishTime|date: 'yyyy/MM/dd hh:mm:ss'}}
     </span>
   </div>
-  <div class="progress-content">
+  <div class="progress-content secondary-font">
     <span class="progress-text">
       {{addHandOver}}
     </span>

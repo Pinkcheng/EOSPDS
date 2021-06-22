@@ -5,23 +5,16 @@
   margin: 5px 30px;
 }
 .mission-data-title{
-  color:#007C84;
   font-size:xx-large;
   font-weight:bold;
   display: inline-block;
   margin: 20px;
 }
 .progress-text{
-  color:#FFFFFF;
   text-align:center;
   width:20%;
-}
-
-.staff-text{
-  display: inline-block;
-  color:#FFFFFF;
+  font-weight:bold;
   font-size:large;
-  text-align:center;
 }
 
 .circle{
@@ -29,14 +22,13 @@
     display: inline-block;
     width: 4vw;
     height: 4vw;
-    background-color: #007B6D;
     border-radius: 50%;
 }
 
 .circle>div {
     position: absolute;
-    color: white;
     font-size:large;
+    font-weight:bold;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -50,7 +42,6 @@
   position: relative;
   width: 15%;
   height: 1rem;
-  background-color: #007B6D;
   border-radius: 50px;
 }
 .progress-img{

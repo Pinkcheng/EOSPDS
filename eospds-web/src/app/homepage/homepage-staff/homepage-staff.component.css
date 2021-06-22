@@ -70,7 +70,10 @@
   cursor: pointer;
 }
 .staff-list-content:hover{
-  background-color: gray;
+    cursor: pointer;
+  background-color :#F2DFCE;
+  color:#517C8C;
+  font-weight:bold;
 }
 .add-staff-button{
   background-color:#4CBC49;

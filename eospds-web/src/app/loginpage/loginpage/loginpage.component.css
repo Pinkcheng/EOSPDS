@@ -11,8 +11,8 @@
 }
 
 .logo{
-  width: 30%;
-  height: 20%;
+  width: 300px;
+
 }
 .container{
   display: flex;
@@ -22,6 +22,7 @@
 .system-title{
   margin:20px;
   font-size:xx-large;
+  font-weight:bold;
 }
 .inputbox{
   margin:10px;
@@ -32,6 +33,7 @@
   border: 0px;
   outline: none;
   cursor: pointer;
+    font-weight:bold;
 }
 
 .hint{

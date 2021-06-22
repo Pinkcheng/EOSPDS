@@ -87,7 +87,10 @@
   color:#FFFFFF;
 }
 .porter-list-content:hover{
-  background-color: gray;
+    cursor: pointer;
+  background-color :#F2DFCE;
+  color:#517C8C;
+  font-weight:bold;
 }
 .add-porter-button{
   background-color:#4CBC49;

@@ -5,11 +5,11 @@
         <app-homepage-porter-checkbox (returnListEvent)="getCheckboxList($event)"></app-homepage-porter-checkbox>
       </span>
       <span class="button-container">
-        <button mat-flat-button class="button update-list-button darker-color" (click)="getPorterList()">更新列表</button>
+        <button mat-flat-button class="button update-list-button secondary-background" (click)="getPorterList()">更新列表</button>
         <button mat-flat-button class="button add-porter-button" (click)="addPorterDialog()">新增傳送員</button>
       </span>
     </div>
-    <div class="porter-list-title lighter-color">
+    <div class="porter-list-title warning-background">
       <mat-checkbox class="porter-checkbox" [checked]="allPorterCheckStatus"
         (change)="setAllCheckboxStatus($event.checked)"></mat-checkbox>
       <span class="porter_name">姓名</span>
@@ -34,5 +34,5 @@
       </div>
     </div>
   </div>
-  <div class="article-right light-color"></div>
+  <div class="article-right tertiary-background"></div>
 </div>

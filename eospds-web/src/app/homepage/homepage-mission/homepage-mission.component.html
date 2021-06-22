@@ -5,7 +5,7 @@
         <app-homepage-mission-checkbox (returnListEvent)="getCheckboxList($event)"></app-homepage-mission-checkbox>
       </span>
       <span class="function-button-container">
-        <button mat-flat-button class="function-button update-list-button darker-color"
+        <button mat-flat-button class="function-button update-list-button secondary-background"
           (click)="updateMissionList()">更新列表</button>
         <app-button-manual-dispatch *ngIf="isAdminLogin$|async" class="function-button"
           [checkMissionList]="checkMissionList"></app-button-manual-dispatch>
@@ -20,7 +20,7 @@
         (mouseLeaveEvent)="mouseIsLeave($event)" (checkMissionIDListEvent)="getCheckMissionList($event)">
       </app-homepage-mission-list>
     </div>
-    <div class="mission-data light-color">
+    <div class="mission-data tertiary-background">
       <app-homepage-mission-data *ngIf="!isMouseLeave" [mouseEnterMissionId]="mouseEnterMissionId"></app-homepage-mission-data>
     </div>
   </div>

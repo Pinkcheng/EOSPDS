@@ -1,25 +1,25 @@
-<h1 mat-dialog-title class="mat-dialog-title dark-color">修改傳送員</h1>
+<h1 mat-dialog-title class="mat-dialog-title primary-background">修改傳送員</h1>
 <div mat-dialog-content class="porter-content">
   <p>編號: {{porterId}}</p>
   <form>
     <mat-form-field class="example-full-width">
       <mat-label class="darker-font">帳號(電話)</mat-label>
-      <input class="dark-font dark-color" matInput [(ngModel)]="porterMobile" [ngModelOptions]="{standalone:true}"
+      <input class="dark-font primary-background" matInput [(ngModel)]="porterMobile" [ngModelOptions]="{standalone:true}"
         required>
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label class="darker-font">姓名</mat-label>
-      <input class="dark-font dark-color" matInput [(ngModel)]="porterName" [ngModelOptions]="{standalone:true}"
+      <input class="dark-font primary-background" matInput [(ngModel)]="porterName" [ngModelOptions]="{standalone:true}"
         required>
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label class="darker-font">Tag編號</mat-label>
-      <input class="dark-font dark-color" matInput [(ngModel)]="tagNumber" [ngModelOptions]="{standalone:true}"
+      <input class="dark-font primary-background" matInput [(ngModel)]="tagNumber" [ngModelOptions]="{standalone:true}"
         required>
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label class="darker-font">生日</mat-label>
-      <input type=date class="dark-font dark-color" matInput [(ngModel)]="birthday"
+      <input type=date class="dark-font primary-background" matInput [(ngModel)]="birthday"
         [ngModelOptions]="{standalone:true}">
     </mat-form-field>
   </form>
@@ -48,6 +48,6 @@
 </div>
 <div mat-dialog-actions class="botton">
   <!--<button mat-button class="button delete-porter-button" (click)="deletePorterDialog()">刪除</button>--->
-  <button mat-button class="button update-department-button dark-color" (click)="updatePorter()">修改</button>
-  <button mat-button mat-dialog-close class="button light-color">關閉</button>
+  <button mat-button class="button update-department-button primary-background" (click)="updatePorter()">修改</button>
+  <button mat-button mat-dialog-close class="button tertiary-background">關閉</button>
 </div>

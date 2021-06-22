@@ -21,7 +21,9 @@
 }
 .mission-list-content:hover{
   cursor: pointer;
-  background-color :gray;
+  background-color :#F2DFCE;
+  color:#517C8C;
+  font-weight:bold;
 }
 
 .start-time{

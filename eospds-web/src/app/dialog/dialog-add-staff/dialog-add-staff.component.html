@@ -1,16 +1,16 @@
-<h1 mat-dialog-title class="mat-dialog-title dark-color">新增人員</h1>
+<h1 mat-dialog-title class="mat-dialog-title primary-background">新增人員</h1>
 <div mat-dialog-content class="staff-content">
   <mat-form-field class="example-full-width">
     <mat-label class="darker-font">姓名</mat-label>
-    <input class="dark-font dark-color" matInput [(ngModel)]="name" [ngModelOptions]="{standalone:true}" required>
+    <input class="dark-font primary-background" matInput [(ngModel)]="name" [ngModelOptions]="{standalone:true}" required>
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <mat-label class="darker-font">職稱</mat-label>
-    <input class="dark-font dark-color" matInput [(ngModel)]="professional" [ngModelOptions]="{standalone:true}"
+    <input class="dark-font primary-background" matInput [(ngModel)]="professional" [ngModelOptions]="{standalone:true}"
       required>
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button class="button dark-color" (click)="addStaff()">確定</button>
-  <button mat-button mat-dialog-close class="button light-color">取消</button>
+  <button mat-button class="button primary-background" (click)="addStaff()">確定</button>
+  <button mat-button mat-dialog-close class="button tertiary-background">取消</button>
 </div>

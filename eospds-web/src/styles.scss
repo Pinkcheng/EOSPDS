@@ -2,6 +2,7 @@
 
 @include mat-core();
 
+/*#6CBAD9 #517C8C #A3C9D9 #F2DFCE #BFB6B0*/
 $custom-primary: mat-palette($mat-cyan, 500); /* 500是預設值，也可以忽略 */
 $custom-accent: mat-palette($mat-teal, 700);
 $custom-warn: mat-palette($mat-deep-orange);
@@ -23,53 +24,79 @@ body{
   margin: 0;
   font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;
 }
+/*#6CBAD9 #517C8C #A3C9D9 #F2DFCE #BFB6B0*/
+$color-primary: #6CBAD9;
+$color-secondary: #517C8C;
+$color-tertiary: #A3C9D9;
+$color-success: #F2DFCE;
+$color-warning: #BFB6B0;
 
-.darker-color{
-  background-color:#007B6D
+.secondary-background{
+  background-color: $color-secondary
 }
-.dark-color{
-  background-color:#26A89C
+.primary-background{
+  background-color: $color-primary
 }
-
-.light-color{
-  background-color:#81CCC5
+.tertiary-background{
+  background-color: $color-tertiary
 }
-
-.lighter-color{
-  background-color:#B2E0DC
+.success-background{
+  background-color: $color-success
 }
-
-.light-font{
-  color:#81CCC5
+.warning-background{
+  background-color: $color-warning
 }
 
-.lighter-font{
-  color:#B2E0DC
+.secondary-font{
+  color: $color-secondary
 }
+.primary-font{
+  color: $color-primary
+}
+.tertiary-font{
+  color: $color-tertiary
+}
+.success-font{
+  color: $color-success
+}
+.warning-font{
+  color: $color-warning
+}
+
 .mat-checkbox-layout{
   margin-bottom: 0;
 }
 .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
-    color: #007B6D;
+    color: $color-secondary;
 }
 .mat-select-arrow-wrapper{
-  color: #007B6D;
+  color: $color-secondary;
 }
 .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
-    color: #007B6D;
+    color: $color-secondary;
 }
 
 .mat-focused .mat-form-field-label {
   /*change color of label*/
-  color: #007B6D !important;
+  color: $color-secondary !important;
  }
 
  .mat-form-field-underline {
   /*change color of underline*/
-  background-color: #007B6D !important;
+  background-color: $color-secondary !important;
 }
 
 .mat-form-field-ripple {
  /*change color of underline when focused*/
- background-color: #007B6D !important;;
+ background-color: $color-secondary !important;
+}
+
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: $color-secondary !important;
+}
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: $color-secondary !important;
+}
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+    background-color: $color-secondary !important;
 }

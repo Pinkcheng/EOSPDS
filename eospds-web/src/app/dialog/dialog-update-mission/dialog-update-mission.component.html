@@ -1,4 +1,4 @@
-<h1 mat-dialog-title class="mat-dialog-title dark-color">修改任務</h1>
+<h1 mat-dialog-title class="mat-dialog-title primary-background">修改任務</h1>
 <div mat-dialog-content class="mission-content">
   <h3>編號:{{missionId}}</h3>
   <h3>任務類型與標籤</h3>
@@ -25,11 +25,11 @@
     <textarea matInput placeholder="" [(ngModel)]="content"></textarea>
   </mat-form-field>
   <h3 *ngIf="porter !=null">傳送員 {{porter.name}} <button mat-flat-button
-      class="function-button manual-dispatch-button dark-color" (click)="manualDispatchDiaolog()">指定人員</button></h3>
+      class="function-button manual-dispatch-button primary-background" (click)="manualDispatchDiaolog()">指定人員</button></h3>
 
 </div>
 <div mat-dialog-actions>
   <button mat-button class="button delete-mission-button" (click)="deleteMissionDialog()">刪除</button>
-  <button mat-button class="button update-department-button dark-color" (click)="updateMission()">修改</button>
-  <button mat-button mat-dialog-close class="button light-color">關閉</button>
+  <button mat-button class="button update-department-button primary-background" (click)="updateMission()">修改</button>
+  <button mat-button mat-dialog-close class="button tertiary-background">關閉</button>
 </div>

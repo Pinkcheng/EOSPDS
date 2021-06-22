@@ -1,35 +1,35 @@
-<h1 mat-dialog-title class="mat-dialog-title dark-color">新增傳送員</h1>
+<h1 mat-dialog-title class="mat-dialog-title primary-background">新增傳送員</h1>
 <div mat-dialog-content class="mission-content">
   <form class="example-form">
 
     <mat-form-field class="example-full-width">
       <mat-label class="darker-font">帳號(電話)</mat-label>
-      <input class="dark-font dark-color" matInput [(ngModel)]="porterInformation.mobile"
+      <input class="dark-font primary-background" matInput [(ngModel)]="porterInformation.mobile"
         [ngModelOptions]="{standalone:true}" required>
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label class="darker-font">姓名</mat-label>
-      <input class="dark-font dark-color" matInput [(ngModel)]="porterInformation.name"
+      <input class="dark-font primary-background" matInput [(ngModel)]="porterInformation.name"
         [ngModelOptions]="{standalone:true}" required>
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label class="darker-font">密碼</mat-label>
-      <input type=password class="dark-font dark-color" matInput [(ngModel)]="porterInformation.password"
+      <input type=password class="dark-font primary-background" matInput [(ngModel)]="porterInformation.password"
         [ngModelOptions]="{standalone:true}" required>
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label class="darker-font">確認密碼</mat-label>
-      <input type=password class="dark-font dark-color" [(ngModel)]="secondPassword"
+      <input type=password class="dark-font primary-background" [(ngModel)]="secondPassword"
         [ngModelOptions]="{standalone:true}" matInput required>
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label class="darker-font">Tag編號</mat-label>
-      <input class="dark-font dark-color" matInput [(ngModel)]="porterInformation.tag"
+      <input class="dark-font primary-background" matInput [(ngModel)]="porterInformation.tag"
         [ngModelOptions]="{standalone:true}">
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label class="darker-font">生日</mat-label>
-      <input type=date class="dark-font dark-color" matInput [(ngModel)]="porterInformation.birthday"
+      <input type=date class="dark-font primary-background" matInput [(ngModel)]="porterInformation.birthday"
         [ngModelOptions]="{standalone:true}">
     </mat-form-field>
   </form>
@@ -61,6 +61,6 @@
 </div>
 
 <div mat-dialog-actions>
-  <button mat-button class="button dark-color" (click)="addPorter()">確定</button>
-  <button mat-button mat-dialog-close class="button light-color">取消</button>
+  <button mat-button class="button primary-background" (click)="addPorter()">確定</button>
+  <button mat-button mat-dialog-close class="button tertiary-background">取消</button>
 </div>
