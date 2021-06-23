@@ -21,8 +21,8 @@
 }
 .mission-list-content:hover{
   cursor: pointer;
-  background-color :#F2DFCE;
-  color:#517C8C;
+  background-color :#7BC1F2;
+  color:#91422D;
   font-weight:bold;
 }
 
@@ -57,18 +57,18 @@
   width:15%
 }
 .mission-status-1{
-  background-color:red;
+  background-color:#55271a;
   color:white;
 }
 .mission-status-2{
-  background-color:blue;
+  background-color:#91422D;
   color:white;
 }
 .mission-status-3{
-  background-color:green;
-  color:white;
+  background-color:#D19E5F;
+  color:#55271a;
 }
 .mission-status-4{
-  background-color:gray;
-  color:white;
+  background-color:#E3DB8E;
+  color:#55271a;
 }

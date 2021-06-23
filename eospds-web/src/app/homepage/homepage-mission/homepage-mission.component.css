@@ -19,6 +19,7 @@
 
 .mission-data{
   height: 25%;
+  background:linear-gradient( #406BB8, #7BC1F2);
 }
 
 .mission-status-checkbox{

@@ -2,6 +2,7 @@
   display:flex;
   justify-content:space-between;
   align-items:center;
+  background:linear-gradient(#91422D, #D19E5F);
 }
 
 .header-left{
@@ -30,11 +31,9 @@
   padding: 20px;
   font-size:20px;
   cursor: pointer;
-  background-color:#517C8C;
 
 }
 .header-button:hover{
-  background-color:#A3C9D9;
-  color:#517C8C;
+  color:#91422D;
   font-weight:bold;
 }

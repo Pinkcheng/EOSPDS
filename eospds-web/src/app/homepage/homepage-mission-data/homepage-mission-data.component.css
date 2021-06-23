@@ -43,6 +43,32 @@
   width: 15%;
   height: 1rem;
   border-radius: 50px;
+
+}
+.rectangle-1{
+  background:linear-gradient(90deg,#55271a, #91422D);
+}
+.rectangle-2{
+  background:linear-gradient(90deg,#91422D, #D19E5F);
+}
+.rectangle-3{
+  background:linear-gradient(90deg,#D19E5F, #E3DB8E);
+}
+.circle-1{
+  background-color:#55271a;
+  color:white;
+}
+.circle-2{
+  background-color:#91422D;
+  color:white;
+}
+.circle-3{
+  background-color:#D19E5F;
+  color:#55271a;
+}
+.circle-4{
+  background-color:#E3DB8E;
+  color:#55271a;
 }
 .progress-img{
   display: flex;

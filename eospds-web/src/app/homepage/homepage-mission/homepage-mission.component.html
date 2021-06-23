@@ -20,7 +20,7 @@
         (mouseLeaveEvent)="mouseIsLeave($event)" (checkMissionIDListEvent)="getCheckMissionList($event)">
       </app-homepage-mission-list>
     </div>
-    <div class="mission-data tertiary-background">
+    <div class="mission-data">
       <app-homepage-mission-data *ngIf="!isMouseLeave" [mouseEnterMissionId]="mouseEnterMissionId"></app-homepage-mission-data>
     </div>
   </div>
