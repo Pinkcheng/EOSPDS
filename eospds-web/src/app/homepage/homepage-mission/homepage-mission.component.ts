@@ -1,5 +1,5 @@
 import { HttpParams } from '@angular/common/http';
-import { MissionData } from '../../models/missionData';
+import { MissionData } from './../../models/missionData';
 import { MissionList } from './../../models/missionList';
 import { ApiService } from 'src/app/service/api.service';
 import { Observable } from 'rxjs';
