@@ -8,7 +8,7 @@
   font-size:xx-large;
   font-weight:bold;
   display: inline-block;
-  margin: 20px;
+  margin: 10px;
 }
 .progress-text{
   text-align:center;
@@ -20,8 +20,8 @@
 .circle{
     position: relative;
     display: inline-block;
-    width: 4vw;
-    height: 4vw;
+    width: 5vw;
+    height: 5vw;
     border-radius: 50%;
 }
 
