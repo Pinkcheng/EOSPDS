@@ -8,6 +8,7 @@
   flex-direction :column;
   align-items: center;
   justify-content: center;
+  box-shadow:3px 3px 5px 6px #91422D
 }
 
 .logo{
@@ -17,7 +18,8 @@
 .container{
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  background:linear-gradient(#91422D, #D19E5F);
 }
 .system-title{
   margin:20px;

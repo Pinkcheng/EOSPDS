@@ -17,8 +17,8 @@ export class LoginpageComponent implements OnInit {
   height: number = 0;
   width: number = 0;
 
-  account: string = "d1000002"; //d1000002 //admin
-  password: string = "00000"; //00000 //admin
+  account: string = "porter_center"; //d1000002 //admin
+  password: string = ""; //00000 //admin
 
   loginData: User = { account: "", password: "" };
 
@@ -42,6 +42,7 @@ export class LoginpageComponent implements OnInit {
   getScreenSize() {
     this.height = window.innerHeight;
     this.width = window.innerWidth;
+    console.log(window.innerHeight, window.innerWidth)
   }
 
   login() {
