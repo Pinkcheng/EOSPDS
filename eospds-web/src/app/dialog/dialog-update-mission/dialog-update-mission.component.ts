@@ -1,5 +1,5 @@
 import { UserService } from './../../service/user.service';
-import { missionData } from './../../models/missionData';
+import { missionData } from '../../models/missionData';
 import { ApiService } from 'src/app/service/api.service';
 import { AuthService } from 'src/app/service/auth.service';
 import { MissionInstrument } from './../../models/missionInstrument';
