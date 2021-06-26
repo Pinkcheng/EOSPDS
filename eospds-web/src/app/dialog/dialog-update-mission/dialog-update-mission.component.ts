@@ -1,5 +1,5 @@
 import { UserService } from './../../service/user.service';
-import { MissionData } from './../../models/missionData';
+import { missionData } from './../../models/missionData';
 import { ApiService } from 'src/app/service/api.service';
 import { AuthService } from 'src/app/service/auth.service';
 import { MissionInstrument } from './../../models/missionInstrument';
@@ -28,7 +28,7 @@ export class DialogUpdateMissionComponent implements OnInit {
   content: string = "";
   porter: any;
 
-  missionData!: MissionData;
+  missionData!: missionData;
 
   missionInstrumentList: MissionInstrument[] = [];
   constructor(

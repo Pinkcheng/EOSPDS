@@ -2,7 +2,7 @@ import { Department } from './../../models/department';
 import { logging } from 'protractor';
 import { ApiService } from 'src/app/service/api.service';
 import { missionProcess } from './../../models/missionProcess';
-import { MissionData } from './../../models/missionData';
+import { missionData } from './../../models/missionData';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Staff } from 'src/app/models';
 
@@ -16,7 +16,7 @@ export class HomepageMissionDataComponent implements OnInit, OnChanges {
 
   @Input()
   mouseEnterMissionId: string = '';
-  missionData!: MissionData;
+  missionData!: missionData;
   missionProcess!: missionProcess;
   addTime: Date | string = "";
   addHandOver: string = "";

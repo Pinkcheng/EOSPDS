@@ -1,5 +1,5 @@
 import { HttpParams } from '@angular/common/http';
-import { MissionData } from './../../models/missionData';
+import { missionData } from './../../models/missionData';
 import { MissionList } from './../../models/missionList';
 import { ApiService } from 'src/app/service/api.service';
 import { Observable } from 'rxjs';
@@ -30,7 +30,7 @@ export class HomepageMissionComponent implements OnInit {
   isAdminLogin: boolean = false;
   userId: string | null = '';
   mouseEnterMissionId: string = '';
-  missionData!: MissionData;
+  missionData!: missionData;
 
   constructor(public dialog: MatDialog,
     public user: UserService,

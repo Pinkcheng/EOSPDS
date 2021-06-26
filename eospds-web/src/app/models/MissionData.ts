@@ -2,7 +2,7 @@ import { MissionLabel } from './missionLabel';
 import { Department } from './department';
 import { missionProcess } from './missionProcess';
 import { MissionInstrument } from './missionInstrument';
-export interface MissionData {
+export interface missionData {
   "id": string,
   "content": string,
   "status": number,
