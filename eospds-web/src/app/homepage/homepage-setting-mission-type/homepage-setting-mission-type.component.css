@@ -1,10 +1,10 @@
 .button{
-  margin: auto 5px;
+  margin: 0.1vw 0.5vw;
   border-radius: 50px;
-  border: 0px;
   outline:none;
   cursor: pointer;
-  color:#FFFFFF;
+  font-size: 1vw;
+  width: 8vw;
 }
 .function-bar{
   height:5%;
