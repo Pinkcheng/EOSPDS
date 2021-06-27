@@ -1,5 +1,6 @@
 .staff-article{
   display:flex;
+  height: 90vh;
 }
 .article-left{
   width:75%;
@@ -23,11 +24,12 @@
   margin:auto 5px
 }
 .button{
-  margin: auto 5px;
+  margin: 0.1vw 0.5vw;
   border-radius: 50px;
-  border: 0px;
   outline:none;
   cursor: pointer;
+  font-size: 1vw;
+  width: 8vw;
 }
 .update-list-button{
   color:#FFFFFF;

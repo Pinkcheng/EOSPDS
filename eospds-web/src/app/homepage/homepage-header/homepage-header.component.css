@@ -1,4 +1,5 @@
 .header-container{
+  height:10vh;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -6,30 +7,29 @@
 }
 
 .header-left{
-  margin: auto 20px;
+  margin: auto 2vw;
   display:flex;
   justify-content:space-around;
   align-items:center;
 }
 
 .logo{
-  width: 70px;
+  width: 4vw;
 }
 
 .system-title{
-  margin: auto 20px;
-  font-size: 30px;
+  margin: auto 2vw;
+  font-size: 2vw;
   text-align: center;
  font-weight:bold;
 }
 
 .header-right{
-  margin: auto 20px;
-  max-width: 500px;
+  margin: auto 2vw;
 }
 .header-button{
-  padding: 20px;
-  font-size:20px;
+  padding: 2vw;
+  font-size:1.5vw;
   cursor: pointer;
 
 }

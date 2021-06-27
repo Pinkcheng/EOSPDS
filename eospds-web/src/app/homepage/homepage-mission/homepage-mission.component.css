@@ -1,5 +1,6 @@
 .mission-article{
   display:flex;
+  height: 90vh;
 }
 .article-left{
   width:100%;
@@ -10,11 +11,11 @@
   justify-content:space-between;
   align-items:center;
   height: 5%;
-  margin:auto 10px;
+  margin:auto 1vw;
 }
 
 .mission-list{
-  height:70%;
+  height: 70%;
 }
 
 .mission-data{
@@ -23,22 +24,21 @@
 }
 
 .mission-status-checkbox{
-  margin-left: 20px;
-  font-size: 18px;
+
 }
 
 .function-button{
-  margin: auto 5px;
+  margin: 0.1vw 0.5vw;
   border-radius: 50px;
-  border: 0px;
   outline:none;
   cursor: pointer;
-}
+  font-size: 1vw;
+  width: 8vw;
 
+}
 
 .update-list-button{
   color:#FFFFFF;
-
 }
 .manual-dispatch-button{
   background-color:#85C5C9;
@@ -54,7 +54,5 @@
   height:5%;
   display:flex;
   align-items:center;
-  border: 1px solid #707070;
-  padding-left: 25px;
-  padding-right: 20px;
+  border: 1vh solid #707070;
 }

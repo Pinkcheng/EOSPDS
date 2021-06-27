@@ -1,9 +1,9 @@
 .mission-list-content{
   display:flex;
   align-items:center;
-  padding: 15px;
-  border: 1px solid #707070;
-  font-size: 18px;
+  padding: 0.5vw;
+  border: 0.1vw solid #707070;
+  font-size: 1vw;
 }
 
 .mission-list-title{
@@ -11,8 +11,8 @@
   display:flex;
   align-items:center;
   border: 1px solid #707070;
-  padding-left: 15px;
-  padding-right: 30px;
+  padding-left: 1vw;
+  padding-right: 2vw;
 }
 
 .mission-list{
@@ -33,7 +33,7 @@
 .mission-status{
   text-align:center;
   width:10%;
-  padding:5px;
+  padding:0.5vh 1vw;
 }
 
 .mission-type{

@@ -1,15 +1,15 @@
-<app-homepage-header [headerHeight]="headerHeight" (missionSwitch)="switchHomepage($event)"
+<app-homepage-header class="header"  (missionSwitch)="switchHomepage($event)"
   (staffSwitch)="switchHomepage($event)" (settingSwitch)="switchHomepage($event)"></app-homepage-header>
 <ng-container [ngSwitch]="homepageSwitch">
   <ng-container *ngSwitchCase="0">
-    <app-homepage-mission [articleHeight]="articleHeight"></app-homepage-mission>
+    <app-homepage-mission class="article" ></app-homepage-mission>
   </ng-container>
   <ng-container *ngSwitchCase="1">
-    <app-homepage-staff *ngIf="!(isAdminLogin$|async)" [articleHeight]="articleHeight"></app-homepage-staff>
-    <app-homepage-porter *ngIf="isAdminLogin$|async" [articleHeight]="articleHeight"></app-homepage-porter>
+    <app-homepage-staff class="article" *ngIf="!(isAdminLogin$|async)" ></app-homepage-staff>
+    <app-homepage-porter class="article" *ngIf="isAdminLogin$|async" ></app-homepage-porter>
   </ng-container>
   <ng-container *ngSwitchCase="2">
-    <app-homepage-setting [articleHeight]="articleHeight"></app-homepage-setting>
+    <app-homepage-setting class="article" ></app-homepage-setting>
   </ng-container>
   <!-- <ng-container *ngSwitchDefault>
     <app-homepage-mission [articleHeight]="articleHeight"></app-homepage-mission>

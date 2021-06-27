@@ -1,5 +1,6 @@
 .setting-article{
   display:flex;
+  height: 90vh;
 }
 .article-left{
   width:75%;

@@ -1,6 +1,6 @@
 .box{
-  width: 30%;
-  height: 30%;
+  width: 30vw;
+  height: 50vh;
   border-radius: 10px;
   color:white;
   text-align: center;
@@ -12,7 +12,7 @@
 }
 
 .logo{
-  width: 300px;
+  width: 40vh;
 
 }
 .container{
@@ -22,20 +22,26 @@
   background:linear-gradient(#91422D, #D19E5F);
 }
 .system-title{
-  margin:20px;
-  font-size:xx-large;
+  margin:5vh;
+  font-size:3vw;
   font-weight:bold;
 }
 .inputbox{
-  margin:10px;
+  margin:1vh;
+  width: 20vw;
+  height:8vh;
+  font-size:2vw;
 }
 .button{
-  margin: 10px;
+  margin: 1vh;
   border-radius: 50px;
   border: 0px;
   outline: none;
   cursor: pointer;
-    font-weight:bold;
+  font-weight:bold;
+  width: 10vw;
+  height:5vh;
+  font-size:1.5vw;
 }
 
 .hint{
