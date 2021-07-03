@@ -1,11 +1,11 @@
 <h1 mat-dialog-title class="mat-dialog-title primary-background">新增任務</h1>
 <div mat-dialog-content class="mission-content">
   <h3>任務類型與標籤</h3>
-  <app-select-mission-label (selectMissionLabelEvent)="getSelectMissionLabelId($event)"></app-select-mission-label>
+  <app-select-mission-label (selectMissionLabelEvent)="getSelectMissionLabelId($event)" ></app-select-mission-label>
   <h3>起始單位</h3>
-  <app-select-department (selectDepartmentEvent)="getSelectStartDepartmentId($event)"></app-select-department>
+  <app-select-department [selectBuildingId]="selectStartBuildingId" [selectDepartmentId]="selectStartDepartmentId" (selectDepartmentEvent)="getSelectStartDepartmentId($event)"></app-select-department>
   <h3>送往單位</h3>
-  <app-select-department (selectDepartmentEvent)="getSelectEndDepartmentId($event)"></app-select-department>
+  <app-select-department [selectBuildingId]="selectEndBuildingId" [selectDepartmentId]="selectEndDepartmentId" (selectDepartmentEvent)="getSelectEndDepartmentId($event)"></app-select-department>
   <h3>運送工具</h3>
   <mat-radio-group aria-labelledby="example-radio-group-label" class="text example-radio-group"
     [(ngModel)]="selectMissionInstrumentId">

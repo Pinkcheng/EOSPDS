@@ -94,6 +94,7 @@ export class DialogUpdateMissionComponent implements OnInit {
     if (isChange) {
       if (this.checkUserDepartment()) {
         this.api.updateMission(this.data.missionId, body).subscribe(res => this.err.handleResponse(res))
+        this.dialog.closeAll();
       } else {
         this.err.errorTextResponse("起始或送往單位需有一項為您的單位")
       }

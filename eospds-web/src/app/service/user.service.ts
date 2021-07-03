@@ -76,4 +76,10 @@ export class UserService {
   getUserName() {
     return this.auth.getUserName()
   }
+  getBuildingId() {
+    return this.auth.getBuildingId()
+  }
+  getBuildingName() {
+    return this.auth.getBuildingName()
+  }
 }

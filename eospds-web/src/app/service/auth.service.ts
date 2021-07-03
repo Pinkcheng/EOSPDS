@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 export const TOKEN = 'access_token';
 export const USERNAME = 'user_name';
 export const USERID = 'user_id';
+export const BUILDINGID = 'building_id';
+export const BUILDINGNAME = 'building_name';
 
 @Injectable({
   providedIn: 'root'
@@ -36,20 +38,30 @@ export class AuthService {
       localStorage.removeItem(token);
     }
   }
-  writeUserInfo(value: string, userName: string = USERNAME, userId: string = USERID) {
+  writeUserInfo(value: string, userName: string = USERNAME, userId: string = USERID, buildingId: string = BUILDINGID, buildingName: string = BUILDINGNAME) {
     localStorage.setItem(userName, this.jwtHelper.decodeToken(value).name);
     localStorage.setItem(userId, this.jwtHelper.decodeToken(value).id);
+    localStorage.setItem(buildingId, this.jwtHelper.decodeToken(value).bid);
+    localStorage.setItem(buildingName, this.jwtHelper.decodeToken(value).bname);
   }
   getUserId(userId: string = USERID) {
     return localStorage.getItem(userId);
   }
-  getUserName(userName: string = USERNAME){
+  getUserName(userName: string = USERNAME) {
     return localStorage.getItem(userName);
   }
-  removeUserInfo(userId: string = USERID, userName: string = USERNAME) {
+  getBuildingId(buildingId: string = BUILDINGID) {
+    return localStorage.getItem(buildingId);
+  }
+  getBuildingName(buildingName: string = BUILDINGNAME) {
+    return localStorage.getItem(buildingName);
+  }
+  removeUserInfo(userId: string = USERID, userName: string = USERNAME, buildingId: string = BUILDINGID, buildingName: string = BUILDINGNAME) {
     if (this.getToken(userId) && this.getToken(userName)) {
       localStorage.removeItem(userId);
       localStorage.removeItem(userName);
+      localStorage.removeItem(buildingId);
+      localStorage.removeItem(buildingName);
     }
   }
 }

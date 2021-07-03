@@ -4,6 +4,7 @@ import { ErrorService } from './../../service/error.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/service/api.service';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-dialog-add-mission',
@@ -16,19 +17,27 @@ export class DialogAddMissionComponent implements OnInit {
     public dialog: MatDialog,
     public err: ErrorService,
     public user: UserService,
-    public api: ApiService
+    public api: ApiService,
+    public auth: AuthService
   ) { }
   userId!: string | null;
   missionInstrumentList: MissionInstrument[] = [];
   selectMissionLabelId: string = "";
   selectStartDepartmentId: string = "";
   selectEndDepartmentId: string = "";
+  selectStartBuildingId: string = "";
+  selectEndBuildingId: string = "";
   selectMissionInstrumentId: string = "";
   missionContent: string = "";
   ngOnInit(): void {
     //http get mission instrument
     this.userId = this.user.getUserId();
     this.api.getMissionInstrumentList().subscribe(res => this.missionInstrumentList = res.data)
+
+    this.selectStartDepartmentId = String(this.user.getUserId());
+    this.selectEndDepartmentId = String(this.user.getUserId());
+    this.selectStartBuildingId = String(this.user.getBuildingId());
+    this.selectEndBuildingId= String(this.user.getBuildingId());
   }
 
   addMission() {
